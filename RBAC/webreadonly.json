@@ -1,0 +1,37 @@
+{
+    "Name": "Web Reader",
+    "Id": null,
+    "IsCustom": true,
+    "Description": "Description Web Reader",
+    "Actions": [
+        "Microsoft.Web/*/Read",
+        "Microsoft.Web/sites/*/Read",
+        "Microsoft.Web/sites/slots/*/Read",                
+        "microsoft.web/sites/deployments/*/read",
+        "microsoft.web/sites/diagnostics/*/read",
+        "microsoft.web/sites/slots/diagnostics/*/read",                
+        "microsoft.web/sites/instances/*/read",
+        "microsoft.web/sites/virtualnetworkconnections/gateways/read",
+        "microsoft.web/sites/hybridconnectionnamespaces/relays/read",
+        "microsoft.web/sites/triggeredwebjobs/history/read",                        
+        "microsoft.web/sites/functions/masterkey/read",
+        "microsoft.web/sites/functions/*/read",  
+        "microsoft.web/sites/slots/diagnostics/runtimeavailability/read",
+        "microsoft.web/sites/slots/diagnostics/servicehealth/read",
+        "microsoft.web/sites/instance,s/processes/threads/read",       
+        "Microsoft.Web/sites/hostruntime/host/_master/read",
+        "microsoft.web/sites/config/*/read",        
+        "microsoft.web/sites/hostruntime/functions/keys/read",
+        "microsoft.web/sites/hostruntime/*/read",
+        "microsoft.web/sites/instances/processes/modules/read",        
+        "microsoft.web/sites/networktraces/operationresults/read",
+        "microsoft.web/sites/slots/networktraces/operationresults/read",
+        "microsoft.web/sites/processes/modules/read",
+        "microsoft.web/sites/processes/threads/read"
+    ],
+    "NotActions": [],
+    "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000",
+        "/subscriptions/11111111-1111-1111-1111-111111111111"
+    ]
+  }
