@@ -62,7 +62,7 @@ public class otprivatedns
             list.add(arecord);
             recordSetInner.withARecords(list);
             recordSetInner.withTtl(1L);
-            String alias = "db";
+            String alias = "db"; //alias for IP 
             privateZoneClient.recordSets().createOrUpdate(
                 rgName, 
                 privateDNSName, 
