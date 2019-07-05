@@ -28,32 +28,32 @@ public class otprivatedns
         String privateDNSName = "private.contoso.com"; // private DNS name 
         String privateDNSLinkName = "linkToVnet";
         String vnetName = "vnetTest"; // virtual network name - should be exsit  
-        String location = "global"; // location always 'globa' for privateDNS 
+        String location = "global"; // location always 'global' for privateDNS 
         System.out.println( "Welcome to Azure Private DNS sample" );
         try {
             final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));        
-            Azure azure = Azure.configure().withLogLevel(LogLevel.NONE).authenticate(credFile).withDefaultSubscription();
+            Azure azure = Azure.configure()
+                .withLogLevel(LogLevel.NONE)
+                .authenticate(credFile)
+                .withDefaultSubscription();
             ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
-            Network vnet = azure.networks().getByResourceGroup(rgName, vnetName);
-            PrivateDnsManagementClientImpl privateZoneClient = 
-                    new PrivateDnsManagementClientImpl(cred).withSubscriptionId(azure.getCurrentSubscription().toString());
-            PrivateZoneInner privateZoneInner = new PrivateZoneInner();
-            privateZoneInner.withLocation(location);
-            privateZoneClient.privateZones().createOrUpdate(
-                rgName, 
-                privateDNSName, 
-                privateZoneInner);
-            VirtualNetworkLinkInner virtualNetworkLinkInner = new VirtualNetworkLinkInner();
-            SubResource subResource = new SubResource();
-            subResource.withId(vnet.id());
-            virtualNetworkLinkInner.withVirtualNetwork(subResource);
-            virtualNetworkLinkInner.withLocation(location);
-            virtualNetworkLinkInner.withRegistrationEnabled(true); // enable autoenrollment  
-            privateZoneClient.virtualNetworkLinks().createOrUpdate(
-                rgName, 
-                privateDNSName, 
-                privateDNSLinkName, 
-                virtualNetworkLinkInner);
+            Network vnet = azure.networks().getByResourceGroup(rgName, vnetName); // get virtual network 
+            privatednsManager prDnsManager = privatednsManager.authenticate(cred, cred.defaultSubscriptionId());
+            prDnsManager.privateZones().define(privateDNSName)
+                .withRegion(location)
+                .withExistingResourceGroup(rgName)
+                .withIfMatch(null)
+                .withIfNoneMatch(null)
+                .create();
+            if (vnet != null) {
+                prDnsManager.virtualNetworkLinks().define(privateDNSLinkName)
+                    .withExistingPrivateDnsZone(rgName, privateDNSName)
+                    .withIfMatch(null)
+                    .withIfNoneMatch(null)
+                    .withLocation(location)
+                    .withRegistrationEnabled(true)
+                    .withVirtualNetwork(new SubResource().withId(vnet.id()));
+            }
             //add a record manual in DNS
             RecordSetInner recordSetInner = new RecordSetInner();
             ARecord arecord = new ARecord();
@@ -63,7 +63,7 @@ public class otprivatedns
             recordSetInner.withARecords(list);
             recordSetInner.withTtl(1L);
             String alias = "db"; //alias for IP 
-            privateZoneClient.recordSets().createOrUpdate(
+            prDnsManager.recordSets().inner().createOrUpdate(
                 rgName, 
                 privateDNSName, 
                 RecordType.A, 
