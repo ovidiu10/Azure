@@ -52,7 +52,8 @@ public class otprivatedns
                     .withIfNoneMatch(null)
                     .withLocation(location)
                     .withRegistrationEnabled(true)
-                    .withVirtualNetwork(new SubResource().withId(vnet.id()));
+                    .withVirtualNetwork(new SubResource().withId(vnet.id()))
+                    .create();
             }
             //add a record manual in DNS
             RecordSetInner recordSetInner = new RecordSetInner();
