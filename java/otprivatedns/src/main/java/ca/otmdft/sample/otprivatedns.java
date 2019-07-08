@@ -26,10 +26,10 @@ public class otprivatedns
 {
     public static void main( String[] args )
     {
-        String rgName = "rg-privatedns"; // Resource GroupName - should be exsit 
+        String rgName = "rg-privatedns"; // Resource GroupName - should be exist 
         String privateDNSName = "private.contoso.com"; // private DNS name 
         String privateDNSLinkName = "linkToVnet";
-        String vnetName = "vnetTest"; // virtual network name - should be exsit  
+        String vnetName = "vnetTest"; // virtual network name - should be exist  
         String location = "global"; // location always 'global' for privateDNS 
         System.out.println( "Welcome to Azure Private DNS sample" );
         try {
