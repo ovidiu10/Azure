@@ -6,9 +6,11 @@ import com.microsoft.rest.LogLevel;
 import com.microsoft.azure.management.network.Network;
 import com.microsoft.azure.management.privatedns.v2018_09_01.implementation.PrivateDnsManagementClientImpl;
 import com.microsoft.azure.management.privatedns.v2018_09_01.implementation.VirtualNetworkLinkInner;
+import com.microsoft.azure.management.resources.ResourceGroup;
 import com.microsoft.azure.management.privatedns.v2018_09_01.implementation.*;
 import com.microsoft.azure.management.privatedns.v2018_09_01.*;
 import com.microsoft.azure.SubResource;
+import com.microsoft.azure.arm.resources.Region;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,7 @@ public class otprivatedns
 {
     public static void main( String[] args )
     {
-        String rgName = "rg-privatedns"; // Resource GroupName
+        String rgName = "rg-privatedns"; // Resource GroupName - should be exsit 
         String privateDNSName = "private.contoso.com"; // private DNS name 
         String privateDNSLinkName = "linkToVnet";
         String vnetName = "vnetTest"; // virtual network name - should be exsit  
