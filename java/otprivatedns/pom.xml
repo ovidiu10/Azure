@@ -17,12 +17,17 @@
         <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure</artifactId>
-      <version>1.26.0</version>
+      <version>1.29.0</version>
     </dependency>
     <dependency>
       <groupId>com.microsoft.azure.privatedns.v2018_09_01</groupId>
       <artifactId>azure-mgmt-privatedns</artifactId>
       <version>1.0.0-beta</version>
     </dependency>
-  </dependencies>
+    <dependency>
+        <groupId>com.microsoft.azure.network.v2019_09_01</groupId>
+        <artifactId>azure-mgmt-network</artifactId>
+        <version>1.0.0-beta-1</version>
+      </dependency>
+    </dependencies>
 </project>
