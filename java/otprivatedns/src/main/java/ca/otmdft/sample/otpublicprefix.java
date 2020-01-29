@@ -12,7 +12,7 @@ import com.microsoft.azure.management.network.v2019_09_01.implementation.Network
 
 
 import java.io.File;
-
+//A
 public class otpublicprefix {
     public static void main(String[] args) {
         System.out.println("Public Prefix IP");
