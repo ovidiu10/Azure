@@ -86,22 +86,6 @@ public class otappgw2
         System.out.println( "Done" );
     }
 
-    private static ManagedServiceIdentity createManagedServiceIdentityFromIdentity(Identity identity) throws Exception{
-        JsonObject userAssignedIdentitiesValueObject = new JsonObject();
-        userAssignedIdentitiesValueObject.addProperty("principalId", identity.principalId());
-        userAssignedIdentitiesValueObject.addProperty("clientId", identity.clientId());
-        ManagedServiceIdentityUserAssignedIdentitiesValue userAssignedIdentitiesValue =
-            new JacksonAdapter().deserialize(userAssignedIdentitiesValueObject.toString(), 
-                ManagedServiceIdentityUserAssignedIdentitiesValue.class);
-        Map<String, ManagedServiceIdentityUserAssignedIdentitiesValue> userAssignedIdentities = 
-            new HashMap<String,ManagedServiceIdentityUserAssignedIdentitiesValue>();
-        userAssignedIdentities.put(identity.id(), userAssignedIdentitiesValue);
-        ManagedServiceIdentity serviceIdentity = new ManagedServiceIdentity();
-        serviceIdentity.withType(ResourceIdentityType.USER_ASSIGNED);
-        serviceIdentity.withUserAssignedIdentities(userAssignedIdentities);
-        return serviceIdentity;
-    }
-
     private File file1()
     {
         File f1 = new File(getClass().getClassLoader().getResource(certificateName).getFile());
