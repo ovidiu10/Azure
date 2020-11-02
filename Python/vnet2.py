@@ -77,6 +77,7 @@ if async_vnet_subnet_creation.status() == 'Succeeded':
     sku = Sku(name=SkuName.standard_lrs)
     st1 = StorageAccountCreateParameters(sku=sku, kind=Kind.storage, location=LOCATION, network_rule_set=ns)
     storage_async_operation = storage_client.storage_accounts.create(GROUP_NAME, STORAGE_ACCOUNT_NAME, st1, location=LOCATION)
+    #stlist = storage_client.storage_accounts.list()
 
 print("Done")
 
