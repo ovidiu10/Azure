@@ -6,6 +6,10 @@
   <packaging>jar</packaging>
   <version>0.0.3</version>
   <name>otprivatedns</name>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>    
+  </properties>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -17,7 +21,17 @@
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure</artifactId>
-      <version>1.36.0</version>
+      <version>1.39.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-client-runtime</artifactId>
+      <version>1.7.12</version>
+    </dependency>
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-client-authentication</artifactId>
+      <version>1.7.12</version>
     </dependency>
     <dependency>
       <groupId>com.microsoft.azure.privatedns.v2018_09_01</groupId>
@@ -34,5 +48,26 @@
         <artifactId>azure-mgmt-network</artifactId>
         <version>1.0.0-beta-1</version>
       </dependency>
-    </dependencies>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>1.10.19</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.microsoft.graph</groupId>
+        <artifactId>microsoft-graph-core</artifactId>
+        <version>1.0.5</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microsoft.graph</groupId>
+        <artifactId>microsoft-graph-auth</artifactId>
+        <version>0.2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microsoft.graph</groupId>
+        <artifactId>microsoft-graph</artifactId>
+        <version>2.5.0</version>
+      </dependency>            
+  </dependencies>    
 </project>
