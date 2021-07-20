@@ -1,3 +1,13 @@
+param(
+    [ValidateNotNullOrEmpty()]
+    [ValidateSet('Az','AzureRM','Azure')]
+    [string]$Name = 'Az',
+
+    [Parameter(Mandatory)]
+    [string]$Version,
+
+    [switch]$AllowPrerelease
+  )
 function Uninstall-AzModule {
   [CmdletBinding(SupportsShouldProcess)]
   param(
@@ -89,3 +99,11 @@ function Uninstall-AzModule {
     }
   }
 }
+if ($AllowPrerelease) {
+    Uninstall-AzModule -Name $Name -Version $Version -AllowPrerelease 
+}
+else {
+    Uninstall-AzModule -Name $Name -Version $Version
+}
+
+##Write-Host $Name " | " $Version " | " $AllowPrerelease
