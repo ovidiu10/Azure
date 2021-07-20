@@ -21,7 +21,7 @@ public class otpipprefix {
                     .withDefaultSubscription();
             String id1 = "/subscriptions/42581afb-e04b-43d7-91a7-8faca6703fe7/resourceGroups/rg-lb1/providers/Microsoft.Network/publicIPAddresses/ips1";
             
-            ResourceUtils.defaultApiVersion(id1, provider)
+            //ResourceUtils.defaultApiVersion(id1, provider)
             ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
             PublicIPPrefix p1 = azure.publicIPPrefixes()
                                     .define("ippool1")
@@ -53,4 +53,5 @@ public class otpipprefix {
             e.printStackTrace();
         }
         System.out.println( "Done" );
+    }
 }
