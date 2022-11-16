@@ -25,7 +25,7 @@ public class demonew
             
             AzureResourceManager azureResourceManager = AzureResourceManager
                 .configure()
-                .withLogLevel(HttpLogDetailLevel.BASIC)
+                .withLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS)                
                 .authenticate(credential, profile)
                 .withDefaultSubscription();
             

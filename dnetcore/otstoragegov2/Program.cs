@@ -21,7 +21,7 @@ namespace otstoragegov2
         }
         private static async Task ProcessAsync()
         {
-            string _accountSAS = @"?sv=2018-03-28&sig=gq%2Bjm3idz8F1s4vkjR3ePuEx2G9qol%2FQ8e0VSEGRhG4%3D&se=2020-07-27T19%3A38%3A29Z&srt=sco&ss=b&sp=racupwdl";
+            string _accountSAS = @";
             string _accountName = "gtexstgsasss";
             string _endpointSuffix = "core.usgovcloudapi.net";
             string _blobStorageContainer = "sas";
@@ -33,7 +33,7 @@ namespace otstoragegov2
             CloudBlobContainer  _blobContainer = _cloudBlob.GetContainerReference(_blobStorageContainer);
             _blobContainer.CreateIfNotExists();
             CloudBlockBlob azureBlockBlob = _blobContainer.GetBlockBlobReference(remoteFilename);
-            Stream stream = File.OpenRead(@"C:\OT\TMPS\Microsoft.WindowsAzure.Storage.dll");
+            Stream stream = File.OpenRead(@"");
             await azureBlockBlob.UploadFromStreamAsync(stream, AccessCondition.GenerateIfNotExistsCondition(),
                                                 new BlobRequestOptions { ParallelOperationThreadCount = 2 },
                                                 new OperationContext()).ConfigureAwait(false);

@@ -24,7 +24,7 @@ public class otjavagraph {
         try {
             ClientCredentialProvider  authProvider =
                 new ClientCredentialProvider(client, scopes, key, tenant, NationalCloud.Global);
-            ServicePrincipal sp = "";
+            //ServicePrincipal sp = "";
             IGraphServiceClient graphClient = GraphServiceClient.builder()
                     .authenticationProvider(authProvider)
                     .buildClient();

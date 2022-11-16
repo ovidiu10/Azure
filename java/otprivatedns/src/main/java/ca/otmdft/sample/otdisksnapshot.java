@@ -53,12 +53,14 @@ public class otdisksnapshot {
         String pipgw = "pip_appgw";
         String appGwName = "appgw1";
         String kvName = "otkvusw2";
-        System.out.println("Welcome to Azure Application Gateway v2");
+        System.out.println("Welcome Java V2");
         try {
-            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
+            final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION3"));
             Azure azure = Azure.configure().withLogLevel(LogLevel.NONE).authenticate(credFile)
                     .withDefaultSubscription();
             ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
+            ResourceGroup rg = azure.resourceGroups().getByName(rgName);
+            System.out.println(rg.id());
             // NetworkInterface nic = azure.networkInterfaces().getByResourceGroup(rgName,
             // "vm1testeth0");
             /*
@@ -87,18 +89,19 @@ public class otdisksnapshot {
              * (!sourceDisk.availabilityZones().isEmpty()) {
              * newOSDisk.withAvailabilityZone(AvailabilityZoneId.ZONE_1); }
              * //System.out.println(newOSDisk); newOSDisk.create();
-             */
-            Disk sourceDisk1 = azure.disks().getByResourceGroup(rgName, "vmLinuxWestUs2Az2_disk1");
-             Snapshot oSnapshot1 = azure.snapshots().define("disk1-clone-test")
-             .withRegion(Region.US_WEST2.name())
+             */            
+            Disk sourceDisk1 = azure.disks().getByResourceGroup(rgName, "ottest1_OsDisk_1_3b215a2a10114a419bc681e7691d8b37");
+            Snapshot oSnapshot1 = azure.snapshots().define("disk1-clone-test3")
+             .withRegion(Region.US_WEST_CENTRAL.name())
              .withExistingResourceGroup(rgName)
              .withLinuxFromDisk(sourceDisk1.id())
              .create();
+            /*
             final WithCreate sp2 = azure.snapshots().define("aaa")
                                         .withRegion(Region.US_EAST2.name())
                                         .withExistingResourceGroup(rgName)
                                         .withDataFromDisk(sourceDisk1.id()); 
-            sp2.create();                                
+            sp2.create();                                            
             Disk.DefinitionStages.WithCreate mikeDisk = azure.disks()
                                     .define("clone-disk12")
                                     .withRegion(Region.US_WEST2.name())
@@ -108,8 +111,9 @@ public class otdisksnapshot {
                                     .withSku(DiskSkuTypes.STANDARD_LRS);
             if (!sourceDisk1.availabilityZones().isEmpty()) {     
                 mikeDisk.withAvailabilityZone(AvailabilityZoneId.ZONE_2);
-            }
+            }            
             mikeDisk.create();  
+            */
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
