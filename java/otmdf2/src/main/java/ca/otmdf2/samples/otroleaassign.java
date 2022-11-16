@@ -36,7 +36,7 @@ public class otroleaassign {
                 .withLogLevel(HttpLogDetailLevel.BASIC)
                 .authenticate(credential, profile)
                 .withSubscription(sId);
-            VirtualMachine vm2 = azureResourceManager.virtualMachines().getById("/subscriptions/42581afb-e04b-43d7-91a7-8faca6703fe7/resourceGroups/rg-ppg1/providers/Microsoft.Compute/virtualMachines/otvm1ppg1");
+            VirtualMachine vm2 = azureResourceManager.virtualMachines().getById("/subscriptions/.../resourceGroups/rg-ppg1/providers/Microsoft.Compute/virtualMachines/otvm1ppg1");
             if (vm2.powerState() != PowerState.DEALLOCATED) {                 
                 Map<String, VirtualMachineExtension> extensions = vm2.listExtensions();                        
                 extensions.forEach((extK, extV) -> {
