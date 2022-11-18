@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+//using Azure.AI.FormRecognizer.DocumentAnalysis;
 
 namespace ODS.Function1
 {
