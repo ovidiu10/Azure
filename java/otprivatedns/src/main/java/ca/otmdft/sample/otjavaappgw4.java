@@ -42,7 +42,7 @@ public class otjavaappgw4 {
                         .attach()
                     .withTier(ApplicationGatewayTier.WAF_V2)
                     .withSize(ApplicationGatewaySkuName.WAF_V2)
-                    .withExistingPublicIPAddress("/subscriptions/42581afb-e04b-43d7-91a7-8faca6703fe7/resourceGroups/rg-java/providers/Microsoft.Network/publicIPAddresses/IP3S")
+                    .withExistingPublicIPAddress("/subscriptions/../resourceGroups/rg-java/providers/Microsoft.Network/publicIPAddresses/IP3S")
                     .withWebApplicationFirewall(new ApplicationGatewayWebApplicationFirewallConfiguration()
                         .withFirewallMode(ApplicationGatewayFirewallMode.PREVENTION)
                         .withRuleSetType("OWASP")

@@ -320,7 +320,7 @@ public final class CloneVirtualMachineToNewRegion {
             //=============================================================
             // Authenticate
 
-            final AzureProfile profile = new AzureProfile("72f988bf-86f1-41af-91ab-2d7cd011db47", "42581afb-e04b-43d7-91a7-8faca6703fe7", AzureEnvironment.AZURE);
+            final AzureProfile profile = new AzureProfile("", "", AzureEnvironment.AZURE);
             final TokenCredential credential = new DefaultAzureCredentialBuilder()
                 .authorityHost(profile.getEnvironment().getActiveDirectoryEndpoint())
                 .build();

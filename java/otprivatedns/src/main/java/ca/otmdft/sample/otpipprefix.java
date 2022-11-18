@@ -19,7 +19,7 @@ public class otpipprefix {
             final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
             Azure azure = Azure.configure().withLogLevel(LogLevel.NONE).authenticate(credFile)
                     .withDefaultSubscription();
-            String id1 = "/subscriptions/42581afb-e04b-43d7-91a7-8faca6703fe7/resourceGroups/rg-lb1/providers/Microsoft.Network/publicIPAddresses/ips1";
+            String id1 = "/subscriptions/../resourceGroups/rg-lb1/providers/Microsoft.Network/publicIPAddresses/ips1";
             
             //ResourceUtils.defaultApiVersion(id1, provider)
             ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
