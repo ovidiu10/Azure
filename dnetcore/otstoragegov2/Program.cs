@@ -21,7 +21,7 @@ namespace otstoragegov2
         }
         private static async Task ProcessAsync()
         {
-            string _accountSAS = @";
+            string _accountSAS = @"";
             string _accountName = "gtexstgsasss";
             string _endpointSuffix = "core.usgovcloudapi.net";
             string _blobStorageContainer = "sas";
