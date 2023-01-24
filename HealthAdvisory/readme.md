@@ -46,4 +46,7 @@ Azure Resource Graph docs:
 - https://aka.ms/resource-graph/learntoquery
 - https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#servicehealthresources
 
-Sample in Go in the folder [azurergm](azurergm)
+Sample in [Go](https://learn.microsoft.com/en-us/azure/developer/go/ 'Azure for Go developers') in the folder [azurergm](azurergm)
+
+Results:
+![Result Go application](/image/results.png)
