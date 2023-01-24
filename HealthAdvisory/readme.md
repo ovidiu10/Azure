@@ -49,4 +49,4 @@ Azure Resource Graph docs:
 Sample in [Go](https://learn.microsoft.com/en-us/azure/developer/go/ 'Azure for Go developers') in the folder [azurergm](azurergm)
 
 Results:
-![Result Go application](image/results.png)
+![Result Go application](../HealthAdvisory/image/results.png)
