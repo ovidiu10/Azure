@@ -19,8 +19,7 @@ ___
 
 Azure Service Health | Azure Updates (RSS) |
 --- | --- |
-Personalize to your subscription(s) | All announcements related to retirements  
- |
+Personalize to your subscription(s) | All announcements related to retirements |
 More granular | No very easy to consume |
 Ability to use using APIs _the category “action required or Retirement notice”_| Need manual review your services |
 
