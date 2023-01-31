@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+    <Appenders>
+
+
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <JsonLayout compact="true" eventEol="true" stacktraceAsString="true">
+                <KeyValuePair key="MDCKey" value="${ctx:MDCServletFilter.UUID}"/>
+                <KeyValuePair key="_filters" value="ANALYTICS" />
+                <KeyValuePair key="_timeMillisInUTC" value="$${LogFields:currentTimeInMilli}"/>
+                <KeyValuePair key="_timestamp" value="$${LogFields:}" />
+            </JsonLayout>
+        </Console>
+
+        <RollingFile name="RollingFileInfo" fileName="./logs/app.log" filePattern="./logs/app-%d{MM-dd-yyyy}.log.gz">
+            <JsonLayout compact="true" eventEol="true" stacktraceAsString="true">
+                <!--  <KeyValuePair key="MDCKey" value="${ctx:MDCServletFilter.UUID}"/>  -->
+
+                <KeyValuePair key="_filters" value="ANALYTICS" />
+                <KeyValuePair key="_timeMillisInUTC" value="$${LogFields:currentTimeInMilli}"/>
+                <KeyValuePair key="_timestamp" value="$${LogFields:}" />
+            </JsonLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="RollingFileInfo"/>
+            <AppenderRef ref="LogToConsole"/>
+            <AppenderRef ref="aiAppender"/>
+        </Root>
+        <Logger name="org.hibernate" level="INFO"/>
+        <Logger name="org.springframework" level="INFO"/>
+        <Logger name="org.apache.logging.*" level="INFO"/>
+    </Loggers>
+</Configuration>
