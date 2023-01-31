@@ -10,10 +10,6 @@ import com.azure.resourcemanager.AzureResourceManager;
 import com.azure.resourcemanager.network.fluent.models.PrivateEndpointConnectionInner;
 import com.azure.resourcemanager.network.models.PrivateLinkServiceConnectionState;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
