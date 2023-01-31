@@ -1,0 +1,25 @@
+dnetcore/otkvcapp/obj/*
+dnetcore/otkvcapp2/obj/*
+dnetcore/otstoragegov2/obj/*
+java/.vscode/settings.json
+debug.log
+java/otprivatedns/src/main/java/ca/otmdft/sample/otvmforcedelete.java
+*.class
+*.prefs
+.classpath
+java/otprivatedns/.classpath
+SDKDemo/Java/.vscode/settings.json
+target
+.project
+.factorypath
+resources/
+
+Properties/
+
+#logs files and folders 
+logs/
+
+# vscode esclude
+.vscode/
+
+#github Azure
