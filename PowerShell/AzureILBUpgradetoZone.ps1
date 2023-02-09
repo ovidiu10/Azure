@@ -116,7 +116,8 @@ foreach ($frontEndConfig in $newlbFrontendConfigs)
     $frontEndArray += $newFrontEndConfigName + "," + $frontEndConfig.PrivateIpAddress
 
     ##Creating variables with original IP information to be used with new load balancer creation
-    New-Variable -Name "frontEndIpConfig$feProcessed" -Value (New-AzLoadBalancerFrontendIpConfig -Name $newFrontEndConfigName -PrivateIpAddress $ip -SubnetId $newSubnetId)
+    #old# 
+    ## New-Variable -Name "frontEndIpConfig$feProcessed" -Value (New-AzLoadBalancerFrontendIpConfig -Name $newFrontEndConfigName -PrivateIpAddress $ip -SubnetId $newSubnetId)
     ## adding zone-redundat 
     New-Variable -Name "frontEndIpConfig$feProcessed" -Value (New-AzLoadBalancerFrontendIpConfig -Name $newFrontEndConfigName -PrivateIpAddress $ip -SubnetId $newSubnetId -Zone "1","2","3")
     #$newFrontEndIp = $availableIPS[$i]
