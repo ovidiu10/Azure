@@ -1,41 +1,16 @@
 <#PSScriptInfo
- 
-.VERSION 5.0
- 
-.GUID 836ca1ab-93b7-49a3-b1d1-b257601da1dd
- 
-.AUTHOR Microsoft Corporation
- 
-.COMPANYNAME Microsoft Corporation
- 
-.COPYRIGHT Microsoft Corporation. All rights reserved.
- 
+.VERSION 0.6
 .TAGS Azure, Az, LoadBalancer, AzNetworking
- 
-.LICENSEURI
- 
-.PROJECTURI
- 
-.ICONURI
- 
-.EXTERNALMODULEDEPENDENCIES
- 
-.REQUIREDSCRIPTS
- 
-.EXTERNALSCRIPTDEPENDENCIES
- 
-.RELEASENOTES
- 
- 
-.PRIVATEDATA
- 
+.changed by Ovi Timpanariu from original https://www.powershellgallery.com/packages/AzureILBUpgrade/5.0 
+# 09-07-2021 See line below. 2 places in this Script
+# $nicToAssociate.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($lbBackend)
+#
 #>
 
 <#
-  
+
 .DESCRIPTION
-This script will help you create a Standard SKU Internal load balancer with the same configuration as your Basic SKU load balancer.
-     
+This script will help you create a Standard SKU Internal load balancer with the same configuration as your Basic SKU load balancer.  
 .PARAMETER rgName
 Name of ResourceGroup of Basic Internal Load Balancer and the Standard Internal Load Balancer, like "microsoft_rg1"
 .PARAMETER oldLBName
@@ -43,20 +18,17 @@ Name of Basic Internal Load Balancer you want to upgrade.
 .PARAMETER newlocation
 Location where you want to place new Standard Internal Load Balancer in. For example, "centralus"
 .PARAMETER newLBName
-Name of the newly created Standard Internal Load Balancer.
-    
+Name of the newly created Standard Zonal Internal Load Balancer.
 .EXAMPLE
-./AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
-   
+./AzureILBUpgradetoZone.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
 .LINK
 https://aka.ms/upgradeloadbalancerdoc
 https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/
-   
+https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones 
 .NOTES
-Note - all paramemters are required in order to successfully create a Standard Internal Load Balancer.
-   
-#> 
-<#
+Note - all paramemters are required in order to successfully create a Standard Internal Load Balancer.  
+#>
+
 Param(
 [Parameter(Mandatory = $True)][string] $rgName,
 [Parameter(Mandatory = $True)][string] $oldLBName,
@@ -64,17 +36,6 @@ Param(
 [Parameter(Mandatory = $True)][string] $newlocation,
 [Parameter(Mandatory = $True)][string] $newLBName
 )
-#>
-
-# 09-07-2021 See line below. 2 places in this Script
-# $nicToAssociate.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($lbBackend)
-#
-$subId = ""
-Connect-AzAccount -Subscription $subId
-
-$rgName = ""
-$oldLBName = ""
-$newLBName = ""
 
 #getting current loadbalancer
 $lb = Get-AzLoadBalancer -ResourceGroupName $rgName -Name $oldLbName
@@ -97,7 +58,7 @@ $feProcessed = 1
 $startIPTest = $ipRange.Split(".")[0] + "." + $ipRange.Split(".")[1] + "." + $ipRange.Split(".")[2] + "." + $startIp
 
 $availableIPS = (Test-AzPrivateIPAddressAvailability -VirtualNetwork $vnet -IPAddress $startIPTest).AvailableIPAddresses
-$lastAvailableIp = $availableIPS[$availableIPS.count-1]
+#$lastAvailableIp = $availableIPS[$availableIPS.count-1]
 #initial bit in array to check for available ips
 $i = 0
 
@@ -118,7 +79,7 @@ foreach ($frontEndConfig in $newlbFrontendConfigs)
     ##Creating variables with original IP information to be used with new load balancer creation
     #old# 
     ## New-Variable -Name "frontEndIpConfig$feProcessed" -Value (New-AzLoadBalancerFrontendIpConfig -Name $newFrontEndConfigName -PrivateIpAddress $ip -SubnetId $newSubnetId)
-    ## adding zone-redundat 
+    ## adding zone redundant 
     New-Variable -Name "frontEndIpConfig$feProcessed" -Value (New-AzLoadBalancerFrontendIpConfig -Name $newFrontEndConfigName -PrivateIpAddress $ip -SubnetId $newSubnetId -Zone "1","2","3")
     #$newFrontEndIp = $availableIPS[$i]
 
@@ -211,8 +172,9 @@ foreach ($backendItem in $backendArray)
     #write-host "nic"
     $nicRG = $nic.id.Split("/")[4]
     $nicToAssociate = Get-AzNetworkInterface -name (($backendItem.Split(",")[1]).split("/")[8]) -resourcegroupname $nicRG
-    # Comment out $nicToAssociate.IpConfigurations[0].LoadBalancerBackendAddressPools = $lbBackend ####Modified to deal with Multiple Bkend Pools
-    # And Added below line to deal with Multiple Backend Pools
+    ####Modified to deal with Multiple Bkend Pools
+    # Comment out $nicToAssociate.IpConfigurations[0].LoadBalancerBackendAddressPools = $lbBackend     
+    # And Added below line to deal with Multiple Backend Pools 
     $nicToAssociate.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($lbBackend)
     Set-AzNetworkInterface -NetworkInterface $nicToAssociate
 }
