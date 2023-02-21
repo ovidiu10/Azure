@@ -1,0 +1,30 @@
+{
+    "properties": {
+        "displayName": "Block OpenAI",
+        "description": "This policy enables you to restrict the OpenAI.",
+        "mode": "Indexed",
+        "metadata": {
+            "version": "0.0.1",
+            "category": "Test CognitiveServices"
+        },
+        "parameters": {            
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.CognitiveServices/accounts"
+                    },
+                    {
+                        "field": "kind",
+                        "equals": "OpenAI"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
