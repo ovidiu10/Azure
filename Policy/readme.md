@@ -1,6 +1,6 @@
 # Azure Policy
 
-- blocking deploy Open AI [azurepolicydoai](azurepolicydoai.json)
+- blocking deploy Open AI [Azure Policy](azurepolicy.json)
 
 ---
 ARM template specifications:
