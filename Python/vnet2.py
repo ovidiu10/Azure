@@ -52,20 +52,20 @@ def get_credentials():
 
 credentials, subscription_id = get_credentials()
 
-network_client = NetworkManagementClient(credentials, subscription_id)
-resource_client = ResourceManagementClient(credentials, subscription_id)
-storage_client = StorageManagementClient(credentials, subscription_id)
+network_client = NetworkManagementClient(credentials, subscription_id) # type: ignore
+resource_client = ResourceManagementClient(credentials, subscription_id) # type: ignore
+storage_client = StorageManagementClient(credentials, subscription_id) # type: ignore
 
 resource_group_params = {'location':LOCATION}
-resource_client.resource_groups.create_or_update(GROUP_NAME, resource_group_params)
+resource_client.resource_groups.create_or_update(GROUP_NAME, resource_group_params) # type: ignore
 
 vnet_params = { 'location': LOCATION, 'address_space' : { 'address_prefixes': [VNET_AP] } }
-async_vnet_creation = network_client.virtual_networks.create_or_update(GROUP_NAME, VNET_NAME, vnet_params)
+async_vnet_creation = network_client.virtual_networks.create_or_update(GROUP_NAME, VNET_NAME, vnet_params) # type: ignore
 async_vnet_creation.wait()
 ep = ServiceEndpointPropertiesFormat(service='Microsoft.Storage')
 ep_list = [ep]
 subnet = Subnet(address_prefix = SB_AP, service_endpoints = ep_list)
-async_vnet_subnet_creation = network_client.subnets.create_or_update(GROUP_NAME, VNET_NAME, SB_NAME, subnet)
+async_vnet_subnet_creation = network_client.subnets.create_or_update(GROUP_NAME, VNET_NAME, SB_NAME, subnet) # type: ignore
 async_vnet_subnet_creation.wait()
 if async_vnet_subnet_creation.status() == 'Succeeded':
     sb_result = async_vnet_subnet_creation.result()
@@ -73,10 +73,10 @@ if async_vnet_subnet_creation.status() == 'Succeeded':
     vr = VirtualNetworkRule(virtual_network_resource_id=virtual_network_resource_id)
     vnets = [vr]
     ns = NetworkRuleSet(bypass='AzureServices', virtual_network_rules=vnets, default_action='Deny')
-    storage_client = StorageManagementClient(credentials, subscription_id)
-    sku = Sku(name=SkuName.standard_lrs)
-    st1 = StorageAccountCreateParameters(sku=sku, kind=Kind.storage, location=LOCATION, network_rule_set=ns)
-    storage_async_operation = storage_client.storage_accounts.create(GROUP_NAME, STORAGE_ACCOUNT_NAME, st1, location=LOCATION)
+    storage_client = StorageManagementClient(credentials, subscription_id) # type: ignore
+    sku = Sku(name=SkuName.STANDARD_LRS)
+    st1 = StorageAccountCreateParameters(sku=sku, kind=Kind.STORAGE_V2, location=LOCATION, network_rule_set=ns)
+    storage_async_operation = storage_client.storage_accounts.begin_create(GROUP_NAME, STORAGE_ACCOUNT_NAME, st1, location=LOCATION) # type: ignore
     #stlist = storage_client.storage_accounts.list()
 
 print("Done")
