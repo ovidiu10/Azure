@@ -2,8 +2,7 @@
 
 Azure ecosystem has a lot of limits some hard limits sometime adjustable limits.
 
-If some services have adjustable limits.
-
+Some services have adjustable limits.
 When a service doesn't have adjustable limits, the following tables use the header Limit. In those cases, the default and the maximum limits are the same.
 
 When the limit can be adjusted, the tables include Default limit and Maximum limit headers. The limit can be raised above the default limit but not above the maximum limit.
@@ -16,16 +15,17 @@ The terms soft limit and hard limit often are used informally to describe the cu
 
 <br />
 Microsoft always improve observability for limits but also we need to monitor them :smiley:.
+<br />
 
 | Resource | Limit |
 | --- | --- |
 | Management groups per Azure AD tenant | 10,000 |
 | Subscriptions per management group | Unlimited. |
-| Subscriptions [associated with an Azure Active Directory tenant](../articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) | Unlimited |
+| Subscriptions [associated with an Azure Active Directory tenant](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory) | Unlimited |
 | Levels of management group hierarchy | Root level plus 6 levels<sup>1</sup> |
 | Direct parent management group per management group | One |
-| [Management group level deployments](../articles/azure-resource-manager/templates/deploy-to-management-group.md) per location | 800<sup>2</sup> |
-| Locations of [Management group level deployments](../articles/azure-resource-manager/templates/deploy-to-management-group.md) | 10 |
+| [Management group level deployments](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-management-group) per location | 800<sup>2</sup> |
+| Locations of [Management group level deployments](.ttps://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-management-group) | 10 |
 | [Coadministrators](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per subscription |Unlimited |
 | [Resource groups](../articles/azure-resource-manager/management/overview.md) per subscription |980 |
 | Azure Resource Manager API request size |4,194,304 bytes |
