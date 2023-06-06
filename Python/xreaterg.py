@@ -3,18 +3,23 @@ from azure.identity import (
     ClientSecretCredential
 )
 from azure.mgmt.resource import ResourceManagementClient
+from azure.core import exceptions
 
 import logging
 import os
 import json
+import sys
 
-logger = logging.getLogger('azure.mgmt.resource')
-logger.setLevel(logging.INFO)
+handler = logging.StreamHandler(stream=sys.stdout)
+logger = logging.getLogger('azure.mgmt')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(handler)
 
 rate_limit_header = None
 def response_callback(response):
-    rate_limit_header = response.http_response.headers["x-ms-ratelimit-remaining-subscription-reads"]
-    print(rate_limit_header)
+    #rate_limit_header = response.http_response.headers["x-ms-ratelimit-remaining-subscription-reads"]
+    #print(rate_limit_header)
+    print(response.http_response.headers)
 
 def get_credentials():
     #subscription_id = os.environ.get(
@@ -36,6 +41,13 @@ def get_credentials():
     return credentials, subscription_id
 
 def main():
+    logging.warning('Watch out!')
+    print(
+        f"Logger enabled for ERROR={logger.isEnabledFor(logging.ERROR)}, "
+        f"WARNING={logger.isEnabledFor(logging.WARNING)}, "
+        f"INFO={logger.isEnabledFor(logging.INFO)}, "
+        f"DEBUG={logger.isEnabledFor(logging.DEBUG)}"
+    )
     credentials, subscription_id = get_credentials()
     client = ResourceManagementClient(
         #credential=credentials,
@@ -55,4 +67,10 @@ def main():
     print("Done")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (
+        exceptions.ClientAuthenticationError,
+        exceptions.HttpResponseError
+    ) as e:
+        print(e.message)
