@@ -7,7 +7,7 @@ from azure.mgmt.resource import SubscriptionClient
 
 def main():
     client = arg.ResourceGraphClient(
-        credential=AzureCliCredential(), subscription_id="11111111-1111-1111-1111-45d9209f3a9c"
+        credential=AzureCliCredential(), subscription_id="11111111-1111-1111-1111-11111111111"
     )
     response = client.resources(
         query={
