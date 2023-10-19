@@ -56,3 +56,5 @@ ARM template specifications:
       ]
      }
 ```
+
+Thanks to @CCCPSpy for help.
