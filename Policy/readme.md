@@ -24,7 +24,7 @@ ARM template specifications:
 
 ---
 
--- allow only specific models approved [Azure Policy](/OpenAI/azurepolicy2.json)
+- allow only specific models approved [Azure Policy](/OpenAI/azurepolicy2.json)
 
 ```json
 "if": {
