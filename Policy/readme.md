@@ -1,6 +1,6 @@
 # Azure Policy
 
-- blocking deploy Open AI [Azure Policy](/OpenAI/azurepolicy2.json)
+- blocking deploy Open AI [Azure Policy](OpenAI/azurepolicy2.json)
 
 ---
 ARM template specifications:
@@ -24,7 +24,7 @@ ARM template specifications:
 
 ---
 
-- allow only specific models approved [Azure Policy](/OpenAI/azurepolicy2.json)
+- allow only specific models approved [Azure Policy](OpenAI/azurepolicy2.json)
 
 ```json
 "if": {
