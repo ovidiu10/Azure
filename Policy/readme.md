@@ -57,4 +57,4 @@ ARM template specifications:
      }
 ```
 
-Thanks to @CCCPSpy for help.
+Thanks to [@CCCPSpy](https://github.com/CCCPSpy) for help.
