@@ -1,0 +1,41 @@
+{
+    "properties": {
+        "mode": "all",
+        "displayName": "Enforce Schedule Updates settings for Redis cache instances 3",
+        "description": "Enforce Schedule Updates settings for Redis cache instances 3",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Custom Redis",
+            "Custom": "Custom"
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Cache/Redis"
+                    },
+                    {
+                        "count": {
+                            "field": "Microsoft.Cache/Redis/scheduleEntries[*]"    
+                        },
+                        "greaterOrEquals": 1
+                    }
+                ]
+            },
+            "then": {
+                "effect": "auditIfNotExists",
+                "details": {
+                    "type": "Microsoft.Cache/Redis/patchSchedules",
+                    "name": "default",
+                    "existenceCondition": {
+                        "count": {
+                            "field": "Microsoft.Cache/Redis/scheduleEntries[*]"
+                        },
+                        "greaterOrEquals": 1
+                    }
+                }
+            }            
+        }
+    }
+}

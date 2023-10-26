@@ -1,33 +1,7 @@
-# Azure Policy
-
-- blocking deploy Open AI [Azure Policy](OpenAI/azurepolicy2.json)
-
----
-ARM template specifications:
-
-## [Microsoft.CognitiveServices accounts](https://learn.microsoft.com/en-us/azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-arm-template)
-
-```json
-{
-    "id": "/subscriptions/55A44XXX-ZZZZ-CCCC-8888-56677AACC1234/resourceGroups/researchlab-rg/providers/Microsoft.CognitiveServices/accounts/aitest-eu-openai",
-    "name": "aitest-eu-openai",
-    "type": "Microsoft.CognitiveServices/accounts",
-    "etag": "\"00000000-0000-0100-0000-000000000000\"",
-    "location": "EastUs",
-    "sku": {
-        "name": "S0"
-    },
-    "kind": "OpenAI",
-    ...
-}
-```
-
----
-
-- allow only specific models approved [Azure Policy](OpenAI/azurepolicy2.json)
-
-```json
-"if": {
+{  
+"mode": "All",
+  "policyRule": {
+    "if": {
       "anyOf": [
          {
             "allOf": [
@@ -54,7 +28,19 @@ ARM template specifications:
             ]
          }
       ]
+     },
+     "then": {
+                "effect": "deny"    
+             }
+    },
+     "parameters": {
+      "allowedModels": {
+        "type": "Array",
+        "metadata": {
+          "description": "The list of models allowed.",
+          "displayName": "Allowed models"
+        },
+        "defaultValue": ["azureml://registries/azureml-meta/models/Llama-2-7b-chat/versions/12"]
+      }
      }
-```
-
-Thanks to [@CCCPSpy](https://github.com/CCCPSpy) for help.
+}

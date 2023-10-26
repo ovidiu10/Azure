@@ -1,0 +1,30 @@
+{
+    "properties": {
+        "mode": "all",
+        "displayName": "Enforce security settings for Redis cache instances",
+        "description": "Ensures SSL is enabled",
+        "policyRule": {
+            "if": {
+                "anyOf": [
+                    {
+                        "allOf": [
+                            {
+                                "field": "type",
+                                "equals": "Microsoft.Cache/Redis"
+                            },
+                            {
+                                "not": {
+                                    "field": "Microsoft.Cache/Redis/minimumTlsVersion",
+                                    "equals": "1.2"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
