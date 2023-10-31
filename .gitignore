@@ -34,6 +34,7 @@ logs/
 obj
 *.log
 *.jar
+*.env
 
 # Test binary, built with `go test -c`
 *.test
