@@ -14,32 +14,32 @@
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-core</artifactId>
-      <version>1.26.0</version>
+      <version>1.45.0</version>
     </dependency>
     <dependency>
       <groupId>com.azure.resourcemanager</groupId>
       <artifactId>azure-resourcemanager</artifactId>
-      <version>2.13.0</version>
+      <version>2.32.0</version>
     </dependency>  
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-core-management</artifactId>
-      <version>1.5.3</version>
+      <version>1.11.8</version>
     </dependency>              
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity</artifactId>
-      <version>1.4.6</version>
+      <version>1.10.4</version>
     </dependency>    
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-storage-common</artifactId>
-      <version>12.15.0</version>
+      <version>12.23.1</version>
     </dependency>    
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-storage-blob</artifactId>
-      <version>12.15.0</version>
+      <version>12.24.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
