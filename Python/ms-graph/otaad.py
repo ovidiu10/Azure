@@ -3,7 +3,6 @@ from azure.identity import ClientSecretCredential, DefaultAzureCredential, Azure
 from kiota_authentication_azure.azure_identity_authentication_provider import AzureIdentityAuthenticationProvider
 from msgraph import GraphRequestAdapter, GraphServiceClient
 from msgraph.generated.applications.applications_request_builder import ApplicationsRequestBuilder
-from dotenv import load_dotenv
 import os, sys, getopt
 
 async def main(argv):
