@@ -15,7 +15,7 @@ Here's steps for building a sandbox for Azure AI services.
 - Configure Azure AI workspace Hub to work behind a firewall (just IP whitelisted).
 - Connect to the Azure AI studio from Adobe workstation which has the IP allow.
 
-![Sandbox](./sandbox.png)
+![Sandbox](./azureaisandbox.png)
 
 [How to configure a managed network for Azure AI - Azure AI Studio | Microsoft Learn](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/configure-managed-network?tabs=azure-cli)
 
