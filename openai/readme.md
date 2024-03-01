@@ -17,6 +17,10 @@ Here's steps for building a sandbox for Azure AI services.
 
 ![Sandbox](./azureaisandbox.png)
 
-[How to configure a managed network for Azure AI - Azure AI Studio | Microsoft Learn](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/configure-managed-network?tabs=azure-cli)
+[How to configure a managed network for Azure AI](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/configure-managed-network?tabs=azure-cli)
 
-[Configure a private endpoint for an Azure Machine Learning workspace - Azure Machine Learning | Microsoft Docs](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-private-endpoint)
+[Configure a private endpoint for an Azure Machine Learning workspace](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-private-endpoint)
+
+[Tutorial: How to create a secure workspace by using template](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-create-secure-workspace-template?view=azureml-api-2&tabs=bicep%2Ccli)
+
+[Tutorial: How to create a secure workspace with an Azure Virtual Network](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-create-secure-workspace-vnet?view=azureml-api-2)
