@@ -16,27 +16,25 @@ def capture():
         credential=DefaultAzureCredential(),
         subscription_id=os.environ['AZURE_SUBSCRIPTION_ID']
     )
-    
+    sSASURL = os.environ['AZURE_STORAGE_SAS_URL']
+
     client.azure_firewalls.begin_packet_capture(
-        resource_group_name="rg1",
-        azure_firewall_name="azureFirewall1",
+        resource_group_name="rg-netcore2",
+        azure_firewall_name="otcore2-azfw",
         parameters={
-            "properties": {
-                "durationInSeconds": 300,
-                "fileName": "azureFirewallPacketCapture",
-                "filters": [
-                    {"destinationPorts": ["4500"], "destinations": ["20.1.2.0"], "sources": ["20.1.1.0"]},
-                    {
-                        "destinationPorts": ["123", "80"],
-                        "destinations": ["10.1.2.0"],
-                        "sources": ["10.1.1.0", "10.1.1.1"],
-                    },
-                ],
-                "flags": [{"type": "syn"}, {"type": "fin"}],
-                "numberOfPacketsToCapture": 5000,
-                "protocol": "Any",
-                "sasUrl": "someSASURL",
-            }
+            "durationInSeconds": 300,
+            "fileName": "azureFirewallPacketCapture",
+            "filters": [
+                {
+                    "destinationPorts": ["443"],
+                    "destinations": ["172.253.115.147"],
+                    "sources": ["192.168.252.4"],
+                },
+            ],
+            "flags": [{"type": "syn"}, {"type": "fin"}],
+            "numberOfPacketsToCapture": 5000,
+            "protocol": "Any",
+            "sasUrl": sSASURL,
         },
     ).result()
 
