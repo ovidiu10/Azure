@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package main
 
 import (
