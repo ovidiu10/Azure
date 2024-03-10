@@ -45,18 +45,18 @@ public class ottest1
                                     .build();
             */
             //Secret
-            /*
             final ClientSecretCredential cred = new ClientSecretCredentialBuilder()
                                     .clientId(f.getClientId())
                                     .clientSecret(f.getClientSecret())
                                     .tenantId(f.getTenantId())                                    
                                     .build();
-            */
             //MSAI - system 
+            /*
             ManagedIdentityCredential cred = new ManagedIdentityCredentialBuilder()
                                     .maxRetry(10)
                                     .retryTimeout(duration -> Duration.ofSeconds(6))
                                     .build();
+            */
             AzureResourceManager azureResourceManager = AzureResourceManager
                                     .configure()
                                     .withLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS)
