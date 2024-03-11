@@ -58,8 +58,7 @@
       }
     },
     "variables": {
-      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
-      "aiproject": "[concat(parameters('workspaceName'), '-project-1')]"
+      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
     },
     "resources": [
       {
