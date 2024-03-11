@@ -18,7 +18,7 @@ Basic SKU vs Standard SKU:
 | Availability zones | Yes | Not supported |
 | Routing preference | Yes | Not supported |
 
-Sample Java code to upgrade the IP address from Basic to Standard see in the folder [src/main/java/com/otmigration/azureipupgrade](src/main/java/com/otmigration/azureipupgrade/main.java)
+Sample Java code to upgrade the IP address from Basic to Standard see in the folder [/src/main/java/io/otmigrationpip/Main.java](/src/main/java/io/otmigrationpip/Main.java)
 
 ```java
 azureResourceManager.networks().manager().serviceClient().getPublicIpAddresses()
