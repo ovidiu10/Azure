@@ -28,4 +28,4 @@ azureResourceManager.networks().manager().serviceClient().getPublicIpAddresses()
                             com.azure.core.util.Context.NONE);
 ```
 
-Result [](result.png)
+Result: ![Sample result](result.png)
