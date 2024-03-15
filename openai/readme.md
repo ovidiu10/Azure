@@ -27,3 +27,17 @@ Here's steps for building a sandbox for Azure AI services.
 
 [def]: https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-create-secure-workspace-vnet?view=azureml-api-2
 [def2]: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-private-endpoint
+
+In this example we cannot use the Azure AI services , so we need to create a virtual network in same region with Azure AI services.
+
+Azure Services:
+
+- Azure Virtual Network - Region A
+- Azure Container Registry - Region B
+- Azure Key Vault - Region B
+- Azure Storage Account (Blob and File) - Region B
+- Azure Log Analytics - Region A
+- Azure Application Insights - Region A
+- Azure AI Services - Region A
+
+![Sandbox VNET](./sandbox-vnet.json)
