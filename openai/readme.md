@@ -40,4 +40,4 @@ Azure Services:
 - Azure Application Insights - Region A
 - Azure AI Services - Region A
 
-![Sandbox VNET](./sandbox-vnet.json)
+[Sandbox VNET](./sandbox-vnet.json)
