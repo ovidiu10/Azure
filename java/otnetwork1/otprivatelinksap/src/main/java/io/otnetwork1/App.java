@@ -1,23 +1,24 @@
+// /* spell-checker: disable */
 package io.otnetwork1;
 
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+//import java.util.stream.Collector;
+//import java.util.stream.Collectors;
 
 import com.azure.core.credential.TokenCredential;
 import com.azure.core.http.policy.HttpLogDetailLevel;
-import com.azure.core.http.rest.PagedIterable;
+//import com.azure.core.http.rest.PagedIterable;
 import com.azure.core.management.AzureEnvironment;
 import com.azure.core.management.profile.AzureProfile;
-import com.azure.core.util.Context;
+//import com.azure.core.util.Context;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
-import com.azure.resourcemanager.network.fluent.models.PrivateEndpointConnectionInner;
+//import com.azure.resourcemanager.network.fluent.models.PrivateEndpointConnectionInner;
 import com.azure.resourcemanager.network.fluent.models.PrivateEndpointInner;
-import com.azure.resourcemanager.network.fluent.models.PrivateLinkServiceInner;
-import com.azure.resourcemanager.network.models.PrivateLinkServiceConnectionState;
-import com.azure.resourcemanager.network.models.PrivateEndpoint.PrivateLinkServiceConnection;
-import com.azure.resourcemanager.resources.models.ResourceGroup;
+//import com.azure.resourcemanager.network.fluent.models.PrivateLinkServiceInner;
+//import com.azure.resourcemanager.network.models.PrivateLinkServiceConnectionState;
+//import com.azure.resourcemanager.network.models.PrivateEndpoint.PrivateLinkServiceConnection;
+//import com.azure.resourcemanager.resources.models.ResourceGroup;
 
 public class App 
 {
@@ -36,12 +37,14 @@ public class App
                             .authenticate(credential, profile)
                             .withSubscription(sId);
             System.out.println("Selected subscription: " + azureResourceManager.subscriptionId());
+            /*
             List<Object> privateLinkResources  = azureResourceManager
                 .networks()
                 .manager()
                 .serviceClient()
                 .getPrivateLinkServices()
                 .list().stream().collect(Collectors.toList());
+            */
             for (PrivateEndpointInner pE : azureResourceManager
                 .networks()
                 .manager()

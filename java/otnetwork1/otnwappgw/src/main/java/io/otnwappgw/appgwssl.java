@@ -1,7 +1,8 @@
+// /* spell-checker: disable */
 package io.otnwappgw;
 
 import com.azure.core.http.policy.HttpLogDetailLevel;
-import com.azure.core.http.rest.PagedIterable;
+//import com.azure.core.http.rest.PagedIterable;
 import com.azure.core.management.AzureEnvironment;
 import com.azure.core.management.Region;
 import com.azure.core.management.SubResource;
@@ -25,12 +26,12 @@ import com.azure.resourcemanager.network.models.ApplicationGatewaySslPolicyType;
 import com.azure.resourcemanager.network.models.ApplicationGatewaySslProfile;
 import com.azure.resourcemanager.network.models.ApplicationGatewaySslProtocol;
 import com.azure.resourcemanager.network.models.ApplicationGatewayTier;
-import com.azure.resourcemanager.resources.models.ResourceGroup;
+//import com.azure.resourcemanager.resources.models.ResourceGroup;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+//import java.util.HashMap;
+//import java.util.Map;
 
 import io.otnwappgw.model.AuthFile;
 
@@ -128,6 +129,7 @@ public class appgwssl
         }            
     }
 
+    /*
     @SuppressWarnings("unchecked")
     private static <T> Map<String, T> mapOf(Object... inputs) {
         Map<String, T> map = new HashMap<>();
@@ -138,4 +140,5 @@ public class appgwssl
         }
         return map;
     }
+    */
 }

@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package io.otmsai1;
 
 import java.time.Duration;
@@ -11,7 +12,7 @@ public class otmsai1
 {
     public static void main( String[] args )
     {
-        System.out.println( "Managed Identity" );
+        System.out.println( "Connection using managed identity to storage endpoint" );
         final String endpoint = args[0].toString();
         ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder()
                                                                       .maxRetry(10)

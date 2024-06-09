@@ -1,14 +1,15 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
-import com.microsoft.azure.arm.resources.Region;
-import com.microsoft.azure.credentials.ApplicationTokenCredentials;
+//import com.microsoft.azure.arm.resources.Region;
+//import com.microsoft.azure.credentials.ApplicationTokenCredentials;
 import com.microsoft.azure.management.Azure;
 import com.microsoft.rest.LogLevel;
 
 import com.microsoft.azure.management.network.*;
-import com.microsoft.azure.management.resources.implementation.ResourceManager;
-import com.microsoft.azure.management.resources.Provider;
-import com.microsoft.azure.management.resources.fluentcore.arm.ResourceUtils;
+//import com.microsoft.azure.management.resources.implementation.ResourceManager;
+//import com.microsoft.azure.management.resources.Provider;
+//import com.microsoft.azure.management.resources.fluentcore.arm.ResourceUtils;
 
 import java.io.File;
 
@@ -19,10 +20,9 @@ public class otpipprefix {
             final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
             Azure azure = Azure.configure().withLogLevel(LogLevel.NONE).authenticate(credFile)
                     .withDefaultSubscription();
-            String id1 = "/subscriptions/../resourceGroups/rg-lb1/providers/Microsoft.Network/publicIPAddresses/ips1";
-            
-            //ResourceUtils.defaultApiVersion(id1, provider)
-            ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
+            //String id1 = "/subscriptions/../resourceGroups/rg-lb1/providers/Microsoft.Network/publicIPAddresses/ips1";     
+            //ResourceUtils.defaultApiVersion(id1, provider);
+            //ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
             PublicIPPrefix p1 = azure.publicIPPrefixes()
                                     .define("ippool1")
                                     .withRegion("eastus2")
@@ -30,7 +30,7 @@ public class otpipprefix {
                                     .withPrefixLength(8)
                                     .withPublicIPAddressVersion(IPVersion.IPV4)
                                     .create();
-            //PublicIPPrefix.DefinitionStages.
+            System.out.println(p1.id());
             PublicIPAddress ip2 = azure.publicIPAddresses()
                                     .define("ip2")
                                     .withRegion("eastus2")
@@ -38,7 +38,7 @@ public class otpipprefix {
                                     .withStaticIP()
                                     .withSku(PublicIPSkuType.STANDARD)
                                     .create();
-            
+            System.out.println(ip2.id());
             PublicIPAddress.DefinitionStages.WithCreate ip1 = azure.publicIPAddresses()
                 .define("ip1")
                 .withRegion("eastus2")

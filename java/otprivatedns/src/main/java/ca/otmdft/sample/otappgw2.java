@@ -1,30 +1,31 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
-import com.microsoft.azure.credentials.ApplicationTokenCredentials;
+//import com.microsoft.azure.credentials.ApplicationTokenCredentials;
 import com.microsoft.azure.management.Azure;
 import com.microsoft.rest.LogLevel;
 import com.microsoft.azure.management.network.ApplicationGateway;
-import com.microsoft.azure.management.network.Network;
-import com.microsoft.azure.management.network.Subnet;
+//import com.microsoft.azure.management.network.Network;
+//import com.microsoft.azure.management.network.Subnet;
 import com.microsoft.azure.management.network.ApplicationGateway.DefinitionStages.WithRequestRoutingRuleOrCreate;
-import com.microsoft.azure.management.network.ManagedServiceIdentityUserAssignedIdentitiesValue;
-import com.microsoft.azure.management.network.ResourceIdentityType;
-import com.microsoft.azure.management.network.ManagedServiceIdentity;
-import com.microsoft.azure.management.msi.Identity;
-import com.microsoft.azure.management.resources.ResourceGroup;
-import com.microsoft.azure.SubResource;
+//import com.microsoft.azure.management.network.ManagedServiceIdentityUserAssignedIdentitiesValue;
+//import com.microsoft.azure.management.network.ResourceIdentityType;
+//import com.microsoft.azure.management.network.ManagedServiceIdentity;
+//import com.microsoft.azure.management.msi.Identity;
+//import com.microsoft.azure.management.resources.ResourceGroup;
+//import com.microsoft.azure.SubResource;
 import com.microsoft.azure.arm.resources.Region;
-import com.microsoft.azure.management.resources.fluentcore.utils.SdkContext;
-import com.microsoft.rest.serializer.JacksonAdapter;
+//import com.microsoft.azure.management.resources.fluentcore.utils.SdkContext;
+//import com.microsoft.rest.serializer.JacksonAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.Map;
+//import java.io.IOException;
 import java.io.File;
-import java.util.Arrays;
-import java.util.HashMap;
-import com.google.gson.JsonObject;
+//import java.util.Arrays;
+//import java.util.HashMap;
+//import com.google.gson.JsonObject;
 
 import java.nio.file.*;
 
@@ -35,8 +36,8 @@ public class otappgw2
     public static void main( String[] args )
     {
         String rgName = "rg-gap"; // Resource GroupName - should be exist 
-        String vnetName = "vnet-gapt1"; // virtual network name - should be exist  
-        String subnetName = "SB_APPGW";
+        //String vnetName = "vnet-gapt1"; // virtual network name - should be exist  
+        //String subnetName = "SB_APPGW";
         String appGwName2 = "appgw4";
         System.out.println( "Welcome to Azure Application Gateway v2 / V1" );
         try {
@@ -46,9 +47,9 @@ public class otappgw2
                 .withLogLevel(LogLevel.NONE)
                 .authenticate(credFile)
                 .withDefaultSubscription();
-            ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
-            Network vnet = azure.networks().getByResourceGroup(rgName, vnetName); // get virtual network 
-            Subnet subnetVnet = vnet.subnets().get(subnetName);
+            //ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
+            //Network vnet = azure.networks().getByResourceGroup(rgName, vnetName); // get virtual network 
+            //Subnet subnetVnet = vnet.subnets().get(subnetName);
             //get file
             File pfxFile = oaw.file1();
             byte[] content = Files.readAllBytes(pfxFile.toPath()); 

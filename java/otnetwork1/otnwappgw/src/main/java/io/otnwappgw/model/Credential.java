@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package io.otnwappgw.model;
 
 public class Credential 

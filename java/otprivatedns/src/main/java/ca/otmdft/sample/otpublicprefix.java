@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
 import com.microsoft.azure.arm.resources.Region;

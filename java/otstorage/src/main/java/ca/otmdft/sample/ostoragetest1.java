@@ -1,39 +1,40 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
 import java.io.UncheckedIOException;
 import java.util.Locale;
 
-import com.azure.core.credential.TokenCredential;
-import com.azure.core.http.policy.HttpLogDetailLevel;
+//import com.azure.core.credential.TokenCredential;
+//import com.azure.core.http.policy.HttpLogDetailLevel;
 import com.azure.core.http.policy.UserAgentPolicy;
-import com.azure.core.http.rest.Response;
-import com.azure.core.management.AzureEnvironment;
-import com.azure.core.management.Region;
-import com.azure.core.management.profile.AzureProfile;
+//import com.azure.core.http.rest.Response;
+//import com.azure.core.management.AzureEnvironment;
+//import com.azure.core.management.Region;
+//import com.azure.core.management.profile.AzureProfile;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.identity.DefaultAzureCredential;
-import com.azure.resourcemanager.AzureResourceManager;
-import com.azure.resourcemanager.compute.models.KnownLinuxVirtualMachineImage;
-import com.azure.resourcemanager.compute.models.VirtualMachine;
-import com.azure.resourcemanager.compute.models.VirtualMachineSizeTypes;
-import com.azure.resourcemanager.network.models.Network;
-import com.azure.resourcemanager.storage.models.CheckNameAvailabilityResult;
-import com.azure.resourcemanager.storage.models.StorageAccount;
-import com.azure.storage.blob.BlobAsyncClient;
+//import com.azure.resourcemanager.AzureResourceManager;
+//import com.azure.resourcemanager.compute.models.KnownLinuxVirtualMachineImage;
+//import com.azure.resourcemanager.compute.models.VirtualMachine;
+//import com.azure.resourcemanager.compute.models.VirtualMachineSizeTypes;
+//import com.azure.resourcemanager.network.models.Network;
+//import com.azure.resourcemanager.storage.models.CheckNameAvailabilityResult;
+//import com.azure.resourcemanager.storage.models.StorageAccount;
+//import com.azure.storage.blob.BlobAsyncClient;
 import com.azure.storage.blob.BlobClient;
-import com.azure.storage.blob.BlobClientBuilder;
-import com.azure.storage.blob.BlobContainerAsyncClient;
+//import com.azure.storage.blob.BlobClientBuilder;
+//import com.azure.storage.blob.BlobContainerAsyncClient;
 import com.azure.storage.blob.BlobContainerClient;
-import com.azure.storage.blob.BlobServiceAsyncClient;
+//import com.azure.storage.blob.BlobServiceAsyncClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
-import com.azure.storage.blob.options.BlobBeginCopyOptions;
+//import com.azure.storage.blob.options.BlobBeginCopyOptions;
 
 public class ostoragetest1 {
     public static void main(final String[] args) {
         System.out.println("Azure SDK Storage");        
         String accountName = "";
-        String rgName = "rg-java";
+        //String rgName = "rg-java";
         String sContainerName = "container5";
         String sblobName = ""; 
         String filePathName = "";

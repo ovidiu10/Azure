@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package io.ottest1.model;
 
 public class Credential 
@@ -6,11 +7,11 @@ public class Credential
     private String clientSecret;
     private String subscriptionId;
     private String tenantId;
-    private String activeDirectoryEndpointUrl;
-    private String resourceManagerEndpointUrl;
-    private String sqlManagementEndpointUrl;
-    private String galleryEndpointUrl;
-    private String managementEndpointUrl;
+    //private String activeDirectoryEndpointUrl;
+    //private String resourceManagerEndpointUrl;
+    //private String sqlManagementEndpointUrl;
+    //private String galleryEndpointUrl;
+    //private String managementEndpointUrl;
 
     public String getclientId() {
         return clientId;

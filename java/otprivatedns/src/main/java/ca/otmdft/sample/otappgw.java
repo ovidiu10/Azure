@@ -1,7 +1,8 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
 import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-import com.microsoft.azure.keyvault.models.CertificateBundle;
+//import com.microsoft.azure.keyvault.models.CertificateBundle;
 import com.microsoft.azure.management.Azure;
 import com.microsoft.rest.LogLevel;
 import com.microsoft.azure.management.network.ApplicationGateway;
@@ -18,18 +19,18 @@ import com.microsoft.azure.management.keyvault.Secret;
 import com.microsoft.azure.management.keyvault.implementation.KeyVaultManager;
 import com.microsoft.azure.management.msi.Identity;
 import com.microsoft.azure.management.msi.implementation.MSIManager;
-import com.microsoft.azure.management.resources.ResourceGroup;
-import com.microsoft.azure.SubResource;
+//import com.microsoft.azure.management.resources.ResourceGroup;
+//import com.microsoft.azure.SubResource;
 import com.microsoft.azure.arm.resources.Region;
 import com.microsoft.azure.management.resources.fluentcore.utils.SdkContext;
 import com.microsoft.rest.serializer.JacksonAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 import java.util.Map;
-import java.io.IOException;
+//import java.io.IOException;
 import java.io.File;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.HashMap;
 import com.google.gson.JsonObject;
 import com.google.common.io.Files;
@@ -45,7 +46,7 @@ public class otappgw
         String subnetName = "SB_APPGW";
         String pipgw = "pip_appgw"; 
         String appGwName = "appgw1";
-        String kvName = "otkvusw2";
+        //String kvName = "otkvusw2";
         System.out.println( "Welcome to Azure Application Gateway v2" );
         try {
             otappgw oaw = new otappgw();

@@ -1,21 +1,22 @@
+// /* spell-checker: disable */
 package io.ottest1;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.time.Duration;
+//import java.time.Duration;
 
-import com.azure.core.credential.TokenCredential;
+//import com.azure.core.credential.TokenCredential;
 import com.azure.core.http.policy.HttpLogDetailLevel;
 import com.azure.core.http.rest.PagedIterable;
 import com.azure.core.management.AzureEnvironment;
 import com.azure.core.management.profile.AzureProfile;
-import com.azure.identity.AzureCliCredential;
-import com.azure.identity.AzureCliCredentialBuilder;
+//import com.azure.identity.AzureCliCredential;
+//import com.azure.identity.AzureCliCredentialBuilder;
 import com.azure.identity.ClientSecretCredential;
 import com.azure.identity.ClientSecretCredentialBuilder;
-import com.azure.identity.DefaultAzureCredentialBuilder;
-import com.azure.identity.ManagedIdentityCredential;
-import com.azure.identity.ManagedIdentityCredentialBuilder;
+//import com.azure.identity.DefaultAzureCredentialBuilder;
+//import com.azure.identity.ManagedIdentityCredential;
+//import com.azure.identity.ManagedIdentityCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
 import com.azure.resourcemanager.resources.models.ResourceGroup;
 

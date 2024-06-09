@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package ca.otmdf2.samples;
 
 import java.util.*;
@@ -5,28 +6,27 @@ import java.util.*;
 import com.azure.core.credential.TokenCredential;
 import com.azure.core.http.policy.HttpLogDetailLevel;
 import com.azure.core.management.AzureEnvironment;
-import com.azure.core.management.Region;
+//import com.azure.core.management.Region;
 import com.azure.core.management.profile.AzureProfile;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
-import com.azure.resourcemanager.authorization.models.BuiltInRole;
-import com.azure.resourcemanager.authorization.models.RoleAssignment;
-import com.azure.resourcemanager.compute.models.InstanceViewStatus;
-import com.azure.resourcemanager.compute.models.OSDisk;
+//import com.azure.resourcemanager.authorization.models.BuiltInRole;
+//import com.azure.resourcemanager.authorization.models.RoleAssignment;
+//import com.azure.resourcemanager.compute.models.InstanceViewStatus;
+//import com.azure.resourcemanager.compute.models.OSDisk;
 import com.azure.resourcemanager.compute.models.PowerState;
 import com.azure.resourcemanager.compute.models.VirtualMachine;
 import com.azure.resourcemanager.compute.models.VirtualMachineExtension;
 import com.azure.resourcemanager.compute.models.VirtualMachineExtensionInstanceView;
-import com.azure.resourcemanager.msi.models.Identity;
+//import com.azure.resourcemanager.msi.models.Identity;
 
 public class otroleaassign {
     public static void main(String[] args) {
         try {
-            
             final String sId = "";
-            final String rg = "rg-java";
-            final String storageName = "storageName";
-            final String userIdentityName = "uidt1";
+            //final String rg = "rg-java";
+            //final String storageName = "storageName";
+            //final String userIdentityName = "uidt1";
             final AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
             final TokenCredential credential = new DefaultAzureCredentialBuilder()
                 .authorityHost(profile.getEnvironment().getActiveDirectoryEndpoint())

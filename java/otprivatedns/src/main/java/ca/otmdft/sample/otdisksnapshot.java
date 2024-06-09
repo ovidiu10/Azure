@@ -1,9 +1,11 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
-import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-import com.microsoft.azure.keyvault.models.CertificateBundle;
+//import com.microsoft.azure.credentials.ApplicationTokenCredentials;
+//import com.microsoft.azure.keyvault.models.CertificateBundle;
 import com.microsoft.azure.management.Azure;
 import com.microsoft.rest.LogLevel;
+/*
 import com.microsoft.azure.management.network.ApplicationGateway;
 import com.microsoft.azure.management.network.ApplicationGatewaySkuName;
 import com.microsoft.azure.management.network.ApplicationGatewayTier;
@@ -20,45 +22,46 @@ import com.microsoft.azure.management.keyvault.Secret;
 import com.microsoft.azure.management.keyvault.implementation.KeyVaultManager;
 import com.microsoft.azure.management.msi.Identity;
 import com.microsoft.azure.management.msi.implementation.MSIManager;
+*/
 import com.microsoft.azure.management.resources.ResourceGroup;
 import com.microsoft.azure.management.compute.Disk;
-import com.microsoft.azure.management.compute.DiskSkuTypes;
-import com.microsoft.azure.management.compute.KnownLinuxVirtualMachineImage;
-import com.microsoft.azure.management.compute.VirtualMachine;
-import com.microsoft.azure.management.compute.Snapshot.DefinitionStages.WithCreate;
+//import com.microsoft.azure.management.compute.DiskSkuTypes;
+//import com.microsoft.azure.management.compute.KnownLinuxVirtualMachineImage;
+//import com.microsoft.azure.management.compute.VirtualMachine;
+//import com.microsoft.azure.management.compute.Snapshot.DefinitionStages.WithCreate;
 import com.microsoft.azure.management.compute.Snapshot;
-import com.microsoft.azure.SubResource;
-import com.microsoft.azure.arm.model.Creatable;
+//import com.microsoft.azure.SubResource;
+//import com.microsoft.azure.arm.model.Creatable;
 import com.microsoft.azure.arm.resources.Region;
-import com.microsoft.azure.management.resources.fluentcore.arm.AvailabilityZoneId;
-import com.microsoft.azure.management.resources.fluentcore.utils.SdkContext;
-import com.microsoft.rest.serializer.JacksonAdapter;
+//import com.microsoft.azure.management.resources.fluentcore.arm.AvailabilityZoneId;
+//import com.microsoft.azure.management.resources.fluentcore.utils.SdkContext;
+//import com.microsoft.rest.serializer.JacksonAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.Map;
+//import java.io.IOException;
 import java.io.File;
-import java.util.Arrays;
-import java.util.HashMap;
-import com.google.gson.JsonObject;
-import com.google.common.io.Files;
-import java.nio.charset.Charset;
+//import java.util.Arrays;
+//import java.util.HashMap;
+//import com.google.gson.JsonObject;
+//import com.google.common.io.Files;
+//import java.nio.charset.Charset;
 
 public class otdisksnapshot {
     public static void main(String[] args) {
         String rgName = "rg-java"; // Resource GroupName - should be exist
-        String vnetName = "vnet-gapt1"; // virtual network name - should be exist
-        String subnetName = "SB_APPGW";
-        String pipgw = "pip_appgw";
-        String appGwName = "appgw1";
-        String kvName = "otkvusw2";
+        //String vnetName = "vnet-gapt1"; // virtual network name - should be exist
+        //String subnetName = "SB_APPGW";
+        //String pipgw = "pip_appgw";
+        //String appGwName = "appgw1";
+        //String kvName = "otkvusw2";
         System.out.println("Welcome Java V2");
         try {
             final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION3"));
             Azure azure = Azure.configure().withLogLevel(LogLevel.NONE).authenticate(credFile)
                     .withDefaultSubscription();
-            ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
+            //ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
             ResourceGroup rg = azure.resourceGroups().getByName(rgName);
             System.out.println(rg.id());
             // NetworkInterface nic = azure.networkInterfaces().getByResourceGroup(rgName,
@@ -92,10 +95,11 @@ public class otdisksnapshot {
              */            
             Disk sourceDisk1 = azure.disks().getByResourceGroup(rgName, "ottest1_OsDisk_1_3b215a2a10114a419bc681e7691d8b37");
             Snapshot oSnapshot1 = azure.snapshots().define("disk1-clone-test3")
-             .withRegion(Region.US_WEST_CENTRAL.name())
-             .withExistingResourceGroup(rgName)
-             .withLinuxFromDisk(sourceDisk1.id())
-             .create();
+                            .withRegion(Region.US_WEST_CENTRAL.name())
+                            .withExistingResourceGroup(rgName)
+                            .withLinuxFromDisk(sourceDisk1.id())
+                            .create();
+            System.out.println(oSnapshot1.id());
             /*
             final WithCreate sp2 = azure.snapshots().define("aaa")
                                         .withRegion(Region.US_EAST2.name())

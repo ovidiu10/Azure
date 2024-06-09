@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package io.ottest1.model;
 
 import com.azure.core.util.serializer.SerializerAdapter;
@@ -23,11 +24,11 @@ public class AuthFile {
     private String clientSecret;
     private String subscriptionId;
     private String tenantId;
-    private String activeDirectoryEndpointUrl;
-    private String resourceManagerEndpointUrl;
-    private String sqlManagementEndpointUrl;
-    private String galleryEndpointUrl;
-    private String managementEndpointUrl;
+    //private String activeDirectoryEndpointUrl;
+    //private String resourceManagerEndpointUrl;
+    //private String sqlManagementEndpointUrl;
+    //private String galleryEndpointUrl;
+    //private String managementEndpointUrl;
 
     @JsonIgnore
     private final AzureEnvironment environment;

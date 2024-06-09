@@ -1,26 +1,27 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
 import com.microsoft.azure.management.Azure;
 import com.microsoft.azure.management.network.ApplicationGateway;
-import com.microsoft.azure.management.network.ApplicationGatewayFirewallExclusion;
-import com.microsoft.azure.management.network.ApplicationGatewayFirewallMode;
-import com.microsoft.azure.management.network.ApplicationGatewaySkuName;
-import com.microsoft.azure.management.network.ApplicationGatewayTier;
-import com.microsoft.azure.management.network.ApplicationGatewayWebApplicationFirewallConfiguration;
-import com.microsoft.azure.management.resources.fluentcore.arm.Region;
+//import com.microsoft.azure.management.network.ApplicationGatewayFirewallExclusion;
+//import com.microsoft.azure.management.network.ApplicationGatewayFirewallMode;
+//import com.microsoft.azure.management.network.ApplicationGatewaySkuName;
+//import com.microsoft.azure.management.network.ApplicationGatewayTier;
+//import com.microsoft.azure.management.network.ApplicationGatewayWebApplicationFirewallConfiguration;
+//import com.microsoft.azure.management.resources.fluentcore.arm.Region;
 import com.microsoft.rest.LogLevel;
 
 import java.io.File;
-import java.lang.reflect.Array;
-import java.util.Arrays;
+//import java.lang.reflect.Array;
+//import java.util.Arrays;
 
 
 public class otjavaappgw4 {
     public static void main( String[] args )
     {
         String rgName = "rg-java"; // Resource GroupName - should be exist 
-        String vnetName = ""; // virtual network name - should be exist  
-        String subnetName = "";
+        //String vnetName = ""; // virtual network name - should be exist  
+        //String subnetName = "";
         String appGwName = "otappgw1";
         System.out.println("Welcome to Azure Test");
         try {

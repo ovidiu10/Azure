@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
@@ -152,7 +153,7 @@ public final class CloneVirtualMachineToNewRegion {
             azureResourceManager.snapshots().deleteById(osSnapshot.id());
 
             System.out.println("Created managed snapshot holding OS: " + osSnapshotNewRegion.id());
-            // ResourceManagerUtils.print(osSnapshot); TODO
+            // ResourceManagerUtils.print(osSnapshot); //F
 
             //=============================================================
             // Create Managed snapshot from the Data managed disks
@@ -193,7 +194,7 @@ public final class CloneVirtualMachineToNewRegion {
                 dataSnapshots.add(dataSnapshotNewRegion);
 
                 System.out.println("Created managed snapshot holding data: " + dataSnapshotNewRegion.id());
-                // ResourceManagerUtils.print(dataDisk); TODO
+                // ResourceManagerUtils.print(dataDisk); //F
                 i++;
             }
 
@@ -210,7 +211,7 @@ public final class CloneVirtualMachineToNewRegion {
                     .create();
 
             System.out.println("Created managed disk holding OS: " + osDisk.id());
-            // ResourceManagerUtils.print(osDisk); TODO
+            // ResourceManagerUtils.print(osDisk); //F
 
             //=============================================================
             // Create Managed disks from the data snapshots
@@ -229,7 +230,7 @@ public final class CloneVirtualMachineToNewRegion {
                 newDataDisks.add(dataDisk);
 
                 System.out.println("Created managed disk holding data: " + dataDisk.id());
-                // ResourceManagerUtils.print(dataDisk); TODO
+                // ResourceManagerUtils.print(dataDisk); //F
                 i++;
             }
 

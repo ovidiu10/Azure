@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package com.azure.resourcemanager.compute.samples;
 
 import com.azure.core.credential.TokenCredential;
@@ -10,29 +11,29 @@ import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
 import com.azure.resourcemanager.compute.ComputeManager;
 import com.azure.resourcemanager.compute.fluent.models.SnapshotInner;
-import com.azure.resourcemanager.compute.models.CachingTypes;
+//import com.azure.resourcemanager.compute.models.CachingTypes;
 import com.azure.resourcemanager.compute.models.CreationData;
 import com.azure.resourcemanager.compute.models.Disk;
 import com.azure.resourcemanager.compute.models.DiskCreateOption;
 import com.azure.resourcemanager.compute.models.KnownLinuxVirtualMachineImage;
 import com.azure.resourcemanager.compute.models.OperatingSystemTypes;
 import com.azure.resourcemanager.compute.models.VirtualMachine;
-import com.azure.resourcemanager.compute.models.VirtualMachineDataDisk;
+//import com.azure.resourcemanager.compute.models.VirtualMachineDataDisk;
 import com.azure.resourcemanager.compute.models.VirtualMachineSizeTypes;
 import com.azure.resourcemanager.resources.fluentcore.utils.ResourceManagerUtils;
 import com.azure.resourcemanager.samples.Utils;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 
 public final class CloneVMrun {
     
     public static boolean runSample1(AzureResourceManager azureResourceManager, ComputeManager computeManager) {
         final String linuxVMName1 = Utils.randomResourceName(azureResourceManager, "VM1", 15);
-        final String managedOSSnapshotName = Utils.randomResourceName(azureResourceManager, "ss-os-", 15);
+        //final String managedOSSnapshotName = Utils.randomResourceName(azureResourceManager, "ss-os-", 15);
         final String rgName = Utils.randomResourceName(azureResourceManager, "rgCOMV", 15);
         final String publicIpDnsLabel = Utils.randomResourceName(azureResourceManager, "pip", 15);
         final String userName = "azureadmin";

@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package io.otmsft2.samplecrp;
 
 import com.microsoft.azure.management.Azure;
@@ -7,14 +8,14 @@ import com.microsoft.azure.management.network.NetworkInterface;
 import com.microsoft.azure.management.resources.GenericResource;
 import com.microsoft.rest.LogLevel;
 
-import org.joda.time.DateTime;
-import org.joda.time.Seconds;
+//import org.joda.time.DateTime;
+//import org.joda.time.Seconds;
 
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import javax.swing.text.StyledEditorKit;
+//import javax.swing.text.StyledEditorKit;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
 
@@ -38,10 +39,11 @@ public class otvmforcedelete
             {
                 rgName = "rg-java3";
                 region = "eastus2euap";
-            } else {            
-                rgName = "rg-java2";
-                region = "centraluseuap";
-            }                  
+            } 
+            //else {            
+            //    rgName = "rg-java2";
+            //    region = "centraluseuap";
+            //}                  
             System.out.println("Start Testing " + region + " " + new Date());
             for (int i = 1; i < 4; i++) {
                 String vmName = "vmName" + i;

@@ -1,20 +1,21 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
 import com.microsoft.azure.credentials.ApplicationTokenCredentials;
 import com.microsoft.azure.management.Azure;
 import com.microsoft.rest.LogLevel;
 import com.microsoft.azure.management.network.Network;
-import com.microsoft.azure.management.privatedns.v2018_09_01.implementation.PrivateDnsManagementClientImpl;
-import com.microsoft.azure.management.privatedns.v2018_09_01.implementation.VirtualNetworkLinkInner;
-import com.microsoft.azure.management.resources.ResourceGroup;
+//import com.microsoft.azure.management.privatedns.v2018_09_01.implementation.PrivateDnsManagementClientImpl;
+//import com.microsoft.azure.management.privatedns.v2018_09_01.implementation.VirtualNetworkLinkInner;
+//import com.microsoft.azure.management.resources.ResourceGroup;
 import com.microsoft.azure.management.privatedns.v2018_09_01.implementation.*;
 import com.microsoft.azure.management.privatedns.v2018_09_01.*;
 import com.microsoft.azure.SubResource;
-import com.microsoft.azure.arm.resources.Region;
+//import com.microsoft.azure.arm.resources.Region;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.io.IOException;
+//import java.io.IOException;
 import java.io.File;
 
 /**

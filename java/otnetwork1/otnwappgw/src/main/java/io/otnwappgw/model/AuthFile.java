@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package io.otnwappgw.model;
 
 import com.azure.core.util.serializer.SerializerAdapter;
@@ -105,47 +106,28 @@ public class AuthFile {
         return this.clientSecret;
     }
 
+    /*
     private enum CredentialSettings {
-        /**
-         * The subscription GUID.
-         */
-        SUBSCRIPTION_ID("subscription"),
-        /**
-         * The tenant GUID or domain.
-         */
-        TENANT_ID("tenant"),
-        /**
-         * The client id for the client application.
-         */
+        
+        // * The subscription GUID.        
+        SUBSCRIPTION_ID("subscription"),        
+        // * The tenant GUID or domain.        
+        TENANT_ID("tenant"),        
+        // * The client id for the client application.        
         CLIENT_ID("client"),
-        /**
-         * The client secret for the service principal.
-         */
+        // * The client secret for the service principal.
         CLIENT_KEY("key"),
-        /**
-         * The management endpoint.
-         */
-        MANAGEMENT_URI("managementURI"),
-        /**
-         * The base URL to the current Azure environment.
-         */
+        // * The management endpoint.
+        MANAGEMENT_URI("managementURI"),        
+        // * The base URL to the current Azure environment.
         BASE_URL("baseURL"),
-        /**
-         * The URL to Active Directory authentication.
-         */
+        // * The URL to Active Directory authentication.
         AUTH_URL("authURL"),
-        /**
-         * The URL to Active Directory Graph.
-         */
+        // * The URL to Active Directory Graph.        
         GRAPH_URL("graphURL"),
-        /**
-         * The suffix of Key Vaults.
-         */
+        //The suffix of Key Vaults.
         VAULT_SUFFIX("vaultSuffix");
-
-        /**
-         * The name of the key in the properties file.
-         */
+        //The name of the key in the properties file.
         private final String name;
 
         CredentialSettings(String name) {
@@ -157,5 +139,6 @@ public class AuthFile {
             return this.name;
         }
     }
+    */
 
 }

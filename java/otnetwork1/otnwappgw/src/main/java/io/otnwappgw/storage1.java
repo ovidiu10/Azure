@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 package io.otnwappgw;
 
 import java.io.File;
@@ -9,8 +10,8 @@ import com.azure.core.management.profile.AzureProfile;
 import com.azure.identity.ClientSecretCredential;
 import com.azure.identity.ClientSecretCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
-import com.azure.resourcemanager.storage.models.Sku;
-import com.azure.resourcemanager.storage.models.SkuName;
+//import com.azure.resourcemanager.storage.models.Sku;
+//import com.azure.resourcemanager.storage.models.SkuName;
 
 import io.otnwappgw.model.AuthFile;
 

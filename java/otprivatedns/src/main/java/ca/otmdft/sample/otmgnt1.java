@@ -1,27 +1,28 @@
+// /* spell-checker: disable */
 package ca.otmdft.sample;
 
 import java.io.File;
 
-import com.microsoft.azure.credentials.ApplicationTokenCredentials;
+//import com.microsoft.azure.credentials.ApplicationTokenCredentials;
 import com.microsoft.azure.management.Azure;
-import com.microsoft.azure.management.compute.KnownLinuxVirtualMachineImage;
-import com.microsoft.azure.management.compute.PowerState;
+//import com.microsoft.azure.management.compute.KnownLinuxVirtualMachineImage;
+//import com.microsoft.azure.management.compute.PowerState;
 import com.microsoft.azure.management.compute.VirtualMachine;
-import com.microsoft.azure.management.compute.VirtualMachineSizeTypes;
-import com.microsoft.azure.management.network.Network;
-import com.microsoft.azure.management.network.v2019_09_01.NetworkInterface;
-import com.microsoft.azure.management.storage.SkuName;
-import com.microsoft.azure.management.storage.StorageAccount;
+//import com.microsoft.azure.management.compute.VirtualMachineSizeTypes;
+//import com.microsoft.azure.management.network.Network;
+//import com.microsoft.azure.management.network.v2019_09_01.NetworkInterface;
+//import com.microsoft.azure.management.storage.SkuName;
+//import com.microsoft.azure.management.storage.StorageAccount;
 import com.microsoft.rest.LogLevel;
-import com.microsoft.azure.arm.resources.Region;
+//import com.microsoft.azure.arm.resources.Region;
 
 public class otmgnt1 {
 
     public static void main( String[] args )
     {
         String rgName = "rg-bkparchive1"; // Resource GroupName - should be exist 
-        String vnetName = "vnet-wcus";
-        String subnetName = "SB_192.168.229.0_25";
+        //String vnetName = "vnet-wcus";
+        //String subnetName = "SB_192.168.229.0_25";
         System.out.println( "Azure SDK Track1 Management" );
         try {
             final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));        
@@ -29,10 +30,11 @@ public class otmgnt1 {
                 .withLogLevel(LogLevel.BODY_AND_HEADERS)
                 .authenticate(credFile)
                 .withDefaultSubscription();
-            ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
-            Network virtualNetwork1 = azure.networks().getByResourceGroup(rgName, vnetName);            
-            NetworkInterface networkInterface = null;
+            //ApplicationTokenCredentials cred = ApplicationTokenCredentials.fromFile(credFile);
+            ///Network virtualNetwork1 = azure.networks().getByResourceGroup(rgName, vnetName);            
+            //NetworkInterface networkInterface = null;
             VirtualMachine vm1 = azure.virtualMachines().getByResourceGroup(rgName, "otvm6wcus");
+            System.out.println(vm1.id());
             //PowerState pw = vm1.powerState();  
             /*                   
             StorageAccount storageAccount = azure.storageAccounts().define("")

@@ -1,3 +1,4 @@
+// /* spell-checker: disable */
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
@@ -2568,7 +2569,7 @@ public final class Utils {
                 .append("\n\tResourceGroupName: ").append(cosmosDBAccount.resourceGroupName())
                 .append("\n\tKind: ").append(cosmosDBAccount.kind().toString())
                 .append("\n\tDefault consistency level: ").append(cosmosDBAccount.consistencyPolicy().defaultConsistencyLevel())
-                .append("\n\tIP range filter: ").append(cosmosDBAccount.ipRangeFilter());
+                .append("\n\tIP range filter: ").append(cosmosDBAccount.ipRules());
 
         DatabaseAccountListKeysResult keys = cosmosDBAccount.listKeys();
         DatabaseAccountListReadOnlyKeysResult readOnlyKeys = cosmosDBAccount.listReadOnlyKeys();
