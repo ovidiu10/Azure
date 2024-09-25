@@ -4,5 +4,5 @@ Remove-AzVMDataDisk -VM $vm -Name "your disk name"
 $vm.StorageProfile.DataDisks | ft
 
 Update-AzVM -ResourceGroupName "your resource group" -VM $vm
-Invoke-AzVMRunCommand -ResourceGroupName rg-netcore4 -Name vm1w2k16 -CommandId "RunPowerShellScript" -ScriptString "Resize-Partition -DriveLetter <your volume drive leter> -Size (Get-PartitionSupportedSize -DriveLetter <your volume drive leter>).SizeMax"
-Invoke-AzVMRunCommand -ResourceGroupName "your resource group" -Name "your vm name" -CommandId "RunPowerShellScript" -ScriptString "get-disk | format-list number, path"
+Invoke-AzVMRunCommand -ResourceGroupName "your resource group" -Name $vm.Name  -CommandId "RunPowerShellScript" -ScriptString "Resize-Partition -DriveLetter <your volume drive leter> -Size (Get-PartitionSupportedSize -DriveLetter <your volume drive leter>).SizeMax"
+Invoke-AzVMRunCommand -ResourceGroupName "your resource group" -Name $vm.Name -CommandId "RunPowerShellScript" -ScriptString "get-disk | format-list number, path"
