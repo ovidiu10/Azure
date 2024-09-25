@@ -1,5 +1,7 @@
 $vmName = "<name of the VM>"
 $rg = "<name of the resource group>"
+$subscription = "<subscription id>"
+$vmId = "/subscriptions/$subscription/resourceGroups/$rg/providers/Microsoft.Compute/virtualMachines/$vmName"
 $MACHINE_PERFORMANCE_THRESHOLD = 1.3 # 30% more than the VM's performance because of burst and other factors like caching
 $vmoProperties = [PSCustomObject]@{
     UncachedDiskIOPS = 'UncachedDiskIOPS'
@@ -9,7 +11,7 @@ $machinePerformance = [PSCustomObject]@{
     iops = 0
     throughputMBps = 0
 }
-$vm = Get-AzVM -ResourceGroupName $rg -Name $vmName
+$vm = Get-AzVM -ResourceId $vmId
 $skuName = $vm.HardwareProfile.VmSize
 $sku = Get-AzComputeResourceSku -Location $vm.Location | Where-Object {($_.Name -eq $skuName)}
 $vmiops = ($sku.Capabilities | Where-Object { $_.Name -eq $vmoProperties.UncachedDiskIOPS }).Value 
