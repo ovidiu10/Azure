@@ -54,3 +54,4 @@ For more details, refer to the [Azure REST API documentation](https://learn.micr
 
 Sample
 [azopenaicapacity.py](azopenaicapacity.py)
+![alt text](result.png "Results")

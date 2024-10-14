@@ -16,10 +16,10 @@ def main():
     
     args = parser.parse_args()
 
-    print("Argument 1:", args.s)
-    print("Argument 2:", args.mf)
-    print("Argument 3:", args.mn)
-    print("Argument 4:", args.a)
+    print("Subscription ID:", args.s)
+    print("Model Format:", args.mf)
+    print("Model Name:", args.mn)
+    print("API:", args.a)
 
     # Acquire a credential object using CLI-based authentication.
     credential = DefaultAzureCredential()
