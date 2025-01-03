@@ -1,10 +1,12 @@
 # Azure Model Capacities
 
-This document provides information on how to list model capacities using the Azure REST API.
+This document provides information on how to list model capacities using the Azure REST API and Azure CLI
+
+[Azure CLI example](./ListModelCapacity.md)
 
 ## API Endpoint
 
-```
+```http
 GET https://management.azure.com/subscriptions/{subscription_id}/providers/Microsoft.CognitiveServices/modelCapacities?api-version=2024-04-01-preview&modelFormat={model_format}&modelName={model_name}&modelVersion={model_version}
 ```
 
