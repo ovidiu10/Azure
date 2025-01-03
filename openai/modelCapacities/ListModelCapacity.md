@@ -50,3 +50,9 @@ az account set -s 'subscriptionid'
 location='eastus2'
 az rest --method get --uri "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/$location/models?api-version=2024-10-01" --query "value[?kind == 'OpenAI']" -o table
 ```
+
+---
+
+Documents
+[https://learn.microsoft.com/en-us/rest/api/aiservices/accountmanagement/model-capacities/list?view=rest-aiservices-accountmanagement-2024-10-01&tabs=HTTP](https://learn.microsoft.com/en-us/rest/api/aiservices/accountmanagement/model-capacities/list?view=rest-aiservices-accountmanagement-2024-10-01&tabs=HTTP)
+[https://learn.microsoft.com/en-us/rest/api/aiservices/accountmanagement/models/list?view=rest-aiservices-accountmanagement-2024-10-01&tabs=HTTP](https://learn.microsoft.com/en-us/rest/api/aiservices/accountmanagement/models/list?view=rest-aiservices-accountmanagement-2024-10-01&tabs=HTTP)
