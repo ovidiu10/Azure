@@ -9,7 +9,10 @@ Sample 1 find right capacity
 ```bash
 az login -t 'tenantid'
 az account set -s 'subscriptionid'
-az rest --method get --uri '/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/modelCapacities?api-version=2024-10-01' --uri-parameters @parameters.json --query 'value[].{name:name, location:location, availableCapacity:properties.availableCapacity}' -o table
+az rest --method get \
+--uri '/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/modelCapacities?api-version=2024-10-01' \
+--uri-parameters @parameters.json \
+--query 'value[].{name:name, location:location, availableCapacity:properties.availableCapacity}' -o table
 ```
 
 Sample parameter file [parameters.json](./parameters.json)
@@ -34,8 +37,9 @@ Sample 2 find the models in region
 az login -t 'tenantid'
 az account set -s 'subscriptionid'
 location='eastus2'
-az rest --method get --uri "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/$location
-/models?api-version=2024-10-01" --query 'value' -o table
+az rest --method get \
+--uri "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/$location/models?api-version=2024-10-01" \
+--query 'value' -o table
 ```
 
 Output for above sample:
@@ -48,7 +52,9 @@ For filter only OpenAI models
 az login -t 'tenantid'
 az account set -s 'subscriptionid'
 location='eastus2'
-az rest --method get --uri "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/$location/models?api-version=2024-10-01" --query "value[?kind == 'OpenAI']" -o table
+az rest --method get \
+--uri "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/$location/models?api-version=2024-10-01" \
+--query "value[?kind == 'OpenAI']" -o table
 ```
 
 ---
