@@ -17,7 +17,7 @@ def capture():
         subscription_id=os.environ['AZURE_SUBSCRIPTION_ID']
     )
     sSASURL = os.environ['AZURE_STORAGE_SAS_URL']
-
+    
     client.azure_firewalls.begin_packet_capture(
         resource_group_name="rg-netcore2",
         azure_firewall_name="otcore2-azfw",
