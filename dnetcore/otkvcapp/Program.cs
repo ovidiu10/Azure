@@ -8,7 +8,7 @@ namespace otkvcapp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Dot Core 3 Console - Azure Key Vault");
+            Console.WriteLine("Dot Core Console - Azure Key Vault");
             string keyVaultName = "";
             string secretName = "App1Test";
             var kvUri = "https://" + keyVaultName + ".vault.azure.net";
