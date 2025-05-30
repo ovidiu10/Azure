@@ -49,3 +49,5 @@ Sample in [Go](https://learn.microsoft.com/en-us/azure/developer/go/ 'Azure for 
 
 Results:
 ![Result Go application](../HealthAdvisory/image/results.png)
+
+Azure Advisory API sample in Go [azureav](azureav)
