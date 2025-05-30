@@ -9,13 +9,16 @@ import com.azure.storage.blob.models.BlobHttpHeaders;
 import com.azure.storage.blob.options.BlobParallelUploadOptions;
 import com.azure.storage.blob.options.BlockBlobSimpleUploadOptions;
 import com.azure.storage.blob.specialized.BlockBlobClient;
+import com.azure.storage.blob.models.ParallelTransferOptions;
 import com.azure.core.util.BinaryData;
 import com.azure.core.util.Context;
 import java.util.Base64;
-import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
+import org.json.JSONObject;
 
 public class App 
 {
@@ -24,15 +27,28 @@ public class App
         System.out.println( "Upload Storage SDK 12" );
         String accountKey = "";
         String accountName = "";
-        String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=" + accountName +
-            ";AccountKey=" + accountKey +
-            ";EndpointSuffix=core.windows.net";
-        String localPath = "xxx.zip";
-        String blobPath = "uploads/xxx.zip";
+        String localPath = "";
+        String blobPath = "";
         boolean MD5enabledinHeader = true;
+        boolean realValue = false; // Set to false to test with a garbage value
         try {            
             // Your code to upload and download files using Azure Storage SDK 12
-            // This is a placeholder for the actual implementation
+            final File credStFile = new File(System.getenv("AZURE_STORAGE1"));
+            if (credStFile.exists()) {
+                System.out.println("Using Azure Storage credentials from environment variable AZURE_STORAGE1");
+                String content = new String(Files.readAllBytes(credStFile.toPath()));
+                JSONObject config = new JSONObject(content);
+                accountKey = config.getString("accountKey");
+                accountName = config.getString("accountName");
+                localPath = config.getString("localPath");
+                blobPath = config.getString("blobPath");
+            } else {
+                System.out.println("Credentials file not found. Please set the AZURE_STORAGE1 environment variable.");
+                return;
+            }
+            String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=" + accountName +
+                ";AccountKey=" + accountKey +
+                ";EndpointSuffix=core.windows.net";
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] data = Files.readAllBytes(Paths.get(localPath));
             byte[] md5Hash = md.digest(data);
@@ -45,17 +61,27 @@ public class App
             containerClient.createIfNotExists();
             if (MD5enabledinHeader) {
                 System.out.println("MD5 enabled in header");
-                BlobHttpHeaders headers = new BlobHttpHeaders().setContentMd5(md5Hash);
-                BlockBlobSimpleUploadOptions options = new BlockBlobSimpleUploadOptions(BinaryData.fromBytes(data)).setHeaders(headers);
+                BlobHttpHeaders headers = null;
+                if (realValue) {
+                    headers = new BlobHttpHeaders().setContentMd5(md5Hash);
+                } else {
+                    headers = new BlobHttpHeaders().setContentMd5(
+                        MessageDigest.getInstance("MD5").digest("garbage".getBytes(StandardCharsets.UTF_8)))
+                        .setContentType("text/plain");
+                }
+                BlockBlobSimpleUploadOptions options = new BlockBlobSimpleUploadOptions(BinaryData.fromBytes(data))
+                    .setHeaders(headers);
                 BlockBlobClient blockBlobClient = containerClient.getBlobClient(blobPath).getBlockBlobClient();
                 blockBlobClient.uploadWithResponse(options, null, Context.NONE);
             } else {
-                System.out.println("MD5 not enabled in header");
+                System.out.println("MD5 not enabled in header just Compute MD5");
                 BlobParallelUploadOptions options = new BlobParallelUploadOptions(BinaryData.fromBytes(data)).setComputeMd5(true);
+                options.setParallelTransferOptions(new ParallelTransferOptions().setMaxSingleUploadSizeLong(512000000L));
                 BlobClient blobClient = containerClient.getBlobClient(blobPath);
                 blobClient.uploadWithResponse(options, null, Context.NONE);
             }
-            System.out.println("File uploaded successfully.");
+
+            System.out.println(blobPath + " File uploaded successfully.");
             //System.out.println("File downloaded successfully to: " + localFileName);
         } catch (Exception e) {
             e.printStackTrace();
