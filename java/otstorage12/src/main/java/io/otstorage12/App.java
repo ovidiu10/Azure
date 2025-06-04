@@ -5,14 +5,18 @@ import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.azure.storage.blob.models.BlobDownloadResponse;
 import com.azure.storage.blob.models.BlobHttpHeaders;
+import com.azure.storage.blob.models.BlobProperties;
 import com.azure.storage.blob.options.BlobParallelUploadOptions;
 import com.azure.storage.blob.options.BlockBlobSimpleUploadOptions;
 import com.azure.storage.blob.specialized.BlockBlobClient;
 import com.azure.storage.blob.models.ParallelTransferOptions;
+import com.azure.core.http.rest.Response;
 import com.azure.core.util.BinaryData;
 import com.azure.core.util.Context;
 import java.util.Base64;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -29,9 +33,9 @@ public class App
         String accountName = "";
         String localPath = "";
         String blobPath = "";
-        boolean MD5enabledinHeader = true;
-        boolean realValue = false; // Set to false to test with a garbage value
-        try {            
+        boolean MD5enabledinHeader = false;
+        boolean realValue = true; // Set to false to test with a garbage value
+        try {
             // Your code to upload and download files using Azure Storage SDK 12
             final File credStFile = new File(System.getenv("AZURE_STORAGE1"));
             if (credStFile.exists()) {
@@ -73,15 +77,32 @@ public class App
                     .setHeaders(headers);
                 BlockBlobClient blockBlobClient = containerClient.getBlobClient(blobPath).getBlockBlobClient();
                 blockBlobClient.uploadWithResponse(options, null, Context.NONE);
+                BlobDownloadResponse response = blockBlobClient.downloadStreamWithResponse(new ByteArrayOutputStream(), null,
+                    null, null, false, null, Context.NONE);
+                byte[] contentMD5 = response.getDeserializedHeaders().getContentMd5();
+                if (contentMD5 != null) {
+                    System.out.println("MD5 Hash from headers: " + bytesToHex(contentMD5));
+                } else {
+                    System.out.println("MD5 Hash not available in headers.");
+                }
             } else {
                 System.out.println("MD5 not enabled in header just Compute MD5");
                 BlobParallelUploadOptions options = new BlobParallelUploadOptions(BinaryData.fromBytes(data)).setComputeMd5(true);
                 options.setParallelTransferOptions(new ParallelTransferOptions().setMaxSingleUploadSizeLong(512000000L));
                 BlobClient blobClient = containerClient.getBlobClient(blobPath);
                 blobClient.uploadWithResponse(options, null, Context.NONE);
+                Response<BlobProperties> response = blobClient.getPropertiesWithResponse(null, null, null);
+                BlobProperties properties = response.getValue();
+                byte[] md5 = properties.getContentMd5();
+                if (md5 != null) {
+                    System.out.println("MD5 Hash from properties: " + bytesToHex(md5));
+                } else {
+                    System.out.println("MD5 Hash not available in properties.");
+                }
             }
 
             System.out.println(blobPath + " File uploaded successfully.");
+
             //System.out.println("File downloaded successfully to: " + localFileName);
         } catch (Exception e) {
             e.printStackTrace();
