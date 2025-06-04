@@ -105,7 +105,7 @@ public class App
                     if (md51 != null) {
                         System.out.println("MD5 Hash from properties: " + bytesToHex(md51));
                         System.out.println("Base64 MD5 Hash: " + Base64.getEncoder().encodeToString(md51));                        
-                        System.out.println("CONTENT_MD5 Hash from headers : " + headers.getValue(HttpHeaderName.fromString("x-ms-blob-content-md5")));
+                        System.out.println("x-ms-blob-content-md5 Hash from headers : " + headers.getValue(HttpHeaderName.fromString("x-ms-blob-content-md5")));
                     } else {
                         System.out.println("MD5 Hash not available in properties. <- BlobDownloadToFileOptions");
                         System.out.println("CONTENT_MD5 Hash from headers  : " + headers.getValue(HttpHeaderName.CONTENT_MD5));
