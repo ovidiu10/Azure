@@ -1,3 +1,4 @@
+// cspell:disable 
 module azureav-app
 
 go 1.24.5
