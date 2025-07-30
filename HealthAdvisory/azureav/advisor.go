@@ -42,7 +42,8 @@ type SupportedValue struct {
 }
 
 func main() {
-	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	//cred, err := azidentity.NewDefaultAzureCredential(nil)
+	cred, err := azidentity.NewInteractiveBrowserCredential(nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -105,21 +106,22 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if err := os.WriteFile("supported_values.json", supportedValues, 0644); err != nil {
+	if err := os.WriteFile("supported_values2.json", supportedValues, 0644); err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Response saved to supported_values.json")
-
-	var supportedValuesSlice []map[string]interface{}
-	if err := json.Unmarshal(supportedValues, &supportedValuesSlice); err != nil {
-		log.Fatal(err)
-	}
-	//displaySupportedValuesTable(supportedValuesSlice)
-	err = saveSupportedValuesTableToFile(supportedValuesSlice, "supported_values_table.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
+	fmt.Println("Response saved to supported_values2.json")
+	/*
+		var supportedValuesSlice []map[string]interface{}
+		if err := json.Unmarshal(supportedValues, &supportedValuesSlice); err != nil {
+			log.Fatal(err)
+		}
+		//displaySupportedValuesTable(supportedValuesSlice)
+		err = saveSupportedValuesTableToFile(supportedValuesSlice, "supported_values_table.txt")
+		if err != nil {
+			log.Fatal(err)
+		}
+	*/
 }
 
 func displaySupportedValuesTable(supportedValues []map[string]interface{}) {
