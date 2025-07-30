@@ -1,5 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- cspell:disable -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>ca.otmdft.sample</groupId>
   <artifactId>otprivatedns</artifactId>
@@ -7,8 +8,8 @@
   <version>0.0.3</version>
   <name>otprivatedns</name>
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>    
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>    
   </properties>
   <url>http://maven.apache.org</url>
   <dependencies>
