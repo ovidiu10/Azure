@@ -4,6 +4,7 @@ package io.ottest1;
 import java.io.File;
 import java.nio.file.Files;
 //import java.time.Duration;
+import java.util.List;
 
 //import com.azure.core.credential.TokenCredential;
 import com.azure.core.http.policy.HttpLogDetailLevel;
@@ -18,6 +19,7 @@ import com.azure.identity.ClientSecretCredentialBuilder;
 //import com.azure.identity.ManagedIdentityCredential;
 //import com.azure.identity.ManagedIdentityCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
+import com.azure.resourcemanager.network.models.NetworkSecurityGroup;
 import com.azure.resourcemanager.resources.models.ResourceGroup;
 
 import io.ottest1.model.AuthFile;
@@ -63,10 +65,16 @@ public class ottest1
                                     .withLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS)
                                     .authenticate(cred, profile)
                                     .withSubscription(f.getSubscriptionId());
-            PagedIterable<ResourceGroup> resourceGroups = azureResourceManager.resourceGroups().list();
             System.out.println("Listing all resource groups");
-            for (ResourceGroup rGroup : resourceGroups) {
-                System.out.println("Resource group: " + rGroup.name());
+            azureResourceManager.resourceGroups().list()
+                .forEach(rg -> System.out.println(rg.name()));
+            NetworkSecurityGroup nsg = azureResourceManager.networkSecurityGroups()
+                .getByResourceGroup("rg-netcore4", "nsg-e1");
+            System.out.println("NSG: " + nsg.id() + " " + nsg.listAssociatedSubnets().size());
+            if (nsg.innerModel() != null && nsg.innerModel().subnets() != null) {
+                nsg.innerModel().subnets().forEach(sn -> {
+                    System.out.println("Subnet: " + sn.id());
+                });
             }
         } catch (Exception e) {
             e.printStackTrace();
