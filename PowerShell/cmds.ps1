@@ -41,3 +41,12 @@ Invoke-AzVMRunCommand -ResourceGroupName $rg -Name $vmName -CommandId "RunPowerS
 #enable ICMP in firewall
 Invoke-AzVMRunCommand -ResourceGroupName $rg -Name $vmName -CommandId "RunPowerShellScript" -ScriptString "Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True"
 
+#Run psSDP script on multiple VMs 
+Set-AzContext -Subscription "<YourSubscriptionID>"
+Get-AzVM -Status 
+foreach ($vm in $vms) {
+    $result = Invoke-AzVMRunCommand -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -CommandId "RunPowerShellScript" -ScriptString "cd c:\temp\tss\psSDP; .\Get-psSDP.ps1 SQLbase -SkipEULA" 
+    Write-Host "VM: $($vm.Name)"
+    Write-Host "Command Output: $($result.Value[0].Message)"
+}
+
