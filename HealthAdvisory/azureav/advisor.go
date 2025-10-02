@@ -16,29 +16,13 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 )
 
-type Action struct {
-	Caption      string `json:"caption"`
-	Description  string `json:"description"`
-	DocumentLink string `json:"documentLink"`
-}
-
-type Property struct {
-	Name  string `json:"name"`
-	Value string `json:"value"`
-}
-
-type SupportedValue struct {
-	DisplayName           string     `json:"displayName"`
-	DetailedDescription   string     `json:"detailedDescription"`
-	Actions               []Action   `json:"actions"`
-	ID                    string     `json:"id"`
-	Label                 string     `json:"label"`
-	LearnMoreLink         string     `json:"learnMoreLink"`
-	RecommendationImpact  string     `json:"recommendationImpact"`
-	RetirementDate        string     `json:"retirementDate"`
-	RetirementFeatureName string     `json:"retirementFeatureName"`
-	SupportedResourceType string     `json:"supportedResourceType"`
-	Properties            []Property `json:"properties"`
+type Metadata struct {
+	Value []struct {
+		ID         string `json:"id"`
+		Properties struct {
+			SupportedValues []string `json:"supportedValues"`
+		} `json:"properties"`
+	} `json:"value"`
 }
 
 func main() {
@@ -54,7 +38,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to get token: %v", err)
 	}
-	//fmt.Println("Token: ", token.Token)
 
 	baseURL := "https://management.azure.com/providers/Microsoft.Advisor/metadata?api-version=2025-01-01"
 	queryParams := url.Values{}
@@ -63,7 +46,6 @@ func main() {
 	fmt.Println("Query Parameters:", queryParams.Encode())
 	fullURL := fmt.Sprintf("%s&%s", baseURL, queryParams.Encode())
 	fmt.Println("Parsed URL:", fullURL)
-	//url := "https://management.azure.com/providers/Microsoft.Advisor/metadata?api-version=2025-01-01"
 	req, err := http.NewRequest("GET", fullURL, nil)
 	if err != nil {
 		log.Fatalf("failed to create HTTP request: %v", err)
@@ -88,37 +70,66 @@ func main() {
 	}
 
 	fmt.Printf("Status Code: %d\n", resp.StatusCode)
-	//fmt.Println("Response:")
-	//fmt.Println(string(body))
 
+	// Save the raw response body to a file
+	err = os.WriteFile("advisor_response2.json", body, 0644)
+	if err != nil {
+		log.Fatalf("failed to save response body to file: %v", err)
+	}
+	fmt.Println("Response body saved to advisor_response2.json")
+
+	// Parse JSON and extract supportedValues for recommendationType
 	var root struct {
 		Value []struct {
+			ID         string `json:"id"`
 			Properties struct {
 				SupportedValues []interface{} `json:"supportedValues"`
 			} `json:"properties"`
 		} `json:"value"`
 	}
+
 	if err := json.Unmarshal(body, &root); err != nil {
 		log.Fatal(err)
 	}
-	supportedValues, err := json.MarshalIndent(root.Value[0].Properties.SupportedValues, "", "  ")
-	if err != nil {
-		log.Fatal(err)
+
+	var supportedValues []interface{}
+	for _, item := range root.Value {
+		if item.ID == "/providers/Microsoft.Advisor/metadata/recommendationType" {
+			fmt.Println("Found recommendationType metadata")
+			supportedValues = item.Properties.SupportedValues
+			break
+		}
 	}
-	if err := os.WriteFile("supported_values2.json", supportedValues, 0644); err != nil {
+
+	if supportedValues == nil {
+		log.Fatal("recommendationType metadata not found")
+	}
+
+	// Save the filtered supportedValues to JSON file
+	supportedValuesJSON, err := json.MarshalIndent(supportedValues, "", "  ")
+	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Response saved to supported_values2.json")
-	var supportedValuesSlice []map[string]interface{}
-	if err := json.Unmarshal(supportedValues, &supportedValuesSlice); err != nil {
+	if err := os.WriteFile("recommendation_types.json", supportedValuesJSON, 0644); err != nil {
 		log.Fatal(err)
 	}
-	//displaySupportedValuesTable(supportedValuesSlice)
-	err = saveSupportedValuesTableToFile(supportedValuesSlice, "supported_values_table.txt")
+
+	fmt.Printf("Extracted %d recommendation types and saved to recommendation_types.json\n", len(supportedValues))
+
+	// Convert to map slice for table generation
+	var supportedValuesSlice []map[string]interface{}
+	if err := json.Unmarshal(supportedValuesJSON, &supportedValuesSlice); err != nil {
+		log.Fatal(err)
+	}
+
+	// Save as table
+	err = saveSupportedValuesTableToFile(supportedValuesSlice, "recommendation_types_table.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Println("Recommendation types table saved to recommendation_types_table.txt")
 }
 
 func displaySupportedValuesTable(supportedValues []map[string]interface{}) {
