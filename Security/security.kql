@@ -1,0 +1,17 @@
+securityresources
+        | where type == "microsoft.security/assessments"
+        | where subscriptionId in ("<subscriptionId>", "<subscriptionId>")
+        | extend source = trim(' ', tolower(coalesce(tostring(properties.resourceDetails.Source), tostring(properties.resourceDetails.source))))
+                                          | extend resourceId = trim(' ', tolower(tostring(case(
+                                                                                    source =~ "azure", properties.resourceDetails.Id,
+                                                                                    source =~ "aws" and isnotempty(tostring(properties.resourceDetails.ConnectorId)), properties.resourceDetails.Id,
+                                                                                    source =~ "gcp" and isnotempty(tostring(properties.resourceDetails.ConnectorId)), properties.resourceDetails.Id,
+                                                                                    source =~ 'aws', properties.resourceDetails.AzureResourceId,
+                                                                                    source =~ 'gcp', properties.resourceDetails.AzureResourceId,
+                                                                                    extract('^(.+)/providers/Microsoft.Security/assessments/.+$',1,id)
+                                                                                    ))))
+        | extend status = trim(" ", tostring(properties.status.code))
+        | extend cause = trim(" ", tostring(properties.status.cause))
+        | extend level = trim(" ", tostring(properties.metadata.severity))
+        | extend assessmentKey = trim(" ", tostring(name))
+        | where level == "High" // "Medium" "Low"
