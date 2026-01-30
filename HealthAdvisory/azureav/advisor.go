@@ -72,11 +72,11 @@ func main() {
 	fmt.Printf("Status Code: %d\n", resp.StatusCode)
 
 	// Save the raw response body to a file
-	err = os.WriteFile("advisor_response2.json", body, 0644)
+	err = os.WriteFile("advisor_response3.json", body, 0644)
 	if err != nil {
 		log.Fatalf("failed to save response body to file: %v", err)
 	}
-	fmt.Println("Response body saved to advisor_response2.json")
+	fmt.Println("Response body saved to advisor_response3.json")
 
 	// Parse JSON and extract supportedValues for recommendationType
 	var root struct {
@@ -111,11 +111,11 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if err := os.WriteFile("recommendation_types.json", supportedValuesJSON, 0644); err != nil {
+	if err := os.WriteFile("recommendation_types2.json", supportedValuesJSON, 0644); err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Extracted %d recommendation types and saved to recommendation_types.json\n", len(supportedValues))
+	fmt.Printf("Extracted %d recommendation types and saved to recommendation_types2.json\n", len(supportedValues))
 
 	// Convert to map slice for table generation
 	var supportedValuesSlice []map[string]interface{}
@@ -124,7 +124,7 @@ func main() {
 	}
 
 	// Save as table
-	err = saveSupportedValuesTableToFile(supportedValuesSlice, "recommendation_types_table.txt")
+	err = saveSupportedValuesTableToFile(supportedValuesSlice, "recommendation_types_table2.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
