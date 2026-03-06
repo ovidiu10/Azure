@@ -9,6 +9,10 @@
   <name>ManageVirtualMachineFromMSIEnabledVirtualMachine.java</name>
   <description></description>
   <url>https://github.com/Azure/compute-java-manage-vm-from-vm-with-msi-credentials</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>21</maven.compiler.release>
+  </properties>
   <build>
     <plugins>
       <plugin>
@@ -24,8 +28,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <source>21</source>
-          <target>21</target>
+          <release>${maven.compiler.release}</release>
         </configuration>
       </plugin>
       <plugin>
@@ -34,7 +37,7 @@
           <execution>
             <phase>package</phase>
             <goals>
-              <goal>attached</goal>
+              <goal>single</goal>
             </goals>
             <configuration>
               <descriptorRefs>
