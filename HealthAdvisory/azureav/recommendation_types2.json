@@ -3837,10 +3837,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08b97f-0000-0700-0000-69257ba30000\"",
-    "_rid": "4XcfAPWOUOewIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOewIAAAAAAAAw==/",
-    "_ts": 1764064163,
+    "_etag": "\"12013e3f-0000-0700-0000-69842c7e0000\"",
+    "_rid": "4XcfAPWOUOfsIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfsIQAAAAAAAw==/",
+    "_ts": 1770269822,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -3879,7 +3879,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.sql/servers"
       },
       {
         "name": "recommendationIngestionType",
@@ -3890,8 +3890,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "SQL servers",
+      "singular": "SQL server"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -3899,7 +3899,7 @@
         "retirementFeatureName": "Microsoft.SQL 2014-04-01 stable APIs"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.sql/servers"
   },
   {
     "_attachments": "attachments/",
@@ -4349,10 +4349,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08e074-0000-0700-0000-69257b510000\"",
-    "_rid": "4XcfAPWOUOdgIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdgIAAAAAAAAw==/",
-    "_ts": 1764064081,
+    "_etag": "\"1201713c-0000-0700-0000-69842c510000\"",
+    "_rid": "4XcfAPWOUOfQIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfQIQAAAAAAAw==/",
+    "_ts": 1770269777,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -4391,7 +4391,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.network/frontdoorwebapplicationfirewallpolicies"
       },
       {
         "name": "recommendationIngestionType",
@@ -4402,8 +4402,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Front Door Web Application Firewall policies",
+      "singular": "Front Door Web Application Firewall policy"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -4411,7 +4411,7 @@
         "retirementFeatureName": "Support for TLS 1.0 and 1.1"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.network/frontdoorwebapplicationfirewallpolicies"
   },
   {
     "_attachments": "attachments/",
@@ -4481,10 +4481,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa083575-0000-0700-0000-69257b530000\"",
-    "_rid": "4XcfAPWOUOdkIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdkIAAAAAAAAw==/",
-    "_ts": 1764064083,
+    "_etag": "\"1201753c-0000-0700-0000-69842c510000\"",
+    "_rid": "4XcfAPWOUOfRIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfRIQAAAAAAAw==/",
+    "_ts": 1770269777,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -4523,7 +4523,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.batch/batchaccounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -4534,8 +4534,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Batch accounts",
+      "singular": "Batch account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -4543,7 +4543,7 @@
         "retirementFeatureName": "Classic compute node communication model"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.batch/batchaccounts"
   },
   {
     "_attachments": "attachments/",
@@ -4680,72 +4680,6 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa084b75-0000-0700-0000-69257b540000\"",
-    "_rid": "4XcfAPWOUOdmIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdmIAAAAAAAAw==/",
-    "_ts": 1764064084,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "68920b33-751f-463e-952f-d47c07b0ab15",
-        "actionType": "Document",
-        "caption": "Transition to Cromwell on Azure",
-        "description": "Transition to Cromwell on Azure",
-        "documentLink": "https://go.microsoft.com/fwlink/?linkid=2286446",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "We are retiring the Microsoft Genomics service, as Microsoft developed more flexible open-source genomics solutions that provide equivalent capabilities and much more. We encourage you to transition to Cromwell on Azure before the retirement date to experience these new capabilities.",
-    "displayName": "Microsoft Genomics is being retired",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_MicrosoftGenomics_Entireservice",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "31b10544-83de-4d4d-bc71-fa5e83377ec8",
-    "label": "Microsoft Genomics is being retired",
-    "learnMoreLink": "https://azure.microsoft.com/updates/v2/Microsoft-Genomics-Service-Retirement",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-01-06",
-        "retirementFeatureName": "Entire service"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
     "_etag": "\"aa084d75-0000-0700-0000-69257b540000\"",
     "_rid": "4XcfAPWOUOdnIAAAAAAAAw==",
     "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdnIAAAAAAAAw==/",
@@ -4812,142 +4746,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa087075-0000-0700-0000-69257b550000\"",
-    "_rid": "4XcfAPWOUOdoIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdoIAAAAAAAAw==/",
-    "_ts": 1764064085,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "ada9fe71-85d7-41cc-b3aa-9e8b2dc0e587",
-        "actionType": "Document",
-        "caption": "Transition to the Azure Machine Learning Responsible AI Dashboard",
-        "description": "Transition to the Azure Machine Learning Responsible AI Dashboard",
-        "documentLink": "https://learn.microsoft.com/azure/machine-learning/concept-responsible-ai-dashboard?view=azureml-api-2",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "The Explanation and Fairness Dashboard is retiring, transition to the Responsible AI Dashboard (generally available) by that date.",
-    "displayName": "Explainability and Fairness Dashboard is being retired",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_AzureML_ExplainabilityandFairnessDashboard",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "3a848e17-6ff0-4ddd-9620-a4752aefc0d2",
-    "label": "Explainability and Fairness Dashboard is being retired",
-    "learnMoreLink": "https://azure.microsoft.com/updates/aml-explanation-fairness-retirement/",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-03-14",
-        "retirementFeatureName": "Explainability and Fairness Dashboard"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
-    "_etag": "\"aa08c475-0000-0700-0000-69257b580000\"",
-    "_rid": "4XcfAPWOUOdwIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdwIAAAAAAAAw==/",
-    "_ts": 1764064088,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "5ddb0319-a50e-4ec3-9d38-b02ed3b31e78",
-        "actionType": "Document",
-        "caption": " Transition to Azure AI Custom Vision service ",
-        "description": " Transition to Azure AI Custom Vision service ",
-        "documentLink": "https://go.microsoft.com/fwlink/?linkid=2285377",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "Azure AI Vision is retiring Image Analysis 4.0 Custom Image Classification, Custom Object Detection, Product Recognition and Segment (Background Removal) Preview APIs, and Spatial Analysis Edge container.",
-    "displayName": "Background Removal Segment preview APIs is being retired",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_ImageAnalysis_BackgroundRemovalSegmentpreviewAPIs",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "e2e1a1b8-9b63-40ce-83bc-08e6737599e0",
-    "label": "Background Removal Segment preview APIs is being retired",
-    "learnMoreLink": "https://azure.microsoft.com/updates/v2/azure-vision-api-retirements ",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.advisor/recommendations"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Resources",
-      "singular": "Resource"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-01-10",
-        "retirementFeatureName": "Background Removal Segment preview APIs"
-      }
-    },
-    "supportedResourceType": "microsoft.advisor/recommendations"
-  },
-  {
-    "_attachments": "attachments/",
-    "_etag": "\"aa08b175-0000-0700-0000-69257b570000\"",
-    "_rid": "4XcfAPWOUOdsIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdsIAAAAAAAAw==/",
-    "_ts": 1764064087,
+    "_etag": "\"12018c3c-0000-0700-0000-69842c520000\"",
+    "_rid": "4XcfAPWOUOfVIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfVIQAAAAAAAw==/",
+    "_ts": 1770269778,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -4986,7 +4788,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.maps/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -4997,8 +4799,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Azure Maps Accounts",
+      "singular": "Azure Maps Account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -5006,7 +4808,7 @@
         "retirementFeatureName": "Web SDK Map Controls v1.xx"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.maps/accounts"
   },
   {
     "_attachments": "attachments/",
@@ -5670,10 +5472,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa084276-0000-0700-0000-69257b5b0000\"",
-    "_rid": "4XcfAPWOUOd3IAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOd3IAAAAAAAAw==/",
-    "_ts": 1764064091,
+    "_etag": "\"1201a53c-0000-0700-0000-69842c540000\"",
+    "_rid": "4XcfAPWOUOfWIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfWIQAAAAAAAw==/",
+    "_ts": 1770269780,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -5712,7 +5514,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.kubernetes/connectedclusters"
       },
       {
         "name": "recommendationIngestionType",
@@ -5723,8 +5525,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Kubernetes - Azure Arc",
+      "singular": "Kubernetes - Azure Arc"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -5732,7 +5534,7 @@
         "retirementFeatureName": "Windows Server 2019 on AKS hybrid"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.kubernetes/connectedclusters"
   },
   {
     "_attachments": "attachments/",
@@ -5868,10 +5670,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08f876-0000-0700-0000-69257b620000\"",
-    "_rid": "4XcfAPWOUOeAIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeAIAAAAAAAAw==/",
-    "_ts": 1764064098,
+    "_etag": "\"12016b3d-0000-0700-0000-69842c5e0000\"",
+    "_rid": "4XcfAPWOUOfZIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfZIQAAAAAAAw==/",
+    "_ts": 1770269790,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -5910,7 +5712,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.kusto/clusters"
       },
       {
         "name": "recommendationIngestionType",
@@ -5921,8 +5723,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Data explorer resources",
+      "singular": "Data explorer resource"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -5930,14 +5732,14 @@
         "retirementFeatureName": "Virtual Network Injection"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.kusto/clusters"
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa086076-0000-0700-0000-69257b5c0000\"",
-    "_rid": "4XcfAPWOUOd5IAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOd5IAAAAAAAAw==/",
-    "_ts": 1764064092,
+    "_etag": "\"1201683d-0000-0700-0000-69842c5e0000\"",
+    "_rid": "4XcfAPWOUOfYIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfYIQAAAAAAAw==/",
+    "_ts": 1770269790,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -5976,7 +5778,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.cognitiveservices/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -5987,8 +5789,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Cognitive Services",
+      "singular": "Cognitive Service"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -5996,73 +5798,7 @@
         "retirementFeatureName": "Studio v2.1"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
-    "_etag": "\"aa087f76-0000-0700-0000-69257b5e0000\"",
-    "_rid": "4XcfAPWOUOd6IAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOd6IAAAAAAAAw==/",
-    "_ts": 1764064094,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "26c7207f-aaa4-4a94-9285-688b143ef4ae",
-        "actionType": "Document",
-        "caption": "Move to alternative solutions",
-        "description": "Move to alternative solutions",
-        "documentLink": "https://aka.ms/appcenter/retire",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "Visual Studio App Center is retiring.",
-    "displayName": "Visual Studio App Center is being retired",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_VisualStudioAppCenter_Entireservice",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "b2fc661c-94ec-4fc5-9174-1dc770cd9268",
-    "label": "Visual Studio App Center is being retired",
-    "learnMoreLink": "https://azure.microsoft.com/updates/visual-studio-app-center-retirement/",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-03-31",
-        "retirementFeatureName": "Entire service"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.cognitiveservices/accounts"
   },
   {
     "_attachments": "attachments/",
@@ -6462,10 +6198,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa085577-0000-0700-0000-69257b650000\"",
-    "_rid": "4XcfAPWOUOeBIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeBIAAAAAAAAw==/",
-    "_ts": 1764064101,
+    "_etag": "\"12016e3d-0000-0700-0000-69842c5f0000\"",
+    "_rid": "4XcfAPWOUOfaIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfaIQAAAAAAAw==/",
+    "_ts": 1770269791,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -6504,7 +6240,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.network/frontdoorwebapplicationfirewallpolicies"
       },
       {
         "name": "recommendationIngestionType",
@@ -6515,8 +6251,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Front Door Web Application Firewall policies",
+      "singular": "Front Door Web Application Firewall policy"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -6524,7 +6260,7 @@
         "retirementFeatureName": "Classic"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.network/frontdoorwebapplicationfirewallpolicies"
   },
   {
     "_attachments": "attachments/",
@@ -6726,10 +6462,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa088077-0000-0700-0000-69257b660000\"",
-    "_rid": "4XcfAPWOUOeDIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeDIAAAAAAAAw==/",
-    "_ts": 1764064102,
+    "_etag": "\"1201953d-0000-0700-0000-69842c600000\"",
+    "_rid": "4XcfAPWOUOfcIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfcIQAAAAAAAw==/",
+    "_ts": 1770269792,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -6768,7 +6504,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.maps/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -6779,8 +6515,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Azure Maps Accounts",
+      "singular": "Azure Maps Account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -6788,14 +6524,14 @@
         "retirementFeatureName": "Spatial API V1 \u0026 2022-08-01"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.maps/accounts"
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08fe77-0000-0700-0000-69257b690000\"",
-    "_rid": "4XcfAPWOUOeIIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeIIAAAAAAAAw==/",
-    "_ts": 1764064105,
+    "_etag": "\"12018b3d-0000-0700-0000-69842c5f0000\"",
+    "_rid": "4XcfAPWOUOfbIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfbIQAAAAAAAw==/",
+    "_ts": 1770269791,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -6834,7 +6570,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.web/sites"
       },
       {
         "name": "recommendationIngestionType",
@@ -6845,8 +6581,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "App services",
+      "singular": "App service"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -6854,7 +6590,7 @@
         "retirementFeatureName": "In-process model"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.web/sites"
   },
   {
     "_attachments": "attachments/",
@@ -7122,10 +6858,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa083c78-0000-0700-0000-69257b6b0000\"",
-    "_rid": "4XcfAPWOUOeMIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeMIAAAAAAAAw==/",
-    "_ts": 1764064107,
+    "_etag": "\"1201a03d-0000-0700-0000-69842c600000\"",
+    "_rid": "4XcfAPWOUOfeIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfeIQAAAAAAAw==/",
+    "_ts": 1770269792,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -7164,7 +6900,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.maps/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -7175,8 +6911,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Azure Maps Accounts",
+      "singular": "Azure Maps Account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -7184,80 +6920,14 @@
         "retirementFeatureName": "Data Registry 2023-06-01"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.maps/accounts"
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa083478-0000-0700-0000-69257b6a0000\"",
-    "_rid": "4XcfAPWOUOeLIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeLIAAAAAAAAw==/",
-    "_ts": 1764064106,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "72ffbee6-f43f-4e14-90dd-7f01935be5e3",
-        "actionType": "Document",
-        "caption": "Stop using Chef run_lists",
-        "description": "Stop using Chef run_lists",
-        "documentLink": "https://azure.microsoft.com/updates?id=azure-cyclecloud-support-for-chef-runlists-and-cookbooks-in-clusterinit-projects-is-ending-on-31-march-2025",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "The 3rd party open-source version of the Chef software configuration toolkit is end of life (EOL) and is no longer maintained. As a result, the existing Azure CycleCloud feature supporting custom Chef run_lists and cookbooks in cluster-init projects is no longer to be supported.",
-    "displayName": "Chef Run_lists and Cookbooks (Azure CycleCloud) are retiring",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_AzureCycleCloud_ChefRun_listsandCookbooks",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "4599fd79-134b-4362-a026-d6a6f290dacc",
-    "label": "Chef Run_lists and Cookbooks (Azure CycleCloud) is retiring",
-    "learnMoreLink": "https://azure.microsoft.com/updates/azure-cyclecloud-support-for-chef-runlists-and-cookbooks-in-clusterinit-projects-is-ending-on-31-march-2025/",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-03-31",
-        "retirementFeatureName": "Chef Run_lists and Cookbooks"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
-    "_etag": "\"44007e4e-0000-0700-0000-6960fa7e0000\"",
-    "_rid": "4XcfAPWOUOc-IQAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOc-IQAAAAAAAw==/",
-    "_ts": 1767963262,
+    "_etag": "\"1201a13d-0000-0700-0000-69842c600000\"",
+    "_rid": "4XcfAPWOUOffIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOffIQAAAAAAAw==/",
+    "_ts": 1770269792,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -7296,7 +6966,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.dbformysql/flexibleservers"
       },
       {
         "name": "recommendationIngestionType",
@@ -7307,8 +6977,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Azure Database for MySQL flexible servers",
+      "singular": "Azure Database for MySQL flexible server"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -7316,73 +6986,7 @@
         "retirementFeatureName": "MySQL v5.7"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
-    "_etag": "\"aa087478-0000-0700-0000-69257b6c0000\"",
-    "_rid": "4XcfAPWOUOePIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOePIAAAAAAAAw==/",
-    "_ts": 1764064108,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "20126932-d607-4511-87e8-838ae5ffddac",
-        "actionType": "Document",
-        "caption": "Activate Azure Monitor Agent integration",
-        "description": "Activate Azure Monitor Agent integration",
-        "documentLink": "https://go.microsoft.com/fwlink/?linkid=2283572",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "Azure HDInsight is retiring the Log Analytics used in Azure Monitor experience (preview).",
-    "displayName": "Azure Monitor Experience (HDInsight) is being retired",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_AzureHDInsight_AzureMonitorExperiencepreview",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "1891a5bc-2db5-45bc-bfa8-4c45c652736b",
-    "label": "Azure Monitor Experience (HDInsight) is being retired",
-    "learnMoreLink": "https://azure.microsoft.com/updates/v2/HDInsight-Azure-Monitor-experience-retirement",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-01-31",
-        "retirementFeatureName": "Azure Monitor Experience (preview)"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.dbformysql/flexibleservers"
   },
   {
     "_attachments": "attachments/",
@@ -7518,76 +7122,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"6a07338b-0000-0700-0000-691ecb3c0000\"",
-    "_rid": "4XcfAPWOUOdWIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdWIAAAAAAAAw==/",
-    "_ts": 1763625788,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "f38c77c7-3ede-43a8-ac7d-6e8690adb355",
-        "actionType": "Document",
-        "caption": "Convert template to template specs",
-        "description": "Convert template to template specs",
-        "documentLink": "https://docs.microsoft.com/azure/azure-resource-manager/templates/template-spec-convert",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "The Public Preview Templates functionality in the Azure portal is being retired.",
-    "displayName": "Public Preview Templates are being retired",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_AzurePortal_PublicPreviewTemplates",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "5a359ccf-5649-49b8-9074-92fe970ee611",
-    "label": "Public Preview Templates are being retired",
-    "learnMoreLink": "https://azure.microsoft.com/updates/the-templates-functionality-in-the-azure-portal-will-be-retired-on-31-march-2025/",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-03-31",
-        "retirementFeatureName": "Public Preview Templates"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
-    "_etag": "\"aa083379-0000-0700-0000-69257b710000\"",
-    "_rid": "4XcfAPWOUOeTIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeTIAAAAAAAAw==/",
-    "_ts": 1764064113,
+    "_etag": "\"1201b03d-0000-0700-0000-69842c620000\"",
+    "_rid": "4XcfAPWOUOfiIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfiIQAAAAAAAw==/",
+    "_ts": 1770269794,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -7626,7 +7164,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.batch/batchaccounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -7637,8 +7175,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Batch accounts",
+      "singular": "Batch account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -7646,7 +7184,7 @@
         "retirementFeatureName": "Availability in select regions"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.batch/batchaccounts"
   },
   {
     "_attachments": "attachments/",
@@ -7914,10 +7452,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08d879-0000-0700-0000-69257b740000\"",
-    "_rid": "4XcfAPWOUOeYIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeYIAAAAAAAAw==/",
-    "_ts": 1764064116,
+    "_etag": "\"1201b43d-0000-0700-0000-69842c620000\"",
+    "_rid": "4XcfAPWOUOfjIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfjIQAAAAAAAw==/",
+    "_ts": 1770269794,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -7956,7 +7494,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.web/sites"
       },
       {
         "name": "recommendationIngestionType",
@@ -7967,8 +7505,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "App services",
+      "singular": "App service"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -7976,7 +7514,7 @@
         "retirementFeatureName": "Version 1.x runtime"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.web/sites"
   },
   {
     "_attachments": "attachments/",
@@ -8310,72 +7848,6 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08377a-0000-0700-0000-69257b760000\"",
-    "_rid": "4XcfAPWOUOefIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOefIAAAAAAAAw==/",
-    "_ts": 1764064118,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "131a0b4a-5873-46e2-81d6-ac2a48bddd9d",
-        "actionType": "Document",
-        "caption": "Configure TLS 1.2 protocol or higher",
-        "description": "Configure TLS 1.2 protocol or higher",
-        "documentLink": "https://learn.microsoft.com/azure/azure-resource-manager/management/tls-support",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "Azure Resource Manager is moving toward requiring the use of the Transport Layer Security (TLS) 1.2 or later",
-    "displayName": "Azure Resource Manager requires using Transport Layer Security (TLS) 1.2 or later",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_AzureResourceManager_SupportforTLS10and11",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "a0c8fbe7-24fe-4c1e-bfd5-071e5f87dab9",
-    "label": "Azure Resource Manager requires using Transport Layer Security (TLS) 1.2 or later",
-    "learnMoreLink": "https://learn.microsoft.com/azure/azure-resource-manager/management/tls-support",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-03-01",
-        "retirementFeatureName": "Support for TLS 1.0 and 1.1"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
     "_etag": "\"aa08497a-0000-0700-0000-69257b770000\"",
     "_rid": "4XcfAPWOUOegIAAAAAAAAw==",
     "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOegIAAAAAAAAw==/",
@@ -8508,10 +7980,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08627a-0000-0700-0000-69257b780000\"",
-    "_rid": "4XcfAPWOUOeiIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeiIAAAAAAAAw==/",
-    "_ts": 1764064120,
+    "_etag": "\"1201c33d-0000-0700-0000-69842c630000\"",
+    "_rid": "4XcfAPWOUOflIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOflIQAAAAAAAw==/",
+    "_ts": 1770269795,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -8550,7 +8022,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.containerregistry/registries"
       },
       {
         "name": "recommendationIngestionType",
@@ -8561,8 +8033,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Container registries",
+      "singular": "Container registry"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -8570,7 +8042,7 @@
         "retirementFeatureName": "2017-01-01-(GA) API"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.containerregistry/registries"
   },
   {
     "_attachments": "attachments/",
@@ -9948,10 +9420,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08da7c-0000-0700-0000-69257b910000\"",
-    "_rid": "4XcfAPWOUOemIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOemIAAAAAAAAw==/",
-    "_ts": 1764064145,
+    "_etag": "\"12018e3e-0000-0700-0000-69842c720000\"",
+    "_rid": "4XcfAPWOUOfoIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfoIQAAAAAAAw==/",
+    "_ts": 1770269810,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -9990,7 +9462,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.cognitiveservices/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -10001,8 +9473,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Cognitive Services",
+      "singular": "Cognitive Service"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -10010,14 +9482,14 @@
         "retirementFeatureName": "v2.0 API"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.cognitiveservices/accounts"
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08d97c-0000-0700-0000-69257b900000\"",
-    "_rid": "4XcfAPWOUOelIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOelIAAAAAAAAw==/",
-    "_ts": 1764064144,
+    "_etag": "\"1201813e-0000-0700-0000-69842c710000\"",
+    "_rid": "4XcfAPWOUOfmIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfmIQAAAAAAAw==/",
+    "_ts": 1770269809,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -10056,7 +9528,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.maps/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -10067,8 +9539,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Azure Maps Accounts",
+      "singular": "Azure Maps Account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -10076,14 +9548,14 @@
         "retirementFeatureName": "Native SDK"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.maps/accounts"
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08017d-0000-0700-0000-69257b910000\"",
-    "_rid": "4XcfAPWOUOenIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOenIAAAAAAAAw==/",
-    "_ts": 1764064145,
+    "_etag": "\"1201823e-0000-0700-0000-69842c710000\"",
+    "_rid": "4XcfAPWOUOfnIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfnIQAAAAAAAw==/",
+    "_ts": 1770269809,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -10122,7 +9594,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.maps/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -10133,8 +9605,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Azure Maps Accounts",
+      "singular": "Azure Maps Account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -10142,7 +9614,7 @@
         "retirementFeatureName": "Render V1 APIs"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.maps/accounts"
   },
   {
     "_attachments": "attachments/",
@@ -10410,10 +9882,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08777d-0000-0700-0000-69257b950000\"",
-    "_rid": "4XcfAPWOUOeqIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeqIAAAAAAAAw==/",
-    "_ts": 1764064149,
+    "_etag": "\"1201b83e-0000-0700-0000-69842c750000\"",
+    "_rid": "4XcfAPWOUOfpIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfpIQAAAAAAAw==/",
+    "_ts": 1770269813,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -10452,7 +9924,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.sql/servers/databases"
       },
       {
         "name": "recommendationIngestionType",
@@ -10463,8 +9935,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "SQL databases",
+      "singular": "SQL database"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -10472,73 +9944,7 @@
         "retirementFeatureName": "Data Sync"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
-    "_etag": "\"aa08fd7f-0000-0700-0000-69257ba50000\"",
-    "_rid": "4XcfAPWOUOe1IAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOe1IAAAAAAAAw==/",
-    "_ts": 1764064165,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "dd320250-7b9c-46d7-aee2-597a85f35010",
-        "actionType": "Document",
-        "caption": "Configure TLS 1.2 protocol or higher",
-        "description": "Configure TLS 1.2 protocol or higher",
-        "documentLink": "https://learn.microsoft.com/azure/synapse-analytics/security/connectivity-settings",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "Synapse Dedicated Pool is moving toward requiring the use of the Transport Layer Security (TLS) 1.2 or later",
-    "displayName": "Synapse Dedicated Pool requires using Transport Layer Security (TLS) 1.2 or later",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_SynapseDedicatedPool_SupportforTLS10and11",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "16bf9891-791a-40e1-95fc-c70d44102790",
-    "label": "Synapse Dedicated Pool requires using Transport Layer Security (TLS) 1.2 or later",
-    "learnMoreLink": "https://learn.microsoft.com/azure/synapse-analytics/security/connectivity-settings",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-03-31",
-        "retirementFeatureName": "Support for TLS 1.0 and 1.1"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.sql/servers/databases"
   },
   {
     "_attachments": "attachments/",
@@ -10740,10 +10146,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa083d7f-0000-0700-0000-69257b9e0000\"",
-    "_rid": "4XcfAPWOUOesIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOesIAAAAAAAAw==/",
-    "_ts": 1764064158,
+    "_etag": "\"12013f3f-0000-0700-0000-69842c7e0000\"",
+    "_rid": "4XcfAPWOUOftIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOftIQAAAAAAAw==/",
+    "_ts": 1770269822,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -10782,7 +10188,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.cognitiveservices/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -10793,8 +10199,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Cognitive Services",
+      "singular": "Cognitive Service"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -10802,7 +10208,7 @@
         "retirementFeatureName": "Long audio API"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.cognitiveservices/accounts"
   },
   {
     "_attachments": "attachments/",
@@ -11004,10 +10410,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa08da7f-0000-0700-0000-69257ba40000\"",
-    "_rid": "4XcfAPWOUOezIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOezIAAAAAAAAw==/",
-    "_ts": 1764064164,
+    "_etag": "\"1201513f-0000-0700-0000-69842c800000\"",
+    "_rid": "4XcfAPWOUOfvIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfvIQAAAAAAAw==/",
+    "_ts": 1770269824,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -11046,7 +10452,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.cognitiveservices/accounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -11057,8 +10463,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Cognitive Services",
+      "singular": "Cognitive Service"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -11066,73 +10472,7 @@
         "retirementFeatureName": "Computer Vision API v1.0, v2.0, v2.1, v3.0. v3.1"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
-  },
-  {
-    "_attachments": "attachments/",
-    "_etag": "\"aa08c47f-0000-0700-0000-69257ba40000\"",
-    "_rid": "4XcfAPWOUOexIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOexIAAAAAAAAw==/",
-    "_ts": 1764064164,
-    "actions": [
-      {
-        "actionApplicabilityScope": "",
-        "actionId": "d0744029-a91a-4bda-8352-dae6409eaf80",
-        "actionType": "Document",
-        "caption": "Migrate your workloads from Azure HDInsight on AKS to Microsoft Fabric ",
-        "description": "Migrate your workloads from Azure HDInsight on AKS to Microsoft Fabric ",
-        "documentLink": "https://go.microsoft.com/fwlink/?linkid=2283779",
-        "isPostfixRequired": false,
-        "isRecommendedAction": false,
-        "recommendedActionButtonText": ""
-      }
-    ],
-    "descriptionOfChanges": [],
-    "detailedDescription": "We are retiring Azure HDInsight on AKS. The remaining clusters on your subscription are being stopped and removed from the host.",
-    "displayName": "Azure HDInsight on Azure Kubernetes Service (AKS) is being retired",
-    "exposedMetadataProperties": {
-      "AdditionalColumns": [],
-      "CostSavingInfo": "",
-      "FriendlyName": "Retire_AzureHDInsightonAKS",
-      "SupportedSDKLanguages": [],
-      "Tip": null
-    },
-    "id": "131bb7a7-0fc4-426f-a534-4997abbf5a56",
-    "label": "Azure HDInsight on Azure Kubernetes Service (AKS) is being retired",
-    "learnMoreLink": "https://azure.microsoft.com/updates?id=azure-hdinsight-on-aks-retirement",
-    "potentialBenefits": "Avoid potential disruptions",
-    "properties": [
-      {
-        "name": "recommendationCategory",
-        "value": "HighAvailability"
-      },
-      {
-        "name": "recommendationImpact",
-        "value": "Medium"
-      },
-      {
-        "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
-      },
-      {
-        "name": "recommendationIngestionType",
-        "value": "Manual"
-      }
-    ],
-    "recommendationCategory": "HighAvailability",
-    "recommendationImpact": "Medium",
-    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
-    "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
-    },
-    "sourceProperties": {
-      "serviceRetirement": {
-        "retirementDate": "2025-01-31",
-        "retirementFeatureName": "Entire Service"
-      }
-    },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.cognitiveservices/accounts"
   },
   {
     "_attachments": "attachments/",
@@ -11466,10 +10806,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa085180-0000-0700-0000-69257ba70000\"",
-    "_rid": "4XcfAPWOUOe6IAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOe6IAAAAAAAAw==/",
-    "_ts": 1764064167,
+    "_etag": "\"1201463f-0000-0700-0000-69842c7f0000\"",
+    "_rid": "4XcfAPWOUOfuIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfuIQAAAAAAAw==/",
+    "_ts": 1770269823,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -11508,7 +10848,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.batch/batchaccounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -11519,8 +10859,8 @@
     "recommendationImpact": "Medium",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Batch accounts",
+      "singular": "Batch account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -11528,7 +10868,7 @@
         "retirementFeatureName": "Low Priority VMs"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.batch/batchaccounts"
   },
   {
     "_attachments": "attachments/",
@@ -12693,10 +12033,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"6a0784a2-0000-0700-0000-691ecb700000\"",
-    "_rid": "4XcfAPWOUOdXIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdXIAAAAAAAAw==/",
-    "_ts": 1763625840,
+    "_etag": "\"e201fac2-0000-0700-0000-697adc540000\"",
+    "_rid": "4XcfAPWOUOeoIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeoIQAAAAAAAw==/",
+    "_ts": 1769659476,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -12739,7 +12079,7 @@
       },
       {
         "name": "recommendationIngestionType",
-        "value": "Manual"
+        "value": "Automated"
       }
     ],
     "recommendationCategory": "HighAvailability",
@@ -13799,10 +13139,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"aa087c8a-0000-0700-0000-69257beb0000\"",
-    "_rid": "4XcfAPWOUOfGIAAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfGIAAAAAAAAw==/",
-    "_ts": 1764064235,
+    "_etag": "\"12017344-0000-0700-0000-69842ca00000\"",
+    "_rid": "4XcfAPWOUOfwIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfwIQAAAAAAAw==/",
+    "_ts": 1770269856,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -13841,7 +13181,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.bingsearch"
+        "value": "microsoft.search/searchservices"
       },
       {
         "name": "recommendationIngestionType",
@@ -13852,8 +13192,8 @@
     "recommendationImpact": "High",
     "recommendationSubCategory": "ServiceUpgradeAndRetirement",
     "resourceMetadata": {
-      "plural": "Resources",
-      "singular": "Resource"
+      "plural": "Search services",
+      "singular": "Search service"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -13861,7 +13201,7 @@
         "retirementFeatureName": "Search and Custom Search APIs"
       }
     },
-    "supportedResourceType": "microsoft.bingsearch"
+    "supportedResourceType": "microsoft.search/searchservices"
   },
   {
     "_attachments": "attachments/",
@@ -19356,18 +18696,18 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"60002307-0000-0700-0000-6969f9790000\"",
-    "_rid": "4XcfAPWOUOdZIQAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdZIQAAAAAAAw==/",
-    "_ts": 1768552825,
+    "_etag": "\"e20197c9-0000-0700-0000-697adcd40000\"",
+    "_rid": "4XcfAPWOUOeqIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOeqIQAAAAAAAw==/",
+    "_ts": 1769659604,
     "actions": [
       {
         "actionApplicabilityScope": "",
-        "actionId": "0d253081-a011-4fcb-aeda-9f3ad24dd431",
+        "actionId": "2ae484f3-f70b-49f4-a268-51c3debc1245",
         "actionType": "Document",
         "caption": "Upgrade TLS to latest version",
         "description": "Upgrade TLS to latest version",
-        "documentLink": "https://azure.microsoft.com/updates?id=retirement-notice-update-your-azure-service-bus-sdk-libraries-by-30-september-2026",
+        "documentLink": "https://techcommunity.microsoft.com/blog/azurestorageblog/tls-1-0-and-1-1-support-will-be-removed-for-new--existing-azure-storage-accounts/4026181",
         "isPostfixRequired": false,
         "isRecommendedAction": false,
         "recommendedActionButtonText": ""
@@ -19440,10 +18780,10 @@
   },
   {
     "_attachments": "attachments/",
-    "_etag": "\"53008bbb-0000-0700-0000-6965e10d0000\"",
-    "_rid": "4XcfAPWOUOdXIQAAAAAAAw==",
-    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOdXIQAAAAAAAw==/",
-    "_ts": 1768284429,
+    "_etag": "\"1201d74f-0000-0700-0000-69842d180000\"",
+    "_rid": "4XcfAPWOUOfxIQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOfxIQAAAAAAAw==/",
+    "_ts": 1770269976,
     "actions": [
       {
         "actionApplicabilityScope": "",
@@ -19482,7 +18822,7 @@
       },
       {
         "name": "supportedResourceType",
-        "value": "microsoft.subscriptions/subscriptions"
+        "value": "microsoft.automation/automationaccounts"
       },
       {
         "name": "recommendationIngestionType",
@@ -19506,8 +18846,8 @@
         },
         "recommendedActionButtonText": ""
       },
-      "plural": "Subscriptions",
-      "singular": "Subscription"
+      "plural": "Automation accounts",
+      "singular": "Automation account"
     },
     "sourceProperties": {
       "serviceRetirement": {
@@ -19515,7 +18855,7 @@
         "retirementFeatureName": "Best Practices"
       }
     },
-    "supportedResourceType": "microsoft.subscriptions/subscriptions"
+    "supportedResourceType": "microsoft.automation/automationaccounts"
   },
   {
     "_attachments": "attachments/",
@@ -19673,5 +19013,161 @@
       }
     },
     "supportedResourceType": "microsoft.containerservice/managedclusters"
+  },
+  {
+    "_attachments": "attachments/",
+    "_etag": "\"9f00d263-0000-0700-0000-6981b5b10000\"",
+    "_rid": "4XcfAPWOUOe9IQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOe9IQAAAAAAAw==/",
+    "_ts": 1770108337,
+    "actions": [
+      {
+        "actionApplicabilityScope": "",
+        "actionId": "7d96e4c4-1b99-4f39-8921-4d042622b2c0",
+        "actionType": "Document",
+        "caption": "Transition to latest series",
+        "description": "Transition to latest series",
+        "documentLink": "https://aka.ms/FSV2-FAQ",
+        "isPostfixRequired": false,
+        "isRecommendedAction": false,
+        "recommendedActionButtonText": ""
+      }
+    ],
+    "descriptionOfChanges": [],
+    "detailedDescription": "We recommend transitioning to the Hyperscale premium-series or General-purpose standard-series (Gen5) service tier to maintain comparable performance levels.",
+    "displayName": "Fsv2-series hardware configuration is being retired",
+    "exposedMetadataProperties": {
+      "AdditionalColumns": [],
+      "CostSavingInfo": "",
+      "FriendlyName": "Retire_AzureSQLDatabase_FSV2Database_v2",
+      "SupportedSDKLanguages": [],
+      "Tip": null
+    },
+    "id": "78a8bb04-6f10-4112-8b1e-ac0fd88c67a2",
+    "label": "Fsv2-series hardware configuration is being retired",
+    "learnMoreLink": "https://azure.microsoft.com/updates/?id=485030",
+    "potentialBenefits": "Avoid potential disruptions",
+    "properties": [
+      {
+        "name": "recommendationCategory",
+        "value": "HighAvailability"
+      },
+      {
+        "name": "recommendationImpact",
+        "value": "Medium"
+      },
+      {
+        "name": "supportedResourceType",
+        "value": "microsoft.sql/servers/databases"
+      },
+      {
+        "name": "recommendationIngestionType",
+        "value": "Automated"
+      }
+    ],
+    "recommendationCategory": "HighAvailability",
+    "recommendationImpact": "Medium",
+    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
+    "resourceMetadata": {
+      "action": {
+        "actionApplicabilityScope": "",
+        "actionId": "fa07fe18-374a-4e00-a017-d5fe110f31e1",
+        "actionType": "Blade",
+        "bladeName": "ResourceMenuBlade",
+        "extensionName": "HubsExtension",
+        "isRecommendedAction": false,
+        "metadata": {
+          "id": "{resourceId}"
+        },
+        "recommendedActionButtonText": ""
+      },
+      "plural": "SQL databases",
+      "singular": "SQL database"
+    },
+    "sourceProperties": {
+      "serviceRetirement": {
+        "retirementDate": "2026-10-01",
+        "retirementFeatureName": "FSV2 Database"
+      }
+    },
+    "supportedResourceType": "microsoft.sql/servers/databases"
+  },
+  {
+    "_attachments": "attachments/",
+    "_etag": "\"9f00dc63-0000-0700-0000-6981b5b20000\"",
+    "_rid": "4XcfAPWOUOe+IQAAAAAAAw==",
+    "_self": "dbs/4XcfAA==/colls/4XcfAPWOUOc=/docs/4XcfAPWOUOe+IQAAAAAAAw==/",
+    "_ts": 1770108338,
+    "actions": [
+      {
+        "actionApplicabilityScope": "",
+        "actionId": "cfd12b30-1186-4929-a62a-3e503cb7d113",
+        "actionType": "Document",
+        "caption": "Migrate Computer Vision workloads to Computer Vision 3.2 API",
+        "description": "Migrate Computer Vision workloads to Computer Vision 3.2 API",
+        "documentLink": "https://learn.microsoft.com/azure/ai-services/computer-vision/whats-new#computer-vision-32-preview-deprecation",
+        "isPostfixRequired": false,
+        "isRecommendedAction": false,
+        "recommendedActionButtonText": ""
+      }
+    ],
+    "descriptionOfChanges": [],
+    "detailedDescription": "Computer Vision v1.0, v2.0, v2.1, v3.0, and v3.1 APIs are retiring.  You need to migrate your Azure Computer Vision workloads to Computer Vision 3.2 API.",
+    "displayName": "Migrate Computer Vision workloads to Computer Vision 3.2 API",
+    "exposedMetadataProperties": {
+      "AdditionalColumns": [],
+      "CostSavingInfo": "",
+      "FriendlyName": "Retire_AzureAIVision_ComputerVisionAPIv10_20_21_30_31_v2",
+      "SupportedSDKLanguages": [],
+      "Tip": null
+    },
+    "id": "4d9bed4d-22e3-4dae-8eb3-ceb1bdd8c577",
+    "label": "Migrate Computer Vision workloads to Computer Vision 3.2 API",
+    "learnMoreLink": "https://azure.microsoft.com/updates/computer-vision-api-retirements-13-9-2026/",
+    "potentialBenefits": "Avoid potential disruptions",
+    "properties": [
+      {
+        "name": "recommendationCategory",
+        "value": "HighAvailability"
+      },
+      {
+        "name": "recommendationImpact",
+        "value": "Medium"
+      },
+      {
+        "name": "supportedResourceType",
+        "value": "microsoft.cognitiveservices/accounts"
+      },
+      {
+        "name": "recommendationIngestionType",
+        "value": "Automated"
+      }
+    ],
+    "recommendationCategory": "HighAvailability",
+    "recommendationImpact": "Medium",
+    "recommendationSubCategory": "ServiceUpgradeAndRetirement",
+    "resourceMetadata": {
+      "action": {
+        "actionApplicabilityScope": "",
+        "actionId": "784debb2-b1c0-43af-a0d1-5026b0d90fb5",
+        "actionType": "Blade",
+        "bladeName": "ResourceMenuBlade",
+        "extensionName": "HubsExtension",
+        "isRecommendedAction": false,
+        "metadata": {
+          "id": "{resourceId}"
+        },
+        "recommendedActionButtonText": ""
+      },
+      "plural": "Cognitive Services",
+      "singular": "Cognitive Service"
+    },
+    "sourceProperties": {
+      "serviceRetirement": {
+        "retirementDate": "2026-09-13",
+        "retirementFeatureName": "Computer Vision API v1.0, v2.0, v2.1, v3.0. v3.1"
+      }
+    },
+    "supportedResourceType": "microsoft.cognitiveservices/accounts"
   }
 ]
