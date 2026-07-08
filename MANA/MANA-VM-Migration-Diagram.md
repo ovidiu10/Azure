@@ -66,5 +66,5 @@ sequenceDiagram
 - The VM **size/SKU does not change** — only the physical host generation. Networking limits follow the VM size.
 - Multiple vNICs still receive **one shared PCIe Virtual Function** on MANA hardware.
 - **No outage** either way: unsupported OSes keep connectivity via the NetVSC synthetic adapter.
-- **NVAs** can pin to non-MANA hardware with the **`LegacyVMNVA`** tag until **31 May 2027**, after which it is no
+- **NVAs or VMs** can pin to non-MANA hardware with the **`LegacyVMNVA`** tag until **31 May 2027**, after which it is no
   longer honored.

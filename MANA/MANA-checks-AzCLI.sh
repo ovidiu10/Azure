@@ -47,17 +47,43 @@ done
 # ---------------------------------------------------------------------
 # 3. IN-GUEST (LINUX) - run these INSIDE the Linux VM
 # ---------------------------------------------------------------------
+# ---------------------------------------------------------------------
+# IMPORTANT: These in-guest checks (Linux OR Windows) can legitimately
+# return EMPTY / "not found" - e.g. when the VM currently sits on
+# previous-gen (Mellanox) hardware, or is on MANA hardware without
+# Accelerated Networking enabled. An empty result does NOT mean the VM
+# is broken. What actually matters is that the MANA DRIVER is present in
+# the OS, so that whenever the VM lands on MANA-capable hardware it can
+# use the accelerated path instead of falling back to NetVSC. Validate
+# driver presence (mana*.ko for the running kernel), not just whether a
+# device currently shows up in lspci/ip link.
+# ---------------------------------------------------------------------
 # Identify the MANA PCI device (Microsoft Corporation Device 00ba):
+# DEVICE check - is the MANA PCI VF exposed RIGHT NOW (device 00ba)?
+# NOTE: returns NOTHING when the VM is on Mellanox (previous-gen) hardware -
+#       that is EXPECTED, not a failure. On Mellanox you will instead see a
+#       ConnectX VF (mlx5_core) bonded to eth0, which is still Accelerated
+#       Networking - just not MANA. The 00ba VF only appears once Azure
+#       places the VM on MANA-capable hardware.
 #   lspci | grep -i "00ba"
+#   lspci -d 1414:            # any Microsoft (MANA) PCI device
+#   lspci -d 15b3:            # any Mellanox VF (ConnectX) - AN on non-MANA HW
 #
-# Confirm the MANA Ethernet driver is present:
-#   grep /mana*.ko /lib/modules/$(uname -r)/modules.builtin || \
-#     find /lib/modules/$(uname -r)/kernel -name 'mana*.ko*'
+# DRIVER check - IS THE MANA DRIVER PRESENT IN THE OS? (the check that
+# actually matters - present even when no MANA device exists yet):
+#   grep -q 'mana' /lib/modules/$(uname -r)/modules.builtin && echo "MANA built into kernel"
+#   find /lib/modules/$(uname -r)/kernel -name 'mana*.ko*' 2>/dev/null
+#   # Output present -> driver is staged; it binds automatically on MANA HW
+#   #                   (it will NOT be loaded/bound while on Mellanox - normal).
 #
-# Each AccelNet vNIC => two interfaces (synthetic eth0 + bonded MANA VF enP*):
+# Each AccelNet vNIC => two interfaces (synthetic eth0 + bonded VF enP*):
 #   ip link
 #
-# Confirm traffic flows through the MANA VF (counters must increment):
+# Which driver actually drives each interface (hv_netvsc synthetic vs
+# mlx5_core = Mellanox VF vs mana = MANA VF):
+#   for i in $(ls /sys/class/net); do echo -n "$i: "; ethtool -i $i 2>/dev/null | grep driver; done
+#
+# Confirm traffic flows through the VF (counters must increment):
 #   ethtool -S eth0 | grep -E "^[ \t]+vf"
 #
 # Kernel note: MANA drivers upstream in 5.15+; 6.2+ adds RDMA/DPDK.

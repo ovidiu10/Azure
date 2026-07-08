@@ -114,6 +114,53 @@ On the wire, each Accelerated-Networking vNIC appears as **two interfaces** insi
 - **Linux:** MANA Ethernet drivers landed upstream in **kernel 5.15+**; **6.2+** adds InfiniBand/RDMA and DPDK.
   Kernels 5.15 / 6.1 need backported support.
 
+> **Important — the driver matters more than the check output.** On either OS, the in-guest verification commands
+> (`Get-NetAdapter` / `Get-PnpDevice` on Windows, `lspci` / `ip link` / `ethtool` on Linux) can legitimately return
+> **empty or "not found"** — for example when the VM currently sits on previous-gen (Mellanox) hardware, or when it is
+> on MANA hardware but AccelNet isn't enabled. An empty result does **not** mean the VM is broken or misconfigured.
+> What actually matters is that the **MANA driver is present in the OS** so that, whenever the VM does land on
+> MANA-capable hardware, it can use the accelerated path instead of falling back to NetVSC. Validate driver presence
+> (Windows: the MANA driver package installed; Linux: `mana*.ko` present for your running kernel) rather than relying
+> only on whether a given check currently returns a device.
+
+### Just check the driver (device vs. driver — they are different)
+
+The most common confusion: **device checks look for the PCI VF that only appears on MANA hardware; driver checks
+look at the OS driver store, which is what you actually control.** On a VM still on Mellanox hardware the device
+checks are empty *by design*, yet the driver can already be staged and will bind automatically once the VM lands on
+MANA hardware. To verify **only** that the driver is present:
+
+**Linux**
+```bash
+# MANA driver present (built-in or as a module)?
+grep -q 'mana' /lib/modules/$(uname -r)/modules.builtin && echo "MANA built into kernel"
+find /lib/modules/$(uname -r)/kernel -name 'mana*.ko*' 2>/dev/null
+```
+Output present → driver is there (it stays unloaded while on Mellanox — that's normal). Ubuntu 24.04 / 6.11-azure
+kernels already carry it built-in plus `mana_ib.ko`.
+
+**Windows**
+```powershell
+# MANA driver staged in the driver store (present even with no MANA device)
+pnputil /enum-drivers | Select-String -Context 0,5 'mana'
+Get-WindowsDriver -Online -All |
+    Where-Object { $_.OriginalFileName -match 'mana' -or $_.Driver -match 'mana' } |
+    Format-Table Driver, OriginalFileName, ProviderName, Version, ClassName
+```
+Output present → driver installed; binds automatically on MANA hardware. Empty → the image lacks MANA support; use a
+MANA-supported Windows image/driver (<https://aka.ms/manawindowsdrivers>).
+
+> `Get-PnpDevice ... DEV_00BA` and `lspci | grep 00ba` check for the **device**, not the driver — that's why they
+> come back empty on Mellanox hardware even when the driver is present and the VM is perfectly healthy.
+
+#### How to intentionally land on MANA hardware
+A **stop-deallocate + start** re-triggers placement and may move the VM to MANA-capable hardware (a guest reboot will
+**not** — it keeps the same host). Success is capacity-dependent per SKU/region and not guaranteed on any single
+attempt. The most reliable path is to **resize to a v6 series** (Dsv6/Esv6, etc.), which are MANA-optimized by design.
+```bash
+az vm deallocate -g <rg> -n <vm> && az vm start -g <rg> -n <vm>   # then re-check: lspci -d 1414:
+```
+
 ---
 
 ## Network Virtual Appliances (NVAs) — special case
@@ -122,7 +169,7 @@ NVAs depend directly on the underlying NIC/driver, so they are uniquely impacted
 
 - Confirm your NVA vendor **explicitly supports MANA**, and/or run on a compatible VM series + OS.
 - Use the **`LegacyVMNVA`** tag (applied via **Azure Policy** definition `e87a87f5-e6dd-4919-be21-abb0a4ea4630`) to
-  **temporarily avoid** MANA placement while migrating.
+  **temporarily avoid** MANA placement for the **NVA or VM** (and VM Scale Sets) while migrating.
   - If applied/enabled before **May 31, 2027**, the VM won't be placed on MANA hardware until that date.
   - After **May 31, 2027**, the tag is **no longer honored**.
 - Recommended tagging deadlines (align with earliest placement):
