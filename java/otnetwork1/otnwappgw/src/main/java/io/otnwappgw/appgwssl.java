@@ -1,11 +1,15 @@
 // /* spell-checker: disable */
 package io.otnwappgw;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+
 import com.azure.core.http.policy.HttpLogDetailLevel;
-//import com.azure.core.http.rest.PagedIterable;
 import com.azure.core.management.AzureEnvironment;
 import com.azure.core.management.Region;
 import com.azure.core.management.SubResource;
+import com.azure.core.management.exception.ManagementException;
 import com.azure.core.management.profile.AzureProfile;
 import com.azure.identity.ClientSecretCredential;
 import com.azure.identity.ClientSecretCredentialBuilder;
@@ -26,12 +30,6 @@ import com.azure.resourcemanager.network.models.ApplicationGatewaySslPolicyType;
 import com.azure.resourcemanager.network.models.ApplicationGatewaySslProfile;
 import com.azure.resourcemanager.network.models.ApplicationGatewaySslProtocol;
 import com.azure.resourcemanager.network.models.ApplicationGatewayTier;
-//import com.azure.resourcemanager.resources.models.ResourceGroup;
-
-import java.io.File;
-import java.util.Arrays;
-//import java.util.HashMap;
-//import java.util.Map;
 
 import io.otnwappgw.model.AuthFile;
 
@@ -124,8 +122,8 @@ public class appgwssl
                             .withEnableResponseBuffering(true)),
             com.azure.core.util.Context.NONE);
             System.out.println("Done!");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException | ManagementException e) {
+            System.out.println("Error: " + e.getMessage());
         }            
     }
 
