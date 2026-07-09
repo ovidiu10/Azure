@@ -42,15 +42,25 @@ foreach ($nicRef in $vm.NetworkProfile.NetworkInterfaces) {
 # =====================================================================
 # 2. CONTROL PLANE - NVA opt-out (LegacyVMNVA) reapply to enable the tag
 #    (only for NVA workloads that degrade on MANA hardware)
+#
+# IMPORTANT: After the LegacyVMNVA tag is placed on the VM/VMSS, use
+# 'reapply' as the PREFERRED way to make Azure honor it - it re-evaluates
+# placement WITHOUT downtime. A stop-deallocate + start is a LAST RESORT
+# only (use it if reapply does not take effect); it incurs downtime and a
+# full re-placement.
 # =====================================================================
-# Standalone VM or VMSS Flex instance:
+# PREFERRED - Standalone VM or VMSS Flex instance:
 # Invoke-AzResourceAction -ResourceGroupName $ResourceGroup `
 #     -ResourceType "Microsoft.Compute/virtualMachines" `
 #     -ResourceName $VmName -Action "reapply" -Force
 
-# VMSS Uniform:
+# PREFERRED - VMSS Uniform:
 # Invoke-AzRestMethod -Method POST `
 #     -Path "/subscriptions/<subscription-id>/resourceGroups/$ResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/<vmss-name>/reapply?api-version=2025-11-01"
+
+# LAST RESORT ONLY (incurs downtime) - if reapply does not take effect:
+# Stop-AzVM  -ResourceGroupName $ResourceGroup -Name $VmName -Force   # full deallocate
+# Start-AzVM -ResourceGroupName $ResourceGroup -Name $VmName
 
 # =====================================================================
 # 3. IN-GUEST (WINDOWS) - run these INSIDE the Windows VM

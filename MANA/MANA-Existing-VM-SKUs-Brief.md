@@ -176,6 +176,12 @@ NVAs depend directly on the underlying NIC/driver, so they are uniquely impacted
   - MANA-eligible **Cobalt 100 & Intel v5** VMs (Public cloud): **May 26, 2026**
   - MANA-eligible **Intel v1–v4** VMs (Public cloud): **August 1, 2026**
 - To enable the tag on existing resources, run a **reapply** (see the AZ CLI script).
+
+> **Important — use `reapply` to activate the tag, not deallocate/start.** Once the `LegacyVMNVA` tag has been placed
+> on the VM/VMSS, the **preferred** way to make Azure honor it (move the VM off MANA-eligible placement) is a
+> **`reapply`** operation — `az vm reapply` for a standalone VM or VMSS Flex instance, or the VMSS Uniform `reapply`
+> REST call. `reapply` re-evaluates placement **without downtime**. A **stop-deallocate + start** should be treated as
+> a **last resort**, only if `reapply` doesn't take effect, because it incurs downtime and a full re-placement.
 - **Caveats:** using `LegacyVMNVA` with an **ODCR** reduces the capacity pool and **voids ODCR SLA** for those VMs;
   NVAs bought outside Marketplace or via managed service require coordination with the provider.
 

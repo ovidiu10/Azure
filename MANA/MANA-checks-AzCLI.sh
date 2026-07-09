@@ -36,13 +36,22 @@ done
 # ---------------------------------------------------------------------
 # 2. CONTROL PLANE - NVA opt-out (LegacyVMNVA): reapply to enable the tag
 #    (only for NVA workloads degraded on MANA hardware)
+#
+# IMPORTANT: After the LegacyVMNVA tag is placed on the VM/VMSS, use
+# 'reapply' as the PREFERRED way to make Azure honor it - it re-evaluates
+# placement WITHOUT downtime. A stop-deallocate + start is a LAST RESORT
+# only (use it if reapply does not take effect); it incurs downtime and a
+# full re-placement.
 # ---------------------------------------------------------------------
-# Standalone VM or VMSS Flex instance:
+# PREFERRED - Standalone VM or VMSS Flex instance:
 # az vm reapply --resource-group "$RG" --name "$VM"
 #
-# VMSS Uniform:
+# PREFERRED - VMSS Uniform:
 # az rest --method post \
 #   --url "https://management.azure.com/subscriptions/$SUB/resourceGroups/$RG/providers/Microsoft.Compute/virtualMachineScaleSets/$VMSS/reapply?api-version=2025-11-01"
+#
+# LAST RESORT ONLY (incurs downtime) - if reapply does not take effect:
+# az vm deallocate -g "$RG" -n "$VM" && az vm start -g "$RG" -n "$VM"
 
 # ---------------------------------------------------------------------
 # 3. IN-GUEST (LINUX) - run these INSIDE the Linux VM
