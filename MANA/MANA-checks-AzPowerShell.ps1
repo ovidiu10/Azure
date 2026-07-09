@@ -101,14 +101,15 @@ foreach ($nicRef in $vm.NetworkProfile.NetworkInterfaces) {
 #   https://aka.ms/manawindowsdrivers
 
 # =====================================================================
-# 4. Push the IN-GUEST checks remotely via Run Command
+# 4. Push the IN-GUEST DRIVER-PRESENCE check remotely via Run Command
+#    (driver-store check only - independent of current hardware placement)
 # =====================================================================
-# Windows target:
+# Windows target - is the MANA driver staged in the driver store?
 # Invoke-AzVMRunCommand -ResourceGroupName $ResourceGroup -VMName $VmName `
 #     -CommandId 'RunPowerShellScript' `
-#     -ScriptString 'Get-NetAdapter; Get-PnpDevice -PresentOnly | Where-Object { $_.InstanceId -match "^PCI\\VEN_1414&DEV_00BA&" }'
+#     -ScriptString 'pnputil /enum-drivers | Select-String -Context 0,5 "mana"; Get-WindowsDriver -Online -All | Where-Object { $_.OriginalFileName -match "mana" -or $_.Driver -match "mana" } | Format-Table Driver, OriginalFileName, ProviderName, Version, ClassName'
 
-# Linux target (run the shell checks through RunShellScript):
+# Linux target - is the MANA driver present (built-in or as a module)?
 # Invoke-AzVMRunCommand -ResourceGroupName $ResourceGroup -VMName $VmName `
 #     -CommandId 'RunShellScript' `
-#     -ScriptString 'lspci | grep -i "00ba"; ip link; ethtool -S eth0 | grep -E "^[ \t]+vf"'
+#     -ScriptString 'grep -q "mana" /lib/modules/$(uname -r)/modules.builtin && echo "MANA built into kernel"; find /lib/modules/$(uname -r)/kernel -name "mana*.ko*" 2>/dev/null'

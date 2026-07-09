@@ -98,13 +98,14 @@ done
 # Kernel note: MANA drivers upstream in 5.15+; 6.2+ adds RDMA/DPDK.
 
 # ---------------------------------------------------------------------
-# 4. Push in-guest checks remotely via az vm run-command
+# 4. Push the IN-GUEST DRIVER-PRESENCE check remotely via az vm run-command
+#    (driver-store check only - independent of current hardware placement)
 # ---------------------------------------------------------------------
-# Linux target:
+# Linux target - is the MANA driver present (built-in or as a module)?
 # az vm run-command invoke -g "$RG" -n "$VM" --command-id RunShellScript \
-#   --scripts 'lspci | grep -i "00ba"; ip link; ethtool -S eth0 | grep -E "^[ \t]+vf"'
+#   --scripts 'grep -q "mana" /lib/modules/$(uname -r)/modules.builtin && echo "MANA built into kernel"; find /lib/modules/$(uname -r)/kernel -name "mana*.ko*" 2>/dev/null'
 
-# Windows target (look for "Microsoft Azure Network Adapter" + PCI VEN_1414 DEV_00BA):
+# Windows target - is the MANA driver staged in the driver store?
 # az vm run-command invoke -g "$RG" -n "$VM" --command-id RunPowerShellScript \
-#   --scripts "Get-NetAdapter" \
-#             "Get-PnpDevice -PresentOnly | Where-Object { \$_.InstanceId -match '^PCI\\\\VEN_1414&DEV_00BA&' }"
+#   --scripts "pnputil /enum-drivers | Select-String -Context 0,5 'mana'" \
+#             "Get-WindowsDriver -Online -All | Where-Object { \$_.OriginalFileName -match 'mana' -or \$_.Driver -match 'mana' } | Format-Table Driver, OriginalFileName, ProviderName, Version, ClassName"
