@@ -100,12 +100,22 @@ done
 # ---------------------------------------------------------------------
 # 4. Push the IN-GUEST DRIVER-PRESENCE check remotely via az vm run-command
 #    (driver-store check only - independent of current hardware placement)
+#
+# HOW THIS WORKS (two separate layers - do not confuse them):
+#   * 'az vm run-command' runs on YOUR workstation (the control plane),
+#     from bash/any shell. It does NOT require that shell on the VM.
+#   * --command-id selects the interpreter Azure's guest agent uses INSIDE
+#     the VM: RunShellScript = bash (Linux), RunPowerShellScript =
+#     PowerShell (Windows).
+#   => The Windows target below runs a POWERSHELL script in the guest even
+#      though you launch it from bash. Linux never needs PowerShell.
 # ---------------------------------------------------------------------
 # Linux target - is the MANA driver present (built-in or as a module)?
 # az vm run-command invoke -g "$RG" -n "$VM" --command-id RunShellScript \
 #   --scripts 'grep -q "mana" /lib/modules/$(uname -r)/modules.builtin && echo "MANA built into kernel"; find /lib/modules/$(uname -r)/kernel -name "mana*.ko*" 2>/dev/null'
 
 # Windows target - is the MANA driver staged in the driver store?
+# (RunPowerShellScript => PowerShell runs in the guest)
 # az vm run-command invoke -g "$RG" -n "$VM" --command-id RunPowerShellScript \
 #   --scripts "pnputil /enum-drivers | Select-String -Context 0,5 'mana'" \
 #             "Get-WindowsDriver -Online -All | Where-Object { \$_.OriginalFileName -match 'mana' -or \$_.Driver -match 'mana' } | Format-Table Driver, OriginalFileName, ProviderName, Version, ClassName"

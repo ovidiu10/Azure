@@ -103,6 +103,16 @@ foreach ($nicRef in $vm.NetworkProfile.NetworkInterfaces) {
 # =====================================================================
 # 4. Push the IN-GUEST DRIVER-PRESENCE check remotely via Run Command
 #    (driver-store check only - independent of current hardware placement)
+#
+# HOW THIS WORKS (two separate layers - do not confuse them):
+#   * Invoke-AzVMRunCommand is an Az PowerShell cmdlet that runs on YOUR
+#     workstation (the control plane). It does NOT require PowerShell on
+#     the target VM.
+#   * -CommandId selects the interpreter Azure's guest agent uses INSIDE
+#     the VM: 'RunShellScript' = bash (Linux), 'RunPowerShellScript' =
+#     PowerShell (Windows).
+#   => The Linux target below runs a BASH script in the guest even though
+#      you launch it from a PowerShell cmdlet. Linux never runs PowerShell.
 # =====================================================================
 # Windows target - is the MANA driver staged in the driver store?
 # Invoke-AzVMRunCommand -ResourceGroupName $ResourceGroup -VMName $VmName `
@@ -110,6 +120,7 @@ foreach ($nicRef in $vm.NetworkProfile.NetworkInterfaces) {
 #     -ScriptString 'pnputil /enum-drivers | Select-String -Context 0,5 "mana"; Get-WindowsDriver -Online -All | Where-Object { $_.OriginalFileName -match "mana" -or $_.Driver -match "mana" } | Format-Table Driver, OriginalFileName, ProviderName, Version, ClassName'
 
 # Linux target - is the MANA driver present (built-in or as a module)?
+# (RunShellScript => bash runs in the guest; not PowerShell)
 # Invoke-AzVMRunCommand -ResourceGroupName $ResourceGroup -VMName $VmName `
 #     -CommandId 'RunShellScript' `
 #     -ScriptString 'grep -q "mana" /lib/modules/$(uname -r)/modules.builtin && echo "MANA built into kernel"; find /lib/modules/$(uname -r)/kernel -name "mana*.ko*" 2>/dev/null'
