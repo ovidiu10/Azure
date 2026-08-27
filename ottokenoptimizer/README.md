@@ -184,7 +184,7 @@ Continue with short prompts until the optimized history crosses the default
 - The optimized and raw answers are both available in the chat for a
   side-by-side quality comparison.
 
-## Known PoC limitations (say this proactively to judges)
+## Known PoC limitations
 
 - Caching is fuzzy string-match, not true semantic embedding similarity —
   fine for near-identical rephrasing, not for paraphrases with different
