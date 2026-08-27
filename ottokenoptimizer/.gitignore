@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+
+# Secrets — never commit API keys
+.env
+.env.*
+!.env.example
+*.pem
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Office lock files
+~$*.pptx
+~$*.docx
+~$*.xlsx

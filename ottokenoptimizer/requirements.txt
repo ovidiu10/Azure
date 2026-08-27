@@ -1,0 +1,6 @@
+streamlit>=1.36
+anthropic>=0.69          # AnthropicFoundry client requires a recent SDK
+openai>=1.0              # for the OpenAI provider (Azure Foundry-hosted only)
+pandas>=2.0
+azure-identity>=1.17     # optional: only needed for Entra ID auth against Foundry
+python-dotenv>=1.0
