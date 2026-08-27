@@ -44,11 +44,63 @@ Every message runs through **two parallel paths**, compared live:
 
 ## Setup
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+Requirements:
+
+- Python 3.10 or newer
+- An Anthropic API key, or access to an Azure AI Foundry model deployment
+- Azure CLI if using Microsoft Entra ID authentication
+
+### Create a Python virtual environment
+
+Using a virtual environment keeps TokenThrift's packages isolated from the
+system Python installation.
+
+**Windows PowerShell**
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
+
+If PowerShell blocks the activation script, allow it for the current terminal
+session only and then activate again:
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
+.\.venv\Scripts\Activate.ps1
+```
+
+Alternatively, run the environment's Python directly without activating it:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m streamlit run app.py
+```
+
+**macOS/Linux**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+Copy the example configuration before adding resource names or credentials:
+
+```powershell
+# Windows PowerShell
+Copy-Item .env.example .env
+```
+
+```bash
+# macOS/Linux
+cp .env.example .env
+```
+
+The `.env` file is ignored by Git. Never commit API keys or access tokens.
 
 ## Run — direct Anthropic API
 
@@ -57,23 +109,142 @@ export ANTHROPIC_API_KEY=sk-ant-...   # or paste it in the sidebar
 streamlit run app.py
 ```
 
-## Run — Azure Foundry backend
+## Run — Claude on Azure AI Foundry with an API key
 
-Get your key and resource name from the Foundry portal
-(**Build → Models → your Claude deployment → Details tab**), then:
+This path calls a Claude deployment hosted in Azure AI Foundry and
+authenticates with the deployment's API key. It does **not** use
+`ANTHROPIC_API_KEY`, which is only for the direct Anthropic API.
 
-```bash
-export CLAUDE_BACKEND=foundry
-export ANTHROPIC_FOUNDRY_API_KEY=...
-export ANTHROPIC_FOUNDRY_RESOURCE=your-resource-name   # or ANTHROPIC_FOUNDRY_BASE_URL
-streamlit run app.py
+1. In the Foundry portal, open the Claude deployment and its endpoint/details
+   page. Record:
+
+   - the **API key**
+   - the **resource name**
+   - the exact **deployment names** for the main and cheaper models
+
+2. Add the following values to `.env`:
+
+   ```dotenv
+   LLM_PROVIDER=anthropic
+   CLAUDE_BACKEND=foundry
+   ANTHROPIC_FOUNDRY_API_KEY=your-foundry-api-key
+   ANTHROPIC_FOUNDRY_RESOURCE=your-resource-name
+   ```
+
+   Use the resource name, not the whole endpoint. For example, if the endpoint
+   is `https://my-ai-resource.services.ai.azure.com/anthropic/`, use:
+
+   ```dotenv
+   ANTHROPIC_FOUNDRY_RESOURCE=my-ai-resource
+   ```
+
+   If your deployment requires a nonstandard endpoint, set the full URL
+   instead and leave `ANTHROPIC_FOUNDRY_RESOURCE` empty:
+
+   ```dotenv
+   ANTHROPIC_FOUNDRY_RESOURCE=
+   ANTHROPIC_FOUNDRY_BASE_URL=https://your-endpoint.example/anthropic/
+   ```
+
+3. Start the app:
+
+   ```powershell
+   streamlit run app.py
+   ```
+
+4. Confirm these sidebar selections:
+
+   - **Model provider:** Claude (Anthropic)
+   - **Backend:** Azure Foundry
+   - **Foundry auth method:** API key
+   - **Foundry resource name:** the resource configured above, or use the
+     optional full base URL field for a nonstandard endpoint
+   - **Main model / Cheap model:** the exact Foundry deployment names
+
+Values loaded from `.env` prefill the sidebar. You can also leave the
+Foundry variables empty and enter the API key and resource interactively, but
+the values must be entered again after restarting the app.
+
+## Run — Azure AI Foundry with Microsoft Entra ID
+
+Entra authentication avoids storing a Foundry API key. TokenThrift uses
+`DefaultAzureCredential` from `azure-identity`, which detects the active Azure
+CLI session.
+
+1. Install the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
+2. Sign in to the tenant that owns the Foundry resource:
+
+   ```powershell
+   az login
+   ```
+
+   If your account has access to multiple tenants, specify the resource
+   tenant explicitly:
+
+   ```powershell
+   az login --tenant <tenant-id>
+   ```
+
+3. Select the subscription containing the Foundry resource:
+
+   ```powershell
+   az account list --output table
+   az account set --subscription "<subscription-name-or-id>"
+   az account show --output table
+   ```
+
+4. Add the Foundry resource name to `.env`. Use the resource name only, not
+   the complete endpoint URL.
+
+   For GPT-5/OpenAI deployments:
+
+   ```dotenv
+   LLM_PROVIDER=openai
+   OPENAI_FOUNDRY_RESOURCE=your-resource-name
+   ```
+
+   For Claude deployments hosted in Foundry:
+
+   ```dotenv
+   LLM_PROVIDER=anthropic
+   CLAUDE_BACKEND=foundry
+   ANTHROPIC_FOUNDRY_RESOURCE=your-resource-name
+   ```
+
+   For example, the OpenAI resource name for
+   `https://my-ai-resource.openai.azure.com/openai/v1/` is
+   `my-ai-resource`.
+
+5. Start the app:
+
+   ```powershell
+   streamlit run app.py
+   ```
+
+6. In the sidebar, select the provider and deployment:
+
+   - **Model provider:** OpenAI (Azure Foundry), or Claude (Anthropic) with
+     **Backend:** Azure Foundry
+   - **Foundry auth method:** Microsoft Entra ID
+   - **Main model / Cheap model:** the deployment names configured on the
+     resource
+
+No access token is written to `.env`. `azure-identity` obtains and refreshes
+short-lived tokens from the Azure CLI session. Your signed-in identity still
+needs permission to invoke the model deployment; authentication can succeed
+while inference fails with `401` or `403` if the required Foundry/Azure OpenAI
+role assignment is missing.
+
+To switch accounts or tenants:
+
+```powershell
+az logout
+az login --tenant <tenant-id>
+az account set --subscription "<subscription-name-or-id>"
 ```
 
-Or just leave `CLAUDE_BACKEND` unset and switch the "Backend" radio button in
-the sidebar at runtime — both credential sets can be filled in there
-instead of env vars.
+Notes for Claude deployments hosted in Foundry:
 
-Notes for Foundry mode:
 - `main_model` / `cheap_model` are **deployment names**, not raw model IDs —
   they default to the same string (`claude-sonnet-5`, `claude-haiku-4-5`)
   unless you renamed the deployment in the portal.
