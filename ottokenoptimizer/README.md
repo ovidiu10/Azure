@@ -2,6 +2,8 @@
 
 **Same conversation. Half the tokens.**
 
+![TokenThrift — live token-cost optimization across Claude and GPT-5](assets/tokenthrift-hero.png)
+
 TokenThrift is a live Streamlit dashboard that proves — with real,
 side-by-side API calls, not simulated numbers — how much truncation,
 lexical response caching, and complexity-based model routing can cut LLM
@@ -48,6 +50,105 @@ Every message is compared across **two paths**:
 Both paths receive the same sequence of user prompts. Their assistant-response
 histories can differ because routing may select a different model, so use the
 expandable raw answer to compare response quality as well as tokens and cost.
+
+### How the savings are produced
+
+Three techniques reduce the optimized path's cost. A fourth component measures
+the result using usage returned by the providers.
+
+#### 1. Sliding-window history with summarization
+
+Without optimization, each request resends every previous user prompt and
+assistant answer. This makes input tokens grow on every turn even when most of
+the old conversation is no longer needed.
+
+The optimized path keeps only the most recent **N turns** verbatim. Once the
+history crosses **Summarize after N turns**:
+
+1. Older user and assistant messages are collected.
+2. The cheaper model compresses them into a two-to-three-sentence summary.
+3. The recent turns remain unchanged.
+4. The summary is added to the system prompt on future calls.
+
+This replaces a growing block of old messages with a short summary, so future
+input-token growth is bounded. The summarization request is a real API call;
+its tokens and cost are included in the optimized turn rather than hidden.
+Summarization may cost more on the turn when it runs, then save tokens across
+later turns.
+
+#### 2. Fuzzy response caching
+
+Before making the optimized response call, the app normalizes the incoming
+question by lowercasing it, trimming it, and collapsing repeated whitespace.
+It compares that text with previous questions using Python's
+`difflib.SequenceMatcher`.
+
+If the best similarity score meets the configured threshold (`0.86` by
+default), the previous response is returned immediately:
+
+- optimized input tokens: `0`
+- optimized output tokens: `0`
+- optimized cost: `$0`
+- `model_used`: `cache`
+
+The raw path still runs so the dashboard can measure the counterfactual.
+Truncated answers are never added to the cache. This is lexical fuzzy matching,
+not embedding-based semantic search, so it works best for exact repeats and
+small wording changes.
+
+#### 3. Complexity-based model routing
+
+The optimized path chooses between a main model and a cheaper model:
+
+- A prompt of **60 characters or fewer** goes to the cheaper model unless it
+  contains a complexity keyword.
+- A longer prompt goes to the main model.
+- Keywords such as `analyze`, `compare`, `design`, `debug`, `explain why`, and
+  `architecture` force the main model even when the prompt is short.
+
+For example, `What is the capital of France?` routes to Haiku or GPT-5 mini,
+while `Compare Python and JavaScript.` routes to Sonnet or GPT-5.
+
+Routing can reduce cost even when it does not reduce token count, because the
+cheaper model has a lower input/output price. That is why **Token delta** can
+be negative while **$ Saved** remains positive.
+
+#### 4. Provider-reported accounting
+
+The app does not estimate token counts from text length. Each model wrapper
+returns the provider's input and output usage, and the dashboard records:
+
+- raw and optimized tokens for each turn
+- raw and optimized estimated cost
+- selected model
+- cache-hit and summarization status
+- whether the optimized answer reached the response-token ceiling
+
+The core calculations are:
+
+```text
+token delta = raw total tokens - optimized total tokens
+cost saved  = raw estimated cost - optimized estimated cost
+```
+
+A positive token delta means the optimized path moved fewer tokens. A negative
+value means it moved more tokens; this can still be cheaper when routing uses a
+lower-priced model. Foundry token counts come from real usage, while dollar
+figures remain directional estimates based on the local `PRICING` table.
+
+### What happens on each message
+
+1. Append the user prompt to the raw history.
+2. Call the fixed main model with the complete raw history.
+3. Check the optimized response cache.
+4. On a cache miss, summarize old optimized history when required.
+5. Route the prompt to the cheap or main model.
+6. Call the selected model with the compact optimized history.
+7. Record usage and cost for both paths and update the dashboard.
+
+This raw-versus-optimized double execution is for measurement. A production
+application would normally execute only the optimized path and estimate the
+raw counterfactual instead of paying for it.
 
 ## Setup
 
