@@ -51,6 +51,14 @@ Both paths receive the same sequence of user prompts. Their assistant-response
 histories can differ because routing may select a different model, so use the
 expandable raw answer to compare response quality as well as tokens and cost.
 
+### Demo loop
+
+The highlight reel below loops through the live raw-versus-optimized
+comparison, answer-quality view, cache behavior, provider switch, per-turn
+table, and measured results.
+
+![TokenThrift looping demo across Claude and GPT-5](assets/tokenthrift-demo-loop.gif)
+
 ### How the savings are produced
 
 Three techniques reduce the optimized path's cost. A fourth component measures
@@ -149,6 +157,20 @@ figures remain directional estimates based on the local `PRICING` table.
 This raw-versus-optimized double execution is for measurement. A production
 application would normally execute only the optimized path and estimate the
 raw counterfactual instead of paying for it.
+
+### Visual walkthrough
+
+**Compare the optimized answer with the raw baseline**
+
+![Raw and optimized answers with the live savings dashboard](assets/raw-vs-optimized.png)
+
+**Inspect the same per-turn measurements across providers**
+
+![Claude and GPT-5 per-turn detail tables](assets/provider-comparison.png)
+
+**Review the measured result for both live runs**
+
+![Measured Claude and GPT-5 savings](assets/measured-results.png)
 
 ## Setup
 
