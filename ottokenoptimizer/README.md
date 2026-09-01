@@ -616,3 +616,40 @@ Agents add tool calls and side effects that ordinary chat does not have:
   attribution, latency percentiles, error rates, and budget alerts.
 - Estimate the raw counterfactual in production rather than executing it;
   periodically run controlled benchmarks to calibrate the estimate.
+
+## References
+
+TokenThrift applies established context-management and inference-optimization
+patterns documented by model providers and Microsoft:
+
+- [Anthropic: Context windows](https://platform.claude.com/docs/en/build-with-claude/context-windows) —
+  explains progressive token accumulation as previous conversation turns
+  become input to subsequent requests.
+- [Anthropic: Compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) —
+  documents summarizing older context to keep long-running conversations
+  smaller.
+- [Microsoft: Semantic caching for LLM APIs*](https://learn.microsoft.com/azure/api-management/azure-openai-enable-semantic-caching) —
+  explains how prompts that are similar in meaning can reuse responses to
+  reduce backend processing and latency.
+- [Microsoft Foundry: Model Router](https://learn.microsoft.com/azure/foundry/openai/concepts/model-router) —
+  documents routing simpler tasks to cheaper models while retaining larger
+  models for complex requests.
+- [OpenAI: Prompt caching*](https://developers.openai.com/api/docs/guides/prompt-caching) —
+  documents reusable prompt prefixes for lower input cost and latency.
+- [Anthropic: Prompt caching*](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) —
+  documents automatic and explicit caching of repeated prompt prefixes.
+- [Microsoft Foundry: Plan and manage costs](https://learn.microsoft.com/azure/foundry/concepts/manage-costs) —
+  explains cost estimation, usage monitoring, and reconciliation with actual
+  billing.
+- [Microsoft: Entra ID authentication for Azure OpenAI](https://learn.microsoft.com/azure/foundry-classic/openai/how-to/managed-identity) —
+  documents `DefaultAzureCredential`, local `az login`, managed identity, and
+  role-based access control.
+- [Model Context Protocol](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) —
+  supports the future direction of exposing TokenThrift as a reusable agent
+  tool.
+
+\* **Important caching distinction:** TokenThrift currently implements a
+lexical **response cache** with Python's `difflib.SequenceMatcher`. Azure
+semantic caching, OpenAI prompt caching, and Anthropic prompt caching validate
+the broader caching strategy and inform the roadmap, but they are different
+implementations and are not features currently used by this PoC.
