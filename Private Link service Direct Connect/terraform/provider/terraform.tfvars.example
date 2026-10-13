@@ -1,0 +1,9 @@
+subscription_id          = "<provider-subscription-id>"
+tenant_id                = "<provider-tenant-id>"
+consumer_subscription_id = "<consumer-subscription-id>"
+ssh_public_key           = "ssh-ed25519 AAAA... user@example"
+
+# PowerShell example:
+# [Convert]::ToBase64String([IO.File]::ReadAllBytes("app.plsdc.internal.pfx"))
+tls_certificate_pfx_base64 = "<base64-encoded-pfx>"
+tls_certificate_password   = "<pfx-password>"

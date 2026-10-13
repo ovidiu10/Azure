@@ -1,0 +1,3 @@
+certificates/
+*.pfx
+*.pfx.base64

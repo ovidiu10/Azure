@@ -1,0 +1,63 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - autoconf
+  - automake
+  - autotools-dev
+  - build-essential
+  - curl
+  - dnsutils
+  - ethtool
+  - git
+  - iperf3
+  - iproute2
+  - jq
+  - libtool
+  - libtool-bin
+  - lsof
+  - m4
+  - net-tools
+  - netcat-openbsd
+  - nmap
+  - perl
+  - tcpdump
+  - traceroute
+write_files:
+  - path: /var/www/plsdc/index.html
+    permissions: "0644"
+    content: |
+      <!doctype html>
+      <html><body><h1>PLS Direct Connect consumer</h1><p>Consumer VMSS instance is ready.</p></body></html>
+  - path: /etc/systemd/system/plsdc-web.service
+    permissions: "0644"
+    content: |
+      [Unit]
+      Description=PLS Direct Connect consumer sample service
+      After=network-online.target
+
+      [Service]
+      ExecStart=/usr/bin/python3 -m http.server 80 --directory /var/www/plsdc
+      Restart=always
+      User=root
+
+      [Install]
+      WantedBy=multi-user.target
+  - path: /usr/local/sbin/install-sockperf.sh
+    permissions: "0755"
+    content: |
+      #!/usr/bin/env bash
+      set -euxo pipefail
+      install_dir=/usr/local/src/sockperf
+      rm -rf "${install_dir}"
+      git clone --depth 1 https://github.com/Mellanox/sockperf.git "${install_dir}"
+      cd "${install_dir}"
+      ./autogen.sh
+      ./configure --prefix=/usr/local
+      make -j"$(nproc)"
+      make install
+      sockperf --version
+runcmd:
+  - [/usr/local/sbin/install-sockperf.sh]
+  - [systemctl, daemon-reload]
+  - [systemctl, enable, --now, plsdc-web.service]

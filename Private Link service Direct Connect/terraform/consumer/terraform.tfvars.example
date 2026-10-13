@@ -1,0 +1,4 @@
+subscription_id             = "<consumer-subscription-id>"
+tenant_id                   = "<consumer-tenant-id>"
+private_link_service_id     = "/subscriptions/<provider-subscription-id>/resourceGroups/rg-plsdc-provider/providers/Microsoft.Network/privateLinkServices/pls-appgw-direct-connect"
+ssh_public_key              = "ssh-ed25519 AAAA... user@example"
