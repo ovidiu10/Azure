@@ -1,0 +1,22 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform.tfstate.lock.info
+
+# Real tfvars contain live resource names and subscription IDs.
+terraform/*.tfvars
+!terraform/*.tfvars.example
+terraform/*.tfvars.bak-*
+terraform/*.auto.tfvars
+
+# Harvested / generated alert artifacts (environment specific)
+scripts/alert-templates/
+scripts/alert-rules/
+scripts/template.json
+scripts/rules.json
+
+# Internal-only findings live in the private Microsoft repo. Never publish here.
+INTERNAL-*.md

@@ -1,0 +1,73 @@
+# Existing SQL Managed Instance to monitor
+sqlmi_name                = "sqlmi-prod-01"
+sqlmi_resource_group_name = "rg-sqlmi-prod"
+
+# Existing VNet / subnet for the inbound Grafana private endpoint.
+# This must NOT be the SQL MI delegated subnet.
+vnet_name                    = "vnet-data-eastus"
+vnet_resource_group_name     = "rg-network-prod"
+private_endpoint_subnet_name = "snet-private-endpoints"
+
+# PoC resource group
+resource_group_name = "rg-dbwatcher-grafana-poc"
+location            = "East US"
+name_prefix         = "dbw"
+
+# ADX sizing
+# SKU availability AND live capacity are both region specific. Set adx_location only
+# when the primary region has no Kusto capacity; Standard tier requires capacity >= 2.
+# adx_location   = "Canada East"
+adx_sku_name     = "Dev(No SLA)_Standard_D11_v2"
+adx_sku_capacity = 1
+
+# Grafana
+grafana_major_version = 13
+grafana_sku_size      = "X1"
+
+# Grafana RBAC is SEPARATE from Azure RBAC - subscription Owner grants no UI access.
+# Terraform grants Grafana Admin to whoever runs it; list anyone else here.
+assign_grafana_admin_to_caller    = true
+grafana_admin_extra_principal_ids = []
+
+# The portal Alert templates blade will not create any rule until the watcher has a
+# default alert-rule identity, and it must be separate from the watcher identity.
+create_alert_rule_identity = true
+
+# Providers already registered by preflight, or register them here.
+# Set false if your identity cannot register providers at subscription scope.
+register_resource_providers = true
+
+# PHASE SWITCH
+#   false = phase 1, public access on, prove the pipeline works
+#   true  = phase 2, public access OFF, the actual go/no-go gate
+lock_down_public_access = false
+
+# Set to false if private DNS zones are managed centrally in a hub VNet
+create_grafana_private_dns_zone = true
+
+# GETTING INSIDE THE VNET
+# After lock-down there is no public path to Grafana or ADX - including for you.
+# Pick one of the two options below BEFORE setting lock_down_public_access = true.
+
+# Option A - jumpbox in the workload VNet.
+# create_adx_private_endpoint is what lets a human run ad-hoc KQL; the watcher and
+# Grafana have their own service-to-service paths and neither helps you query.
+create_adx_private_endpoint = false
+create_jumpbox              = false
+jumpbox_vm_size             = "Standard_B2ms"
+jumpbox_admin_username      = "azureadmin"
+# Many subscriptions block public IP creation. When they do, leave this false and
+# drive the VM with 'az vm run-command invoke' - no inbound path required.
+jumpbox_public_ip = false
+# jumpbox_allowed_source_ip = "203.0.113.10"   # single IP, no mask
+
+# Option B - peer an admin VNet you already have.
+# Fails if the address spaces overlap, and the 10.0.0.0/16 default collides constantly.
+create_admin_peering = false
+# admin_vnet_name                = "vnet-admin"
+# admin_vnet_resource_group_name = "rg-admin"
+
+tags = {
+  workload = "dbwatcher-private-alerting-poc"
+  owner    = "platform-data"
+}
