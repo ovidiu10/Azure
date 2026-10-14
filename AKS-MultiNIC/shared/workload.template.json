@@ -1,0 +1,83 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "resource.k8s.io/v1",
+      "kind": "ResourceClaimTemplate",
+      "metadata": {
+        "name": "<claim-template-name>",
+        "namespace": "<namespace>"
+      },
+      "spec": {
+        "spec": {
+          "devices": {
+            "requests": [
+              {
+                "name": "secondary-nic",
+                "exactly": {
+                  "deviceClassName": "standard-secondary-nic",
+                  "allocationMode": "ExactCount",
+                  "count": 1
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "<pod-name>",
+        "namespace": "<namespace>"
+      },
+      "spec": {
+        "nodeSelector": {
+          "kubernetes.io/os": "linux",
+          "kubernetes.azure.com/agentpool": "<node-pool-name>"
+        },
+        "automountServiceAccountToken": false,
+        "restartPolicy": "Never",
+        "resourceClaims": [
+          {
+            "name": "secondary-nic",
+            "resourceClaimTemplateName": "<claim-template-name>"
+          }
+        ],
+        "containers": [
+          {
+            "name": "diagnostics",
+            "image": "<diagnostic-image>",
+            "command": ["sh", "-c", "ip address show; sleep infinity"],
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": ["ALL"]
+              },
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "resources": {
+              "requests": {
+                "cpu": "100m",
+                "memory": "128Mi"
+              },
+              "limits": {
+                "cpu": "500m",
+                "memory": "256Mi"
+              },
+              "claims": [
+                {
+                  "name": "secondary-nic"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

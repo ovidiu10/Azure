@@ -1,0 +1,15 @@
+{
+  "subscriptionId": "<subscription-id>",
+  "resourceGroup": "<resource-group-name>",
+  "clusterName": "<existing-aks-cluster-name>",
+  "nodePoolName": "<new-linux-node-pool-name>",
+  "namespace": "<existing-kubernetes-namespace>",
+  "podName": "<pod-name>",
+  "claimTemplateName": "<resource-claim-template-name>",
+  "vmSize": "<vm-size-supporting-at-least-two-nics>",
+  "secondarySubnetIds": [
+    "<full-subnet-resource-id-in-the-cluster-vnet>"
+  ],
+  "image": "<diagnostic-image-with-sh-and-ip-pinned-to-a-tag-or-digest>",
+  "nodeCount": 1
+}
