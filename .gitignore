@@ -46,3 +46,29 @@ obj
 # vendor/
 
 Python/.dev
+
+# Python
+__pycache__/
+
+# SQL-DBWatcher Terraform
+/SQL-DBWatcher/**/.terraform/
+/SQL-DBWatcher/**/.terraform.lock.hcl
+/SQL-DBWatcher/**/*.tfstate
+/SQL-DBWatcher/**/*.tfstate.*
+/SQL-DBWatcher/**/*.tfplan
+/SQL-DBWatcher/**/.terraform.tfstate.lock.info
+
+# Real tfvars contain live resource names and subscription IDs.
+/SQL-DBWatcher/terraform/*.tfvars
+!/SQL-DBWatcher/terraform/*.tfvars.example
+/SQL-DBWatcher/terraform/*.tfvars.bak-*
+/SQL-DBWatcher/terraform/*.auto.tfvars
+
+# Harvested / generated alert artifacts (environment specific)
+/SQL-DBWatcher/scripts/alert-templates/
+/SQL-DBWatcher/scripts/alert-rules/
+/SQL-DBWatcher/scripts/template.json
+/SQL-DBWatcher/scripts/rules.json
+
+# Internal-only findings live in the private Microsoft repo. Never publish here.
+/SQL-DBWatcher/**/INTERNAL-*.md
